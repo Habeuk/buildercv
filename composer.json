@@ -1,0 +1,14 @@
+{
+    "name": "stephane888/buildercv",
+    "description": "permet de generer les cs",
+    "type": "drupal-module-custom",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kouwa stephane",
+            "email": "kksasteph888@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

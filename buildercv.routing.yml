@@ -1,0 +1,15 @@
+buildercv.example:
+  path: '/buildercv/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\buildercv\Controller\BuildercvController::build'
+  requirements:
+    _permission: 'access content'
+
+buildercv.settings_form:
+  path: '/admin/config/system/buildercv'
+  defaults:
+    _title: 'buildercv settings'
+    _form: 'Drupal\buildercv\Form\SettingsForm'
+  requirements:
+    _permission: 'administer buildercv configuration'

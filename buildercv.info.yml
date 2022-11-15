@@ -1,0 +1,7 @@
+name: buildercv
+type: module
+description: permet de generer les modeles de cv
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - vuejs_entity

@@ -1,0 +1,66 @@
+administer buildercv configuration:
+  title: 'Administer buildercv configuration'
+  description: 'Optional description.'
+  restrict access: true
+add model cv entities:
+  title: 'Create new Model cv entities'
+
+administer model cv entities:
+  title: 'Administer Model cv entities'
+  description: 'Allow to access the administration form to configure Model cv entities.'
+  restrict access: true
+
+delete model cv entities:
+  title: 'Delete Model cv entities'
+
+edit model cv entities:
+  title: 'Edit Model cv entities'
+
+view published model cv entities:
+  title: 'View published Model cv entities'
+
+view unpublished model cv entities:
+  title: 'View unpublished Model cv entities'
+
+view all model cv revisions:
+  title: 'View all Model cv revisions'
+
+revert all model cv revisions:
+  title: 'Revert all Model cv revisions'
+  description: 'Role requires permission <em>view Model cv revisions</em> and <em>edit rights</em> for model cv entities in question or <em>administer model cv entities</em>.'
+
+delete all model cv revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Model cv revisions</em> and <em>delete rights</em> for model cv entities in question or <em>administer model cv entities</em>.'
+
+add cv entity entities:
+  title: 'Create new Cv entity entities'
+
+administer cv entity entities:
+  title: 'Administer Cv entity entities'
+  description: 'Allow to access the administration form to configure Cv entity entities.'
+  restrict access: true
+
+delete cv entity entities:
+  title: 'Delete Cv entity entities'
+
+edit cv entity entities:
+  title: 'Edit Cv entity entities'
+
+view published cv entity entities:
+  title: 'View published Cv entity entities'
+
+view unpublished cv entity entities:
+  title: 'View unpublished Cv entity entities'
+
+view all cv entity revisions:
+  title: 'View all Cv entity revisions'
+
+revert all cv entity revisions:
+  title: 'Revert all Cv entity revisions'
+  description: 'Role requires permission <em>view Cv entity revisions</em> and <em>edit rights</em> for cv entity entities in question or <em>administer cv entity entities</em>.'
+
+delete all cv entity revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Cv entity revisions</em> and <em>delete rights</em> for cv entity entities in question or <em>administer cv entity entities</em>.'
+

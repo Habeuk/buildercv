@@ -1,0 +1,10 @@
+entity.model_cv.add_form:
+  route_name: entity.model_cv.add_form
+  title: 'Add Model cv'
+  appears_on:
+    - entity.model_cv.collection
+entity.cv_entity.add_form:
+  route_name: entity.cv_entity.add_form
+  title: 'Add Cv entity'
+  appears_on:
+    - entity.cv_entity.collection
