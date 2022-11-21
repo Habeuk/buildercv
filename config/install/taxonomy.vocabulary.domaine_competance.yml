@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - buildercv
+name: domaine_competance
+vid: domaine_competance
+description: 'Domaine de competances pour CV'
+hierarchy: 0
+weight: 0

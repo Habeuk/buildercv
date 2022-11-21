@@ -1,8 +1,8 @@
 buildercv.example:
-  path: '/buildercv/example'
+  path: '/buildercv/api'
   defaults:
-    _title: 'Example'
-    _controller: '\Drupal\buildercv\Controller\BuildercvController::build'
+    _title: 'Constructeur de CV'
+    _controller: '\Drupal\buildercv\Controller\BuildercvController::BuildCv'
   requirements:
     _permission: 'access content'
 

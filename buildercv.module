@@ -1,6 +1,41 @@
 <?php
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
- * @file
- * Primary module hooks for buildercv module.
+ * implement hook_entity_base_field_info
+ *
+ * @param EntityTypeInterface $entity_type
  */
+function buildercv_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+  if ($entity_type->id() == 'model_cv' || $entity_type->id() == 'cv_entity') {
+    if (\Drupal::moduleHandler()->moduleExists('domain')) {
+      __buildercv_fields_domain($fields);
+    }
+  }
+  return $fields;
+}
+
+/**
+ *
+ * @param array $fields
+ */
+function __buildercv_fields_domain(array &$fields) {
+  $field_access = \Drupal\domain_access\DomainAccessManagerInterface::DOMAIN_ACCESS_FIELD;
+  $field_source = \Drupal\domain_source\DomainSourceElementManagerInterface::DOMAIN_SOURCE_FIELD;
+  //
+  $fields[$field_access] = BaseFieldDefinition::create('entity_reference')->setLabel(t(" Domain access "))->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)->setTranslatable(false)->setDisplayOptions('form', [
+    'type' => 'select2_entity_reference',
+    'weight' => 40,
+    'settings' => [
+      'autocomplete' => true
+    ]
+  ])->setSetting('handler', 'default')->setSetting('target_type', 'domain')->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setDefaultValueCallback('\Drupal\buildercv\CreationSiteVirtuel::getActiveDomain');
+  //
+  $fields[$field_source] = BaseFieldDefinition::create('entity_reference')->setLabel(t(" Domain source "))->setDisplayOptions('form', [
+    'type' => 'options_select',
+    'weight' => 40
+  ])->setSetting('handler', 'default')->setSetting('target_type', 'domain')->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setTranslatable(false);
+}

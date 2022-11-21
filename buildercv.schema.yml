@@ -1,0 +1,10 @@
+field.widget.settings.experience_widget_type:
+  type: mapping
+  label: 'Experience widget type widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'
