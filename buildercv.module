@@ -32,7 +32,7 @@ function __buildercv_fields_domain(array &$fields) {
     'settings' => [
       'autocomplete' => true
     ]
-  ])->setSetting('handler', 'default')->setSetting('target_type', 'domain')->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setDefaultValueCallback('\Drupal\buildercv\CreationSiteVirtuel::getActiveDomain');
+  ])->setSetting('handler', 'default')->setSetting('target_type', 'domain')->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setDefaultValueCallback('\Drupal\buildercv\Buildercv::getActiveDomain');
   //
   $fields[$field_source] = BaseFieldDefinition::create('entity_reference')->setLabel(t(" Domain source "))->setDisplayOptions('form', [
     'type' => 'options_select',

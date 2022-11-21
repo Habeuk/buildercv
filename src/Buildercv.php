@@ -13,4 +13,14 @@ class Buildercv {
     return [];
   }
 
+  public static function getActiveDomain() {
+    /**
+     *
+     * @var \Drupal\domain\DomainNegotiator $domainNegos
+     */
+    $domainNegos = \Drupal::service('domain.negotiator');
+    if ($domainNegos->getActiveDomain())
+      return $domainNegos->getActiveId();
+  }
+
 }
