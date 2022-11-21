@@ -319,7 +319,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'auto_create_bundle' => ''
     ])->setSetting('target_type', 'taxonomy_term')->setSetting('handler', 'default:taxonomy_term')->setRevisionable(TRUE)->setCardinality(-1);
 
-    $fields['image'] = BaseFieldDefinition::create('image')->setLabel(' Image du model ')->setRequired(false)->setDisplayConfigurable('form', true)->setDisplayConfigurable('view', TRUE)->setSetting("min_resolution", "1000x1000");
+    $fields['image'] = BaseFieldDefinition::create('image')->setLabel(' Image du model ')->setRequired(false)->setDisplayConfigurable('form', true)->setDisplayConfigurable('view', TRUE)->setSetting("min_resolution", "500x500");
     //
     $fields['style_scss'] = BaseFieldDefinition::create('string_long')->setLabel(" Style scss (les variables, mixins de wbu-atomique sont disponible) ")->setDisplayOptions('form', [
       'type' => 'string_textarea',
