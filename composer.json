@@ -10,5 +10,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "stephane888/drupal_utility": "dev-1x"
+    }
 }

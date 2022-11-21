@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f5d51cfb285a6deea5acb5f06d5c2b02",
+    "packages": [
+        {
+            "name": "stephane888/drupal_utility",
+            "version": "dev-1x",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephane888/drupal_utility.git",
+                "reference": "094685fc1f124e60728d5b195e17ce0b10d38da5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stephane888/drupal_utility/zipball/094685fc1f124e60728d5b195e17ce0b10d38da5",
+                "reference": "094685fc1f124e60728d5b195e17ce0b10d38da5",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stephane888\\DrupalUtility\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kouwa stephane",
+                    "email": "kksasteph888@gmail.com"
+                }
+            ],
+            "description": "utilitaire drupal",
+            "support": {
+                "issues": "https://github.com/stephane888/drupal_utility/issues",
+                "source": "https://github.com/stephane888/drupal_utility/tree/1x"
+            },
+            "time": "2022-11-09T08:29:25+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "stephane888/drupal_utility": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
