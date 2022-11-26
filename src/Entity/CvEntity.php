@@ -60,7 +60,7 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
  *     "revision_log_message" = "revision_log"
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/cv_entity/{cv_entity}",
+ *     "canonical" = "/cv-entity/{cv_entity}",
  *     "add-form" = "/admin/structure/cv_entity/add",
  *     "edit-form" = "/admin/structure/cv_entity/{cv_entity}/edit",
  *     "delete-form" = "/admin/structure/cv_entity/{cv_entity}/delete",
@@ -75,10 +75,10 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
  * )
  */
 class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
-
+  
   use EntityChangedTrait;
   use EntityPublishedTrait;
-
+  
   /**
    *
    * {@inheritdoc}
@@ -89,47 +89,47 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
       'user_id' => \Drupal::currentUser()->id()
     ];
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
   protected function urlRouteParameters($rel) {
     $uri_route_parameters = parent::urlRouteParameters($rel);
-
+    
     if ($rel === 'revision_revert' && $this instanceof RevisionableInterface) {
       $uri_route_parameters[$this->getEntityTypeId() . '_revision'] = $this->getRevisionId();
     }
     elseif ($rel === 'revision_delete' && $this instanceof RevisionableInterface) {
       $uri_route_parameters[$this->getEntityTypeId() . '_revision'] = $this->getRevisionId();
     }
-
+    
     return $uri_route_parameters;
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
   public function preSave(EntityStorageInterface $storage) {
     parent::preSave($storage);
-
+    
     foreach (array_keys($this->getTranslationLanguages()) as $langcode) {
       $translation = $this->getTranslation($langcode);
-
+      
       // If no owner has been set explicitly, make the anonymous user the owner.
       if (!$translation->getOwner()) {
         $translation->setOwnerId(0);
       }
     }
-
+    
     // If no revision author has been set explicitly,
     // make the cv_entity owner the revision author.
     if (!$this->getRevisionUser()) {
       $this->setRevisionUserId($this->getOwnerId());
     }
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -137,7 +137,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
   public function getName() {
     return $this->get('name')->value;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -146,7 +146,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
     $this->set('name', $name);
     return $this;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -154,7 +154,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
   public function getCreatedTime() {
     return $this->get('created')->value;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -163,7 +163,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
     $this->set('created', $timestamp);
     return $this;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -171,7 +171,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
   public function getOwner() {
     return $this->get('user_id')->entity;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -179,7 +179,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
   public function getOwnerId() {
     return $this->get('user_id')->target_id;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -188,7 +188,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
     $this->set('user_id', $uid);
     return $this;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -197,17 +197,17 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
     $this->set('user_id', $account->id());
     return $this;
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
-
+    
     // Add the published field.
     $fields += static::publishedBaseFieldDefinitions($entity_type);
-
+    
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')->setLabel(t('Authored by'))->setDescription(t('The user ID of author of the Cv entity entity.'))->setRevisionable(TRUE)->setSetting('target_type', 'user')->setSetting('handler', 'default')->setTranslatable(TRUE)->setDisplayOptions('view', [
       'label' => 'hidden',
       'type' => 'author',
@@ -222,7 +222,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
         'placeholder' => ''
       ]
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE);
-
+    
     $fields['name'] = BaseFieldDefinition::create('string')->setLabel(t('Name'))->setDescription(t('The name of the Cv entity entity.'))->setRevisionable(TRUE)->setSettings([
       'max_length' => 50,
       'text_processing' => 0
@@ -234,24 +234,24 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
       'type' => 'string_textfield',
       'weight' => -4
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE);
-
+    
     $fields['layout_paragraphs'] = BaseFieldDefinition::create('entity_reference')->setLabel(t(' Sections '))->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)->setDisplayOptions('form', [
       'type' => 'inline_entity_form_complex',
       'weight' => 0
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'paragraph')->setSetting('handler', 'default')->setTranslatable(false)->setSetting('allow_duplicate', true);
-
+    
     $fields['status']->setDescription(t('A boolean indicating whether the Cv entity is published.'))->setDisplayOptions('form', [
       'type' => 'boolean_checkbox',
       'weight' => -3
     ]);
-
+    
     $fields['created'] = BaseFieldDefinition::create('created')->setLabel(t('Created'))->setDescription(t('The time that the entity was created.'));
-
+    
     $fields['changed'] = BaseFieldDefinition::create('changed')->setLabel(t('Changed'))->setDescription(t('The time that the entity was last edited.'));
-
+    
     $fields['revision_translation_affected'] = BaseFieldDefinition::create('boolean')->setLabel(t('Revision translation affected'))->setDescription(t('Indicates if the last edit of a translation belongs to current revision.'))->setReadOnly(TRUE)->setRevisionable(TRUE)->setTranslatable(TRUE);
-
+    
     return $fields;
   }
-
+  
 }

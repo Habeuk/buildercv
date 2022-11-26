@@ -1,8 +1,26 @@
-buildercv.example:
-  path: '/buildercv/api'
+buildercv.build_cv:
+  path: '/buildercv/api/{id}'
   defaults:
     _title: 'Constructeur de CV'
     _controller: '\Drupal\buildercv\Controller\BuildercvController::BuildCv'
+  requirements:
+    _permission: 'access content'
+    
+    
+buildercv.generate_cv:
+  path: '/buildercv/generate-cv'
+  defaults:
+    _title: 'Constructeur de CV'
+    _controller: '\Drupal\buildercv\Controller\BuildercvController::GenerateCV'
+  requirements:
+    _permission: 'access content'
+    
+
+buildercv.crete_home_page:
+  path: '/buildercv/entity/generate-cv/{id}'
+  defaults:
+    _title: 'Constructeur de CV'
+    _controller: '\Drupal\buildercv\Controller\BuildercvController::createHomePage'
   requirements:
     _permission: 'access content'
 
