@@ -76,10 +76,10 @@ use Drupal\link\LinkItemInterface;
  * )
  */
 class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
-
+  
   use EntityChangedTrait;
   use EntityPublishedTrait;
-
+  
   /**
    *
    * {@inheritdoc}
@@ -90,47 +90,47 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'user_id' => \Drupal::currentUser()->id()
     ];
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
   protected function urlRouteParameters($rel) {
     $uri_route_parameters = parent::urlRouteParameters($rel);
-
+    
     if ($rel === 'revision_revert' && $this instanceof RevisionableInterface) {
       $uri_route_parameters[$this->getEntityTypeId() . '_revision'] = $this->getRevisionId();
     }
     elseif ($rel === 'revision_delete' && $this instanceof RevisionableInterface) {
       $uri_route_parameters[$this->getEntityTypeId() . '_revision'] = $this->getRevisionId();
     }
-
+    
     return $uri_route_parameters;
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
   public function preSave(EntityStorageInterface $storage) {
     parent::preSave($storage);
-
+    
     foreach (array_keys($this->getTranslationLanguages()) as $langcode) {
       $translation = $this->getTranslation($langcode);
-
+      
       // If no owner has been set explicitly, make the anonymous user the owner.
       if (!$translation->getOwner()) {
         $translation->setOwnerId(0);
       }
     }
-
+    
     // If no revision author has been set explicitly,
     // make the model_cv owner the revision author.
     if (!$this->getRevisionUser()) {
       $this->setRevisionUserId($this->getOwnerId());
     }
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -138,7 +138,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
   public function getName() {
     return $this->get('name')->value;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -147,7 +147,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
     $this->set('name', $name);
     return $this;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -155,7 +155,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
   public function getCreatedTime() {
     return $this->get('created')->value;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -164,7 +164,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
     $this->set('created', $timestamp);
     return $this;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -172,7 +172,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
   public function getOwner() {
     return $this->get('user_id')->entity;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -180,7 +180,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
   public function getOwnerId() {
     return $this->get('user_id')->target_id;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -189,7 +189,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
     $this->set('user_id', $uid);
     return $this;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -198,14 +198,14 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
     $this->set('user_id', $account->id());
     return $this;
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
-
+    
     $configs = \Drupal::config('creation_site_virtuel.settings')->getRawData();
     $entete_paragraph_type = [];
     foreach ($configs['entete_paragraph_type'] as $v) {
@@ -217,10 +217,10 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       if ($v)
         $footer_paragraph_type[$v] = $v;
     }
-
+    
     // Add the published field.
     $fields += static::publishedBaseFieldDefinitions($entity_type);
-
+    
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')->setLabel(t('Authored by'))->setDescription(t('The user ID of author of the Model cv entity.'))->setRevisionable(TRUE)->setSetting('target_type', 'user')->setSetting('handler', 'default')->setTranslatable(TRUE)->setDisplayOptions('view', [
       'label' => 'hidden',
       'type' => 'author',
@@ -235,7 +235,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
         'placeholder' => ''
       ]
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE);
-
+    
     $fields['name'] = BaseFieldDefinition::create('string')->setLabel(t('Name'))->setDescription(t('The name of the Model cv entity.'))->setRevisionable(TRUE)->setSettings([
       'max_length' => 50,
       'text_processing' => 0
@@ -247,7 +247,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'type' => 'string_textfield',
       'weight' => -4
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE);
-
+    
     $fields['name_menu'] = BaseFieldDefinition::create('string')->setLabel(t('Text à afficher sur le menu'))->setDescription(t('The name of the Site type datas entity.'))->setSettings([
       'max_length' => 50,
       'text_processing' => 0
@@ -259,7 +259,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'type' => 'string_textfield',
       'weight' => 2
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE)->setTranslatable(true);
-
+    //
     $fields['entete_paragraph'] = BaseFieldDefinition::create('entity_reference')->setLabel(t('Entête'))->setCardinality(1)->setRequired(false)->setSetting('handler_settings', [
       'target_bundles' => $entete_paragraph_type
     ])->setDisplayOptions('form', [
@@ -273,14 +273,14 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'type' => 'inline_entity_form_complex',
       'weight' => 0
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'paragraph')->setSetting('handler', 'default')->setTranslatable(false)->setSetting('allow_duplicate', false);
-
+    
     // Permet de definir faire apparaitre le dit modele sur la liste de
     // selection.
     $fields['is_home_page'] = BaseFieldDefinition::create('boolean')->setLabel(" Page d'accueil ? ")->setDisplayOptions('form', [
       'type' => 'boolean_checkbox',
       'weight' => 5
     ])->setDisplayOptions('view', [])->setDisplayConfigurable('view', TRUE)->setDisplayConfigurable('form', true)->setDefaultValue(false);
-
+    
     // On permet l'ajout des pages supplementaires qui seront creer par defaut.
     /**
      * SetDefaultValueCallback not work with select2_entity_reference ( On a la
@@ -296,7 +296,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
         'placeholder' => ''
       )
     ])->setDefaultValueCallback("\Drupal\buildercv\Buildercv::getDefautPage")->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'model_cv')->setSetting('handler', 'default')->setDescription(' Selectionner les pages qui seront automatiquement creer ');
-
+    
     //
     $fields['terms'] = BaseFieldDefinition::create('entity_reference')->setLabel(" Sélectionner les domaines de competances ")->setDisplayOptions('form', [
       'type' => 'select2_entity_reference',
@@ -318,7 +318,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'auto_create' => true,
       'auto_create_bundle' => ''
     ])->setSetting('target_type', 'taxonomy_term')->setSetting('handler', 'default:taxonomy_term')->setRevisionable(TRUE)->setCardinality(-1);
-
+    
     $fields['image'] = BaseFieldDefinition::create('image')->setLabel(' Image du model ')->setRequired(false)->setDisplayConfigurable('form', true)->setDisplayConfigurable('view', TRUE)->setSetting("min_resolution", "500x500");
     //
     $fields['style_scss'] = BaseFieldDefinition::create('string_long')->setLabel(" Style scss (les variables, mixins de wbu-atomique sont disponible) ")->setDisplayOptions('form', [
@@ -341,7 +341,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'type' => 'inline_entity_form_complex',
       'weight' => 0
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'paragraph')->setSetting('handler', 'default')->setTranslatable(false)->setSetting('allow_duplicate', true);
-
+    
     //
     $fields['presentation'] = BaseFieldDefinition::create('entity_reference')->setLabel(t(' Section presentation '))->setDisplayOptions('form', [
       'type' => 'inline_entity_form_complex',
@@ -357,26 +357,26 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'type' => 'inline_entity_form_complex',
       'weight' => 0
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'paragraph')->setSetting('handler', 'default')->setTranslatable(false)->setSetting('allow_duplicate', true);
-
+    
     //
     $fields['je_choisie_text'] = BaseFieldDefinition::create('string')->setLabel(t('Je choisie (texte)'))->setDisplayConfigurable('form', true)->setDisplayConfigurable('view', TRUE)->setTranslatable(true)->setDefaultValue('Je choisis');
-
+    
     //
     $fields['voir_demo'] = BaseFieldDefinition::create('link')->setLabel(t('Voir la demo'))->setSetting('link_type', LinkItemInterface::LINK_GENERIC)->setSetting('title', DRUPAL_OPTIONAL)->setTranslatable(true)->setDisplayConfigurable('form', true)->setDisplayConfigurable('view', TRUE);
-
+    
     //
     $fields['status']->setDescription(t('A boolean indicating whether the Model cv is published.'))->setDisplayOptions('form', [
       'type' => 'boolean_checkbox',
       'weight' => -3
     ]);
-
+    
     $fields['created'] = BaseFieldDefinition::create('created')->setLabel(t('Created'))->setDescription(t('The time that the entity was created.'));
-
+    
     $fields['changed'] = BaseFieldDefinition::create('changed')->setLabel(t('Changed'))->setDescription(t('The time that the entity was last edited.'));
-
+    
     $fields['revision_translation_affected'] = BaseFieldDefinition::create('boolean')->setLabel(t('Revision translation affected'))->setDescription(t('Indicates if the last edit of a translation belongs to current revision.'))->setReadOnly(TRUE)->setRevisionable(TRUE)->setTranslatable(TRUE);
-
+    
     return $fields;
   }
-
+  
 }

@@ -69,10 +69,11 @@ class BuildercvController extends ControllerBase {
      */
     $entityModel = $this->entityTypeManager()->getStorage("model_cv")->load($id);
     if ($entityModel) {
+      // ATEENTION, l(ordre compte.
       try {
-        // Contenu de la page d'accueil.
-        $values = Json::decode($Request->getContent());
+        $values = [];
         /**
+         * Etape 1/2, on duplique les references de layout_paragraphs.
          *
          * @var \Drupal\buildercv\Entity\ModelCv $cv_entity
          */
@@ -80,7 +81,16 @@ class BuildercvController extends ControllerBase {
         $cv_entity->set('layout_paragraphs', $entityModel->get('layout_paragraphs')->getValue());
         // $this->duplicateExistantReference($pageWeb);
         $this->DuplicateEntityReference->duplicateExistantReference($cv_entity);
+        /**
+         * Etape 2/2 on ajoute les données provenant de l'utilisateur.
+         */
+        // Contenu de la page d'accueil.
+        $values = Json::decode($Request->getContent());
+        foreach ($values as $k => $value) {
+          $cv_entity->set($k, $value);
+        }
         $cv_entity->save();
+        //
         return HttpResponse::reponse($cv_entity->toArray());
       }
       catch (\Exception $e) {

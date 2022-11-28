@@ -240,6 +240,22 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
       'weight' => 0
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'paragraph')->setSetting('handler', 'default')->setTranslatable(false)->setSetting('allow_duplicate', true);
     
+    //
+    $fields['presentation'] = BaseFieldDefinition::create('entity_reference')->setLabel(t(' Section presentation '))->setDisplayOptions('form', [
+      'type' => 'inline_entity_form_complex',
+      'weight' => 0
+    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'paragraph')->setSetting('handler', 'default')->setTranslatable(false)->setSetting('allow_duplicate', true);
+    //
+    $fields['experience'] = BaseFieldDefinition::create('entity_reference')->setLabel(t(' Section experience '))->setDisplayOptions('form', [
+      'type' => 'inline_entity_form_complex',
+      'weight' => 0
+    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'paragraph')->setSetting('handler', 'default')->setTranslatable(false)->setSetting('allow_duplicate', true);
+    //
+    $fields['formation'] = BaseFieldDefinition::create('entity_reference')->setLabel(t(' Section formation '))->setDisplayOptions('form', [
+      'type' => 'inline_entity_form_complex',
+      'weight' => 0
+    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setSetting('target_type', 'paragraph')->setSetting('handler', 'default')->setTranslatable(false)->setSetting('allow_duplicate', true);
+    
     $fields['status']->setDescription(t('A boolean indicating whether the Cv entity is published.'))->setDisplayOptions('form', [
       'type' => 'boolean_checkbox',
       'weight' => -3
