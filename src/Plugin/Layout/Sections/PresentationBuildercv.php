@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\buildercv\Layout\Sections;
+namespace Drupal\buildercv\Plugin\Layout\Sections;
 
 use Drupal\bootstrap_styles\StylesGroup\StylesGroupManager;
 use Drupal\formatage_models\FormatageModelsThemes;
