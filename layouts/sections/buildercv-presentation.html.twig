@@ -1,22 +1,22 @@
 {% if content %}
-<div class="buildercv-presentation">
+<div {{ attributes.addClass(['buildercv-presentation']) }}>
 	<div class="container">
-		<div class="row">
+		<div class="align-items-center justify-content-center row">
 			{% if content.image|has_value %}
 			<div {{ region_attributes.image.addClass(['image']) }}>
 				{{ content.image }}
 			</div>
 			{% endif %}
 			{% if content.subtitle|has_value or content.title|has_value  %}
-			<div class="col">
+			<div class="col content-center">
 				<{{settings.region_tag_subtitle}}
-				{{ region_attributes.subtitle.addClass(['subtitle']) }}
+				{{ region_attributes.subtitle.addClass(['subtitle','d-flex']) }}
 				>
 				{{ content.subtitle }}
 				</{{settings.region_tag_subtitle}}> <{{settings.region_tag_title}}
 				{{ region_attributes.title.addClass(['title']) }}
 				>
-				{{ content.title }}
+				{{ content.title }}				
 				</{{settings.region_tag_title}}>
 				{% if content.description|has_value %}
 				<div {{ region_attributes.description.addClass(['description']) }}>

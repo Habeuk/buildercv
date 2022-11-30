@@ -69,11 +69,13 @@ class PresentationBuildercv extends FormatageModelsSection {
    */
   public function defaultConfiguration() {
     return [
+      'css' => 'bg-theme text-white',
       'region_tag_subtitle' => 'h4',
       'region_tag_title' => 'h2',
-      'region_class_subtitle' => 'h2',
-      'region_class_title' => 'h4',
-      'region_class_image' => 'col-md-2'
+      'region_css_subtitle' => 'h2',
+      'region_css_title' => 'h4',
+      'region_css_image' => 'col-md-2',
+      'region_css_listes' => 'col-md-3 h4'
     ] + parent::defaultConfiguration();
   }
   
