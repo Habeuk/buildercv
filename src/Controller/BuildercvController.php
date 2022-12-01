@@ -10,6 +10,7 @@ use Stephane888\Debug\ExceptionDebug;
 use Stephane888\Debug\ExceptionExtractMessage;
 use Drupal\vuejs_entity\Services\DuplicateEntityReference;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\generate_style_theme\Services\ManageFileCustomStyle;
 
 /**
  * Returns responses for buildercv routes.
@@ -21,13 +22,19 @@ class BuildercvController extends ControllerBase {
    * @var DuplicateEntityReference
    */
   protected $DuplicateEntityReference;
+  /**
+   *
+   * @var ManageFileCustomStyle
+   */
+  protected $ManageFileCustomStyle;
   
   /**
    *
    * @param DuplicateEntityReference $DuplicateEntityReference
    */
-  function __construct(DuplicateEntityReference $DuplicateEntityReference) {
+  function __construct(DuplicateEntityReference $DuplicateEntityReference, ManageFileCustomStyle $ManageFileCustomStyle) {
     $this->DuplicateEntityReference = $DuplicateEntityReference;
+    $this->ManageFileCustomStyle = $ManageFileCustomStyle;
   }
   
   /**
@@ -35,7 +42,7 @@ class BuildercvController extends ControllerBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static($container->get('vuejs_entity.duplicate.entity'));
+    return new static($container->get('vuejs_entity.duplicate.entity'), $container->get('generate_style_theme.manage_file_custom_style'));
   }
   
   /**
