@@ -1,0 +1,13 @@
+<div class="d-flex time-line flex-wrap">
+	<div class="left">
+		<span class="address">{{ item.address }}</span>
+		<div class="periode"> 
+			<span class="date_debut">{{ item.date_debut }}</span> - <span class="date_fin">{{ item.date_fin }}</span> 
+		</div>
+	</div>
+	<div class="right">
+		<div class="value">{{ item.value }}</div>
+		<div class="company">{{ item.company }}</div>
+		<div class="description">{{ item.description|raw }}</div>
+	</div>
+</div>

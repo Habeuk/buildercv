@@ -22,7 +22,7 @@ use Drupal\Core\TypedData\DataDefinition;
  * )
  */
 class ExperienceType extends FieldItemBase {
-
+  
   /**
    *
    * {@inheritdoc}
@@ -34,7 +34,7 @@ class ExperienceType extends FieldItemBase {
       'case_sensitive' => FALSE
     ] + parent::defaultStorageSettings();
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -42,10 +42,10 @@ class ExperienceType extends FieldItemBase {
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
     // Prevent early t() calls by using the TranslatableMarkup.
     $properties['value'] = DataDefinition::create('string')->setLabel(new TranslatableMarkup('Text value'))->setSetting('case_sensitive', $field_definition->getSetting('case_sensitive'))->setRequired(TRUE);
-
+    
     return $properties;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -69,14 +69,14 @@ class ExperienceType extends FieldItemBase {
           'binary' => $field_definition->getSetting('case_sensitive')
         ],
         'date_debut' => [
-          'type' => $field_definition->getSetting('is_ascii') === TRUE ? 'varchar_ascii' : 'varchar',
-          'length' => (int) $field_definition->getSetting('max_length'),
-          'binary' => $field_definition->getSetting('case_sensitive')
+          'type' => 'int',
+          'unsigned' => FALSE, // pas de valeur negative
+          'size' => 'normal'
         ],
         'date_fin' => [
-          'type' => $field_definition->getSetting('is_ascii') === TRUE ? 'varchar_ascii' : 'varchar',
-          'length' => (int) $field_definition->getSetting('max_length'),
-          'binary' => $field_definition->getSetting('case_sensitive')
+          'type' => 'int',
+          'unsigned' => FALSE, // pas de valeur negative
+          'size' => 'normal'
         ],
         'description' => [
           'type' => 'text',
@@ -85,25 +85,30 @@ class ExperienceType extends FieldItemBase {
         'format' => [
           'type' => 'varchar_ascii',
           'length' => 255
+        ],
+        'en_poste' => [
+          'type' => 'int',
+          'size' => 'tiny'
         ]
       ],
       'indexes' => [
         'value' => [
-          'value'
+          'value',
+          'company'
         ]
       ]
     ];
-
+    
     return $schema;
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
   public function getConstraints() {
     $constraints = parent::getConstraints();
-
+    
     /**
      * Comment exclure le champs "description" de la validation ? ( en
      * attendant, on desactive ).
@@ -123,10 +128,10 @@ class ExperienceType extends FieldItemBase {
     // ]
     // ]);
     // }
-
+    
     return $constraints;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -136,14 +141,14 @@ class ExperienceType extends FieldItemBase {
     $values['value'] = $random->word(mt_rand(1, $field_definition->getSetting('max_length')));
     return $values;
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
   public function storageSettingsForm(array &$form, FormStateInterface $form_state, $has_data) {
     $elements = [];
-
+    
     $elements['max_length'] = [
       '#type' => 'number',
       '#title' => t('Maximum length'),
@@ -153,10 +158,10 @@ class ExperienceType extends FieldItemBase {
       '#min' => 1,
       '#disabled' => $has_data
     ];
-
+    
     return $elements;
   }
-
+  
   /**
    *
    * {@inheritdoc}
@@ -165,5 +170,5 @@ class ExperienceType extends FieldItemBase {
     $value = $this->get('value')->getValue();
     return $value === NULL || $value === '';
   }
-
+  
 }

@@ -1,0 +1,7 @@
+{% if content %}
+<div {{ attributes.addClass(['time-line-cv-buildercv']) }}>
+	{% for item in content.listes|array_elements(region_attributes.listes.addClass('listes')) %}
+    	   {{ item }} 
+    {% endfor %}
+</div>
+{% endif %}

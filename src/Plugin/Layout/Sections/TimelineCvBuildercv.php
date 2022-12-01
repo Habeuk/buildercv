@@ -10,33 +10,21 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  * A very advanced custom layout.
  *
  * @Layout(
- *   id = "buildercv_presentation",
- *   label = @Translation("Presentation (CV)"),
+ *   id = "time_line_cv_buildercv",
+ *   label = @Translation(" Time Line (CV) "),
  *   category = @Translation("buildercv"),
  *   path = "layouts/sections",
- *   template = "buildercv-presentation",
- *   library = "buildercv/buildercv-presentation",
+ *   template = "time-line-cv-buildercv",
+ *   library = "buildercv/time-line-cv-buildercv",
  *   default_region = "title",
  *   regions = {
- *     "subtitle" = {
- *       "label" = @Translation(" Subtitle "),
- *     },
- *     "title" = {
- *       "label" = @Translation(" Title "),
- *     },
- *     "description" = {
- *       "label" = @Translation(" Description "),
- *     },
- *     "image" = {
- *       "label" = @Translation(" Image "),
- *     },
  *     "listes" = {
  *       "label" = @Translation(" listes "),
  *     }
  *   }
  * )
  */
-class PresentationBuildercv extends FormatageModelsSection {
+class TimelineCvBuildercv extends FormatageModelsSection {
   
   /**
    *
@@ -69,13 +57,8 @@ class PresentationBuildercv extends FormatageModelsSection {
    */
   public function defaultConfiguration() {
     return [
-      'css' => 'bg-theme text-white',
-      'region_tag_subtitle' => 'h4',
-      'region_tag_title' => 'h2',
-      'region_css_subtitle' => 'h2',
-      'region_css_title' => 'h4',
-      'region_css_image' => 'col-md-2',
-      'region_css_listes' => 'col-md-3 h4'
+      'css' => 'container',
+      'region_css_listes' => ''
     ] + parent::defaultConfiguration();
   }
   

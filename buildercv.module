@@ -39,3 +39,18 @@ function __buildercv_fields_domain(array &$fields) {
     'weight' => 40
   ])->setSetting('handler', 'default')->setSetting('target_type', 'domain')->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setTranslatable(false);
 }
+
+/**
+ * Implements hook_theme().
+ */
+function buildercv_theme() {
+  $hooks = [];
+  $hooks['buildercv_experience_formatter'] = [
+    'preprocess functions' => [
+      'template_preprocess_buildercv_experience_formatter'
+    ],
+    'render element' => 'element',
+    'file' => 'buildercv.theme.inc'
+  ];
+  return $hooks;
+}
