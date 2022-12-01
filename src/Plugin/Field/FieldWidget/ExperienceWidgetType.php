@@ -35,7 +35,7 @@ class ExperienceWidgetType extends WidgetBase {
       'label_date_debut' => "Date de debut ",
       'label_date_fin' => "Date de fin",
       'label_en_poste' => "Poste actuel",
-      'label_description' => "Description"
+      'label_description' => "Tâches et responsabilités"
     ] + parent::defaultSettings();
   }
   
