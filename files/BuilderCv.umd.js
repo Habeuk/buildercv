@@ -9244,6 +9244,22 @@ var index = {
 
 /***/ }),
 
+/***/ 4269:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var wbuutilities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2459);
+
+
+//
+/* harmony default export */ __webpack_exports__["Z"] = ({
+  ...wbuutilities__WEBPACK_IMPORTED_MODULE_0__/* .AjaxToastBootStrap */ .Ht,
+  languageId: window.drupalSettings && window.drupalSettings.path && window.drupalSettings.path.currentLanguage ? window.drupalSettings.path.currentLanguage : null,
+  TestDomain: "http://wb-horizon.kksa"
+});
+
+/***/ }),
+
 /***/ 2459:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -20538,7 +20554,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__7203__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "css/" + chunkId + "." + {"26":"c591b066","66":"c591b066","454":"c591b066","531":"a576b81d"}[chunkId] + ".css";
+/******/ 			return "css/" + chunkId + "." + {"323":"2c285ddc","531":"a576b81d","601":"2c285ddc","906":"2c285ddc"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -20677,7 +20693,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__7203__;
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = function(chunkId, promises) {
-/******/ 			var cssChunks = {"26":1,"66":1,"454":1,"531":1};
+/******/ 			var cssChunks = {"323":1,"531":1,"601":1,"906":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(function() {
@@ -20855,17 +20871,8 @@ var component = (0,componentNormalizer/* default */.Z)(
 var vuex_esm = __webpack_require__(5340);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
 var es_array_push = __webpack_require__(7658);
-// EXTERNAL MODULE: ../wbuutilities/index.js + 71 modules
-var wbuutilities = __webpack_require__(2459);
-;// CONCATENATED MODULE: ./src/request.js
-
-
-//
-/* harmony default export */ var request = ({
-  ...wbuutilities/* AjaxToastBootStrap */.Ht,
-  languageId: window.drupalSettings && window.drupalSettings.path && window.drupalSettings.path.currentLanguage ? window.drupalSettings.path.currentLanguage : null,
-  TestDomain: "http://wb-horizon.kksa"
-});
+// EXTERNAL MODULE: ./src/request.js
+var request = __webpack_require__(4269);
 // EXTERNAL MODULE: ../drupal-vuejs/index.js + 40 modules
 var drupal_vuejs = __webpack_require__(2280);
 ;// CONCATENATED MODULE: ./src/User.js
@@ -20873,7 +20880,7 @@ var drupal_vuejs = __webpack_require__(2280);
 
 /* harmony default export */ var User = ({
   ...drupal_vuejs/* users */.rC,
-  ...request
+  ...request/* default */.Z
 });
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.unshift.js
 var es_array_unshift = __webpack_require__(541);
@@ -24124,7 +24131,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(752), __webpack_require__.e(713), __webpack_require__.e(454)]).then(__webpack_require__.bind(__webpack_require__, 661))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(411), __webpack_require__.e(601)]).then(__webpack_require__.bind(__webpack_require__, 9249))
   }, {
     path: "/experience",
     name: "Experience",
@@ -24132,7 +24139,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(752), __webpack_require__.e(713), __webpack_require__.e(26)]).then(__webpack_require__.bind(__webpack_require__, 4082))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(411), __webpack_require__.e(906)]).then(__webpack_require__.bind(__webpack_require__, 6747))
   }, {
     path: "/formation",
     name: "Formation",
@@ -24140,7 +24147,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(752), __webpack_require__.e(713), __webpack_require__.e(66)]).then(__webpack_require__.bind(__webpack_require__, 1364))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(411), __webpack_require__.e(323)]).then(__webpack_require__.bind(__webpack_require__, 2595))
   }, {
     path: "/login",
     name: "Connection / inscription",
@@ -24340,16 +24347,17 @@ const router = new VueRouter$1({
         commit("SET_FOOTER", JSON.parse(localStorage.getItem("app_cv.footer_paragraph")));
         // page_supplementaires
         commit("SET_PAGE_SUPP", JSON.parse(localStorage.getItem("app_cv.page_supplementaires")));
-        console.log("Load datas from CACHE");
+        commit("DISABLE_RUNNING");
       } else {
         //on se rassure que l'utilisateur est sur la page d'accuiel;
-        request.bPost("/vuejs-entity/form/get-form/from/entity-id", param, {}, false).then(resp => {
+        request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", param, {}, false).then(resp => {
           if (window.location.hash != "#/presentation") {
             commit("CLEAN_LOCALSTORAGE");
             src_router.push({
               path: `/presentation`
             });
           }
+          commit("DISABLE_RUNNING");
           // Recuperation des pages supplementaires :
           if (resp.data.model && resp.data.model.page_supplementaires) {
             commit("SET_PAGE_SUPP", resp.data.model.page_supplementaires);
@@ -24361,7 +24369,7 @@ const router = new VueRouter$1({
               entity_type_id: "paragraph",
               duplicate: true
             };
-            request.bPost("/vuejs-entity/form/get-form/from/entity-id", param2, {}, false).then(pres => {
+            request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", param2, {}, false).then(pres => {
               commit("SET_PRESENTATION", pres.data);
             });
             //
@@ -24370,7 +24378,7 @@ const router = new VueRouter$1({
               entity_type_id: "paragraph",
               duplicate: true
             };
-            request.bPost("/vuejs-entity/form/get-form/from/entity-id", param3, {}, false).then(pres => {
+            request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", param3, {}, false).then(pres => {
               commit("SET_EXPERIENCE", pres.data);
             });
             //
@@ -24379,7 +24387,7 @@ const router = new VueRouter$1({
               entity_type_id: "paragraph",
               duplicate: true
             };
-            request.bPost("/vuejs-entity/form/get-form/from/entity-id", param4, {}, false).then(pres => {
+            request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", param4, {}, false).then(pres => {
               commit("SET_FORMATION", pres.data);
             });
             //
@@ -24388,7 +24396,7 @@ const router = new VueRouter$1({
               entity_type_id: "paragraph",
               duplicate: true
             };
-            request.bPost("/vuejs-entity/form/get-form/from/entity-id", param5, {}, false).then(res => {
+            request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", param5, {}, false).then(res => {
               commit("SET_HEADER", res.data);
             });
             //
@@ -24397,13 +24405,15 @@ const router = new VueRouter$1({
               entity_type_id: "paragraph",
               duplicate: true
             };
-            request.bPost("/vuejs-entity/form/get-form/from/entity-id", param6, {}, false).then(res => {
+            request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", param6, {}, false).then(res => {
               commit("SET_FOOTER", res.data);
             });
 
             //
             localStorage.setItem("app_cv.hash", hash);
           }
+        }).catch(() => {
+          commit("DISABLE_RUNNING");
         });
       }
     },
@@ -24422,7 +24432,7 @@ const router = new VueRouter$1({
           experience: state.experience,
           formation: state.formation
         };
-        request.bPost("/buildercv/generate-cv", params, {}).then(resp => {
+        request/* default.bPost */.Z.bPost("/buildercv/generate-cv", params, {}).then(resp => {
           resolv(resp);
         }).catch(er => {
           reject(er);
@@ -24466,7 +24476,7 @@ var dist = __webpack_require__(2725);
 
 
 /* harmony default export */ var GenerateCv = ({
-  ...request,
+  ...request/* default */.Z,
   /**
    * Entité drupal domain_ovh_entity
    */

@@ -1,0 +1,7 @@
+{% if content %}
+<div {{ attributes.addClass(['export-pdf-buildercv']) }}>
+	{% for item in content.button|array_elements(region_attributes.button.addClass('button-export-pdf-js')) %}
+    	   {{ item }} 
+    {% endfor %}
+</div>
+{% endif %}

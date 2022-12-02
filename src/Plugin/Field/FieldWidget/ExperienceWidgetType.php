@@ -45,7 +45,6 @@ class ExperienceWidgetType extends WidgetBase {
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = [];
-    
     $elements['size'] = [
       '#type' => 'number',
       '#title' => t('Size of textfield'),
@@ -59,7 +58,41 @@ class ExperienceWidgetType extends WidgetBase {
       '#default_value' => $this->getSetting('placeholder_titre'),
       '#description' => t('Text that will be shown inside the field until a value is entered. This hint is usually a sample value or a brief description of the expected format.')
     ];
-    
+    $elements['label_value'] = [
+      '#type' => 'textfield',
+      '#title' => t('label_value'),
+      '#default_value' => $this->getSetting('label_value')
+    ];
+    $elements['label_company'] = [
+      '#type' => 'textfield',
+      '#title' => t('label_company'),
+      '#default_value' => $this->getSetting('label_company')
+    ];
+    $elements['label_address'] = [
+      '#type' => 'textfield',
+      '#title' => t('label_address'),
+      '#default_value' => $this->getSetting('label_address')
+    ];
+    $elements['label_date_debut'] = [
+      '#type' => 'textfield',
+      '#title' => t('label_date_debut'),
+      '#default_value' => $this->getSetting('label_date_debut')
+    ];
+    $elements['label_date_fin'] = [
+      '#type' => 'textfield',
+      '#title' => t('label_date_fin'),
+      '#default_value' => $this->getSetting('label_date_fin')
+    ];
+    $elements['label_en_poste'] = [
+      '#type' => 'textfield',
+      '#title' => t('label_en_poste'),
+      '#default_value' => $this->getSetting('label_en_poste')
+    ];
+    $elements['label_description'] = [
+      '#type' => 'textfield',
+      '#title' => t('label_description'),
+      '#default_value' => $this->getSetting('label_description')
+    ];
     return $elements;
   }
   
