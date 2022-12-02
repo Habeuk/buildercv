@@ -76,6 +76,8 @@ class BuildercvController extends ControllerBase {
      */
     $entityModel = $this->entityTypeManager()->getStorage("model_cv")->load($id);
     if ($entityModel) {
+      // Contenu de la page d'accueil.
+      $defaultValues = Json::decode($Request->getContent());
       // ATEENTION, l(ordre compte.
       try {
         $values = [];
@@ -86,14 +88,19 @@ class BuildercvController extends ControllerBase {
          */
         $cv_entity = $this->entityTypeManager()->getStorage("cv_entity")->create($values);
         $cv_entity->set('layout_paragraphs', $entityModel->get('layout_paragraphs')->getValue());
+        // On doit mettre à jour le domaine avant la duplication des contenus
+        // pour permettre au generateur de css de suivre.
+        if (!empty($defaultValues['field_domain_access']))
+          $cv_entity->set('field_domain_access', $defaultValues['field_domain_access']);
+        if (!empty($defaultValues['field_domain_source']))
+          $cv_entity->set('field_domain_source', $defaultValues['field_domain_source']);
         // $this->duplicateExistantReference($pageWeb);
         $this->DuplicateEntityReference->duplicateExistantReference($cv_entity);
         /**
          * Etape 2/2 on ajoute les données provenant de l'utilisateur.
          */
-        // Contenu de la page d'accueil.
-        $values = Json::decode($Request->getContent());
-        foreach ($values as $k => $value) {
+        
+        foreach ($defaultValues as $k => $value) {
           $cv_entity->set($k, $value);
         }
         $cv_entity->save();
