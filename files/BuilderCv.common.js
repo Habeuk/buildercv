@@ -24145,7 +24145,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 859).then(__webpack_require__.bind(__webpack_require__, 8859))
+    component: () => __webpack_require__.e(/* import() */ 421).then(__webpack_require__.bind(__webpack_require__, 3421))
   }, {
     path: "/save-cv",
     name: "Save datas",

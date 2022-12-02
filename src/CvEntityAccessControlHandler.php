@@ -33,7 +33,9 @@ class CvEntityAccessControlHandler extends EntityAccessControlHandler {
       // cv entity entities');
       
       case 'update':
-        
+        if ($entity->getOwnerId() == $account->id()) {
+          return AccessResult::allowed();
+        }
         return AccessResult::allowedIfHasPermission($account, 'edit cv entity entities');
       
       case 'delete':

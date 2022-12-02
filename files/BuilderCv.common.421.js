@@ -1,7 +1,7 @@
 "use strict";
-((typeof self !== 'undefined' ? self : this)["webpackChunkentity_cv_drupal"] = (typeof self !== 'undefined' ? self : this)["webpackChunkentity_cv_drupal"] || []).push([[859],{
+((typeof self !== 'undefined' ? self : this)["webpackChunkentity_cv_drupal"] = (typeof self !== 'undefined' ? self : this)["webpackChunkentity_cv_drupal"] || []).push([[421],{
 
-/***/ 8859:
+/***/ 3421:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 // ESM COMPAT FLAG
@@ -12,7 +12,7 @@ __webpack_require__.d(__webpack_exports__, {
   "default": function() { return /* binding */ EtapeLogin; }
 });
 
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/formulaires/EtapeLogin.vue?vue&type=template&id=e0f9df48&
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/formulaires/EtapeLogin.vue?vue&type=template&id=27f27b14&
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -95,10 +95,7 @@ var vuex_esm = __webpack_require__(408);
     check_if_user_connected() {
       document.addEventListener("login_rx_vuejs__user_is_login", () => {
         console.log("user login");
-        // users.getCurrentUser().then((user) => {
-        //   this.$store.commit("SET_USER", user);
-        //   this.$store.commit("renderByStep/nextStep");
-        // });
+        this.nextStep();
       }, false);
     },
     nextStep() {
@@ -136,4 +133,4 @@ var component = (0,componentNormalizer/* default */.Z)(
 /***/ })
 
 }]);
-//# sourceMappingURL=BuilderCv.common.859.js.map
+//# sourceMappingURL=BuilderCv.common.421.js.map
