@@ -24988,7 +24988,7 @@ var dist = __webpack_require__(2814);
     return new Promise((resolv, reject) => {
       const idHome = window.location.pathname.split("/").pop();
       // On recupere le style definit dans model_cv pour mettre au niveau du fichier custom(.js|.scss) du theme.
-      this.bGet("/generate_style_theme/set_default_style/" + idHome + "/" + this.domainRegister.id + "model_cv").then(() => {
+      this.bGet("/generate_style_theme/set_default_style/" + idHome + "/" + this.domainRegister.id + "/model_cv").then(() => {
         // On charge les styles. ( mise à jour des imports scss. )
         this.bGet("/layoutgenentitystyles/manuel/api-generate/" + this.domainRegister.id).then(() => {
           resolv(
