@@ -190,9 +190,12 @@ class ExperienceWidgetType extends WidgetBase {
   
   function massageFormValues($values, $form, $form_state) {
     $vals = parent::massageFormValues($values, $form, $form_state);
+    
     foreach ($vals as &$val) {
       if (isset($val['description']['value'])) {
         $val['description'] = $val['description']['value'];
+      }
+      if (isset($val['description']['format'])) {
         $val['format'] = $val['description']['format'];
       }
       //

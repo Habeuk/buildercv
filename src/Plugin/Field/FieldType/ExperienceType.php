@@ -42,7 +42,13 @@ class ExperienceType extends FieldItemBase {
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
     // Prevent early t() calls by using the TranslatableMarkup.
     $properties['value'] = DataDefinition::create('string')->setLabel(new TranslatableMarkup('Text value'))->setSetting('case_sensitive', $field_definition->getSetting('case_sensitive'))->setRequired(TRUE);
-    
+    $properties['company'] = DataDefinition::create('string')->setLabel(new TranslatableMarkup('Text value'))->setSetting('case_sensitive', $field_definition->getSetting('case_sensitive'))->setRequired(TRUE);
+    $properties['address'] = DataDefinition::create('string')->setLabel(new TranslatableMarkup('Text value'))->setSetting('case_sensitive', $field_definition->getSetting('case_sensitive'))->setRequired(TRUE);
+    $properties['date_debut'] = DataDefinition::create('integer')->setLabel(t('Integer value'))->setRequired(TRUE);
+    $properties['date_fin'] = DataDefinition::create('integer')->setLabel(t('Integer value'))->setRequired(TRUE);
+    $properties['description'] = DataDefinition::create('string')->setLabel(t('Text'))->setRequired(TRUE);
+    $properties['format'] = DataDefinition::create('filter_format')->setLabel(t('Text format'));
+    $properties['en_poste'] = DataDefinition::create('boolean')->setLabel(t('Boolean value'))->setRequired(TRUE);
     return $properties;
   }
   
@@ -90,12 +96,6 @@ class ExperienceType extends FieldItemBase {
           'type' => 'int',
           'size' => 'tiny'
         ]
-      ],
-      'indexes' => [
-        'value' => [
-          'value',
-          'company'
-        ]
       ]
     ];
     
@@ -137,8 +137,14 @@ class ExperienceType extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
+    $date = new \DateTime();
     $random = new Random();
     $values['value'] = $random->word(mt_rand(1, $field_definition->getSetting('max_length')));
+    $values['company'] = $random->word(mt_rand(1, $field_definition->getSetting('max_length')));
+    $values['address'] = $random->word(mt_rand(1, $field_definition->getSetting('max_length')));
+    $values['date_debut'] = $date->getTimestamp();
+    $values['date_fin'] = $date->getTimestamp();
+    $values['description'] = $random->word(mt_rand(1, $field_definition->getSetting('max_length')));
     return $values;
   }
   
