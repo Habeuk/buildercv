@@ -52,5 +52,12 @@ function buildercv_theme() {
     'render element' => 'element',
     'file' => 'buildercv.theme.inc'
   ];
+  $hooks['buildercv_value_niveau_formatter'] = [
+    'preprocess functions' => [
+      'template_preprocess_buildercv_value_niveau_formatter'
+    ],
+    'render element' => 'element',
+    'file' => 'buildercv.theme.inc'
+  ];
   return $hooks;
 }

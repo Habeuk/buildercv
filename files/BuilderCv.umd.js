@@ -20554,7 +20554,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__7203__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "css/" + chunkId + "." + {"226":"97c2ac50","302":"97c2ac50","386":"97c2ac50","531":"a576b81d"}[chunkId] + ".css";
+/******/ 			return "css/" + chunkId + "." + {"66":"a292ad5b","531":"a576b81d","894":"a292ad5b","897":"a292ad5b","911":"a292ad5b"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -20693,7 +20693,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__7203__;
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = function(chunkId, promises) {
-/******/ 			var cssChunks = {"226":1,"302":1,"386":1,"531":1};
+/******/ 			var cssChunks = {"66":1,"531":1,"894":1,"897":1,"911":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(function() {
@@ -24131,15 +24131,15 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(662), __webpack_require__.e(302)]).then(__webpack_require__.bind(__webpack_require__, 9249))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(976), __webpack_require__.e(894)]).then(__webpack_require__.bind(__webpack_require__, 9249))
   }, {
     path: "/experience",
-    name: "Experience",
+    name: "experience",
     meta: {
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(662), __webpack_require__.e(226)]).then(__webpack_require__.bind(__webpack_require__, 6747))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(976), __webpack_require__.e(897)]).then(__webpack_require__.bind(__webpack_require__, 345))
   }, {
     path: "/formation",
     name: "Formation",
@@ -24147,7 +24147,16 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(662), __webpack_require__.e(386)]).then(__webpack_require__.bind(__webpack_require__, 2595))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(976), __webpack_require__.e(911)]).then(__webpack_require__.bind(__webpack_require__, 5057))
+  }, {
+    path: "/layouts-sections/:keySections/:idEtape",
+    name: "dynamique-section",
+    meta: {
+      requiresAuth: false,
+      hideFooter: true
+    },
+    props: true,
+    component: () => Promise.all(/* import() */[__webpack_require__.e(317), __webpack_require__.e(976), __webpack_require__.e(66)]).then(__webpack_require__.bind(__webpack_require__, 7575))
   }, {
     path: "/login",
     name: "Connection / inscription",
@@ -24163,7 +24172,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 472).then(__webpack_require__.bind(__webpack_require__, 9472))
+    component: () => __webpack_require__.e(/* import() */ 103).then(__webpack_require__.bind(__webpack_require__, 3103))
   }]
 }, {
   path: "/about",
@@ -24204,6 +24213,10 @@ const router = new VueRouter$1({
      * Contient le formulaire de la partie formation.
      */
     entete_paragraph: {},
+    /**
+     * Les layouts.
+     */
+    layout_paragraphs: {},
     /**
      *
      */
@@ -24297,6 +24310,10 @@ const router = new VueRouter$1({
       state.footer_paragraph = payload;
       localStorage.setItem("app_cv.footer_paragraph", JSON.stringify(payload));
     },
+    SET_layout_paragraphs(state, payload) {
+      state.layout_paragraphs[payload.k] = payload.val;
+      localStorage.setItem("app_cv.layout_paragraphs", JSON.stringify(state.layout_paragraphs));
+    },
     SET_PAGE_SUPP(state, payload) {
       state.page_supplementaires = payload;
       localStorage.setItem("app_cv.page_supplementaires", JSON.stringify(payload));
@@ -24308,9 +24325,29 @@ const router = new VueRouter$1({
       state.running = false;
     },
     SET_VALUE(state, payload) {
-      if (payload.fieldName && payload.value && state.presentaton.model) {
-        if (state.presentaton.model[payload.fieldName]) {
-          state.presentaton.model[payload.fieldName] = payload.value;
+      if (payload.fieldName && payload.value) {
+        switch (src_router.history.current.path) {
+          case "/presentation":
+            if (state.presentaton.model && state.presentaton.model[payload.fieldName]) {
+              state.presentaton.model[payload.fieldName] = payload.value;
+            }
+            break;
+          case "/experience":
+            if (state.experience.model && state.experience.model[payload.fieldName]) {
+              state.experience.model[payload.fieldName] = payload.value;
+            }
+            break;
+          case "/formation":
+            if (state.formation.model && state.formation.model[payload.fieldName]) {
+              state.formation.model[payload.fieldName] = payload.value;
+            }
+            break;
+          default:
+            // Analyse des urls url dynamique:
+            if (src_router.history.current.path.includes("layouts-sections") && src_router.history.current.params.keySections && state.layout_paragraphs[src_router.history.current.params.keySections] && state.layout_paragraphs[src_router.history.current.params.keySections].model) {
+              state.layout_paragraphs[src_router.history.current.params.keySections].model[payload.fieldName] = payload.value;
+            } else console.log(" Pas de correspondance disponible : ", payload);
+            break;
         }
       }
     },
@@ -24347,6 +24384,14 @@ const router = new VueRouter$1({
         commit("SET_FOOTER", JSON.parse(localStorage.getItem("app_cv.footer_paragraph")));
         // page_supplementaires
         commit("SET_PAGE_SUPP", JSON.parse(localStorage.getItem("app_cv.page_supplementaires")));
+        //
+        var datas = JSON.parse(localStorage.getItem("app_cv.layout_paragraphs"));
+        for (const i in datas) {
+          commit("SET_layout_paragraphs", {
+            k: i,
+            val: datas[i]
+          });
+        }
         commit("DISABLE_RUNNING");
       } else {
         //on se rassure que l'utilisateur est sur la page d'accuiel;
@@ -24409,6 +24454,22 @@ const router = new VueRouter$1({
               commit("SET_FOOTER", res.data);
             });
 
+            // Recuperation des données dans la section.
+            resp.data.model.layout_paragraphs.forEach(target_id => {
+              request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", {
+                id: target_id.target_id,
+                entity_type_id: "paragraph",
+                duplicate: true
+              }, {}, false).then(res => {
+                console.log("section : ", res.data);
+                if (res.data && res.data.model.type[0] && res.data.model.type[0].target_id != "buttons_download_cv") {
+                  commit("SET_layout_paragraphs", {
+                    k: res.data.model.type[0].target_id,
+                    val: res.data
+                  });
+                }
+              });
+            });
             //
             localStorage.setItem("app_cv.hash", hash);
           }
@@ -24718,6 +24779,26 @@ var dist = __webpack_require__(2725);
         }];
         return this.bPost("/vuejs-entity/entity/save-duplicate-ref/paragraph", state.storeForm.formation.model);
       };
+      // for layout_paragraphs
+      const promises = [];
+      for (const i in state.storeForm.layout_paragraphs) {
+        promises.push(new Promise((resolv, reject) => {
+          state.storeForm.layout_paragraphs[i].model.field_domain_access = [{
+            target_id: this.domainRegister.id
+          }];
+          state.storeForm.layout_paragraphs[i].model.field_domain_source = [{
+            target_id: this.domainRegister.id
+          }];
+          this.bPost("/vuejs-entity/entity/save-duplicate-ref/paragraph", state.storeForm.layout_paragraphs[i].model).then(resp => {
+            resolv({
+              target_id: resp.data.id[0].value
+            });
+          }).catch(er => {
+            reject(er);
+          });
+        }));
+      }
+
       //
       const idHome = window.location.pathname.split("/").pop();
       let nom = store.getters.GetNom;
@@ -24747,7 +24828,10 @@ var dist = __webpack_require__(2725);
             values["formation"] = [{
               target_id: re.data.id[0].value
             }];
-            resolv(this.bPost("/buildercv/entity/generate-cv/" + idHome, values));
+            Promise.all(promises).then(vals => {
+              values["layout_paragraphs"] = vals;
+              resolv(this.bPost("/buildercv/entity/generate-cv/" + idHome, values));
+            });
           }).catch(er => {
             reject(er);
           });
@@ -25120,6 +25204,12 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
         if (state.storeForm.presentaton.model.field_email && state.storeForm.presentaton.model.field_email[0] && state.storeForm.presentaton.model.field_email[0].value) str = state.storeForm.presentaton.model.field_email[0].value;
         return str;
       } else return null;
+    },
+    /**
+     * Les identifiants de champs doivent provenir du model.
+     */
+    etapes: state => {
+      return Object.keys(state.storeForm.layout_paragraphs);
     }
   },
   mutations: {
