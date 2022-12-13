@@ -1617,16 +1617,17 @@ function normalizeComponent(
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "z9": function() { return /* reexport */ loginRegister; },
+  "Qe": function() { return /* reexport */ jsonApi_termsTaxo; },
   "rC": function() { return /* reexport */ user; }
 });
 
-// UNUSED EXPORTS: RequestBasicAuthen, drupalFormFields, drupalSession, drupalUtilities, loginGoogle, loginfacebook, termsTaxo
+// UNUSED EXPORTS: RequestBasicAuthen, drupalFormFields, drupalSession, drupalUtilities, loginGoogle, loginfacebook
 
 // EXTERNAL MODULE: ../wbuutilities/index.js + 71 modules
 var wbuutilities = __webpack_require__(4484);
 ;// CONCATENATED MODULE: ../drupal-vuejs/src/config.js
 
-const config_config = {
+const config = {
   ...wbuutilities/* AjaxBasic */.EC,
   /**
    * Retoune un entier arleatoire entre [99-999]
@@ -1637,7 +1638,7 @@ const config_config = {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 };
-/* harmony default export */ var src_config = (config_config);
+/* harmony default export */ var src_config = (config);
 ;// CONCATENATED MODULE: ../drupal-vuejs/src/App/session.js
 
 /* harmony default export */ var session = ({
@@ -1662,7 +1663,7 @@ const config_config = {
 ;// CONCATENATED MODULE: ../drupal-vuejs/src/App/utilities.js
 
 
-const utilities_utilities = {
+const utilities = {
   ...session,
   ...src_config,
   /**
@@ -1709,11 +1710,11 @@ const utilities_utilities = {
     return configs;
   }
 };
-/* harmony default export */ var App_utilities = (utilities_utilities);
+/* harmony default export */ var App_utilities = (utilities);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
 var es_array_push = __webpack_require__(7658);
 ;// CONCATENATED MODULE: ../drupal-vuejs/src/App/jsonApi/Confs.js
-/* harmony default export */ var jsonApi_Confs = ({
+/* harmony default export */ var Confs = ({
   baseURl: "/jsonapi",
   headers: {
     Accept: "application/vnd.api+json",
@@ -1729,7 +1730,7 @@ class filters {
   }
 
   addFilter(fieldName, operator, value) {
-    var key = "fil-" + config.getRandomIntInclusive();
+    var key = "fil-" + src_config.getRandomIntInclusive();
     this.addParam(key, "path", fieldName);
     this.addParam(key, "operator", operator);
     this.addParam(key, "value", value);
@@ -1742,7 +1743,7 @@ class filters {
     this.query += `filter[${key}][condition][${action}]=${value}`;
   }
 }
-/* harmony default export */ var jsonApi_buildFilter = ((/* unused pure expression or super */ null && (filters)));
+/* harmony default export */ var buildFilter = (filters);
 ;// CONCATENATED MODULE: ../drupal-vuejs/src/App/jsonApi/termsTaxo.js
 
 
@@ -1760,7 +1761,7 @@ class termsTaxo {
    */
   get() {
     return new Promise(resolv => {
-      utilities.get(this.url, Confs.headers).then(resp => {
+      App_utilities.get(this.url, Confs.headers).then(resp => {
         this.terms = resp.data;
         resolv(resp.data);
       });
@@ -1773,7 +1774,7 @@ class termsTaxo {
     const filter = new buildFilter();
     filter.addFilter("name", "CONTAINS", search);
     return new Promise(resolv => {
-      utilities.get(this.url + "?" + filter.query, Confs.headers).then(resp => {
+      App_utilities.get(this.url + "?" + filter.query, Confs.headers).then(resp => {
         this.terms = resp.data;
         resolv(resp.data);
       });
@@ -1787,7 +1788,7 @@ class termsTaxo {
     const filter = new buildFilter();
     filter.addFilter("name", "=", term);
     return new Promise(resolv => {
-      utilities.get(this.url + "?" + filter.query, Confs.headers).then(resp => {
+      App_utilities.get(this.url + "?" + filter.query, Confs.headers).then(resp => {
         this.terms = resp.data;
         resolv(resp.data);
       });
@@ -1800,10 +1801,12 @@ class termsTaxo {
   getValueByTid(id) {
     const filter = new buildFilter();
     filter.addFilter("tid", "=", id);
-    return new Promise(resolv => {
-      utilities.get(this.url + "?" + filter.query, Confs.headers).then(resp => {
+    return new Promise((resolv, reject) => {
+      App_utilities.get(this.url + "?" + filter.query, Confs.headers).then(resp => {
         this.terms = resp.data;
         resolv(resp.data);
+      }).catch(er => {
+        reject(er);
       });
     });
   }
@@ -1816,7 +1819,7 @@ class termsTaxo {
     const filter = new buildFilter();
     filter.addFilter("id", "=", id);
     return new Promise(resolv => {
-      utilities.get(this.url + "?" + filter.query, Confs.headers).then(resp => {
+      App_utilities.get(this.url + "?" + filter.query, Confs.headers).then(resp => {
         this.terms = resp.data;
         resolv(resp.data);
       });
@@ -1837,7 +1840,7 @@ class termsTaxo {
     return options;
   }
 }
-/* harmony default export */ var jsonApi_termsTaxo = ((/* unused pure expression or super */ null && (termsTaxo)));
+/* harmony default export */ var jsonApi_termsTaxo = (termsTaxo);
 ;// CONCATENATED MODULE: ../drupal-vuejs/src/App/users/user.js
 
 /* harmony default export */ var user = ({
@@ -20544,7 +20547,7 @@ module.exports = require("vue");
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "css/" + chunkId + "." + {"81":"a292ad5b","283":"a292ad5b","305":"a576b81d","597":"a292ad5b","627":"a292ad5b"}[chunkId] + ".css";
+/******/ 			return "css/" + chunkId + "." + {"18":"cc2484a1","305":"a576b81d","438":"cc2484a1","490":"cc2484a1","722":"cc2484a1"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -20683,7 +20686,7 @@ module.exports = require("vue");
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = function(chunkId, promises) {
-/******/ 			var cssChunks = {"81":1,"283":1,"305":1,"597":1,"627":1};
+/******/ 			var cssChunks = {"18":1,"305":1,"438":1,"490":1,"722":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(function() {
@@ -24121,7 +24124,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(743), __webpack_require__.e(440), __webpack_require__.e(81)]).then(__webpack_require__.bind(__webpack_require__, 2382))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(419), __webpack_require__.e(18)]).then(__webpack_require__.bind(__webpack_require__, 2382))
   }, {
     path: "/experience",
     name: "experience",
@@ -24129,7 +24132,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(743), __webpack_require__.e(440), __webpack_require__.e(597)]).then(__webpack_require__.bind(__webpack_require__, 5267))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(419), __webpack_require__.e(490)]).then(__webpack_require__.bind(__webpack_require__, 5267))
   }, {
     path: "/formation",
     name: "Formation",
@@ -24137,7 +24140,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(743), __webpack_require__.e(440), __webpack_require__.e(627)]).then(__webpack_require__.bind(__webpack_require__, 4398))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(419), __webpack_require__.e(438)]).then(__webpack_require__.bind(__webpack_require__, 9266))
   }, {
     path: "/layouts-sections/:keySections/:idEtape",
     name: "dynamique-section",
@@ -24146,7 +24149,7 @@ const routes = [{
       hideFooter: true
     },
     props: true,
-    component: () => Promise.all(/* import() */[__webpack_require__.e(743), __webpack_require__.e(440), __webpack_require__.e(283)]).then(__webpack_require__.bind(__webpack_require__, 792))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(419), __webpack_require__.e(722)]).then(__webpack_require__.bind(__webpack_require__, 722))
   }, {
     path: "/login",
     name: "Connection / inscription",
@@ -24301,7 +24304,8 @@ const router = new VueRouter$1({
       localStorage.setItem("app_cv.footer_paragraph", JSON.stringify(payload));
     },
     SET_layout_paragraphs(state, payload) {
-      state.layout_paragraphs[payload.k] = payload.val;
+      // state.layout_paragraphs[payload.k] = payload.val;
+      Vue.set(state.layout_paragraphs, payload.k, payload.val);
       localStorage.setItem("app_cv.layout_paragraphs", JSON.stringify(state.layout_paragraphs));
     },
     SET_PAGE_SUPP(state, payload) {
@@ -25111,6 +25115,7 @@ var dist = __webpack_require__(2814);
 
 
 
+
 external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */.ZP);
 /* harmony default export */ var store = (new vuex_esm/* default.Store */.ZP.Store({
   state: {
@@ -25200,6 +25205,12 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
      */
     etapes: state => {
       return Object.keys(state.storeForm.layout_paragraphs);
+    },
+    modelDynamique: state => {
+      if (src_router.history.current.params && src_router.history.current.params.keySections && state.storeForm.layout_paragraphs) {
+        const keySections = src_router.history.current.params.keySections;
+        return state.storeForm.layout_paragraphs[keySections].model;
+      } else return {};
     }
   },
   mutations: {
