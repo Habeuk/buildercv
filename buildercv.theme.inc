@@ -8,5 +8,8 @@ function template_preprocess_buildercv_experience_formatter(&$vars) {
 }
 
 function template_preprocess_buildercv_value_niveau_formatter(&$vars) {
-  //
+  // dump($vars);
+  if (!empty($vars['element']['#item'])) {
+    $vars['item'] = $vars['element']['#item'];
+  }
 }
