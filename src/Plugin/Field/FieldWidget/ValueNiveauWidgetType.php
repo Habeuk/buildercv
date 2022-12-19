@@ -47,6 +47,7 @@ class ValueNiveauWidgetType extends WidgetBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
+    $niveau_options = $this->getSetting('niveau_options');
     $elements = [];
     $elements['label_target_id'] = [
       '#type' => 'textfield',
@@ -57,6 +58,31 @@ class ValueNiveauWidgetType extends WidgetBase {
       '#type' => 'textfield',
       '#title' => t('label_niveau'),
       '#default_value' => $this->getSetting('label_niveau')
+    ];
+    $elements['niveau_options'][1] = [
+      '#type' => 'textfield',
+      '#title' => t('Faible'),
+      '#default_value' => $niveau_options[1]
+    ];
+    $elements['niveau_options'][2] = [
+      '#type' => 'textfield',
+      '#title' => t('Base'),
+      '#default_value' => $niveau_options[2]
+    ];
+    $elements['niveau_options'][3] = [
+      '#type' => 'textfield',
+      '#title' => t('Moyen'),
+      '#default_value' => $niveau_options[3]
+    ];
+    $elements['niveau_options'][4] = [
+      '#type' => 'textfield',
+      '#title' => t('Bien'),
+      '#default_value' => $niveau_options[4]
+    ];
+    $elements['niveau_options'][5] = [
+      '#type' => 'textfield',
+      '#title' => t('Excellent'),
+      '#default_value' => $niveau_options[5]
     ];
     return $elements;
   }
