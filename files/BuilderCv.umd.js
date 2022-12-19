@@ -2011,7 +2011,7 @@ var formatBasicAuth = function (userName, password) {
   ...BasicAuthentification_user,
   ...drupal_utilities,
   /**
-   * Get datas;
+   * Recupere les données à travers une route authentifié via drupal;
    */
   async dGet(url, configCustom = null, showNotification = false) {
     const userLogin = this.loadCredential();
@@ -2028,6 +2028,9 @@ var formatBasicAuth = function (userName, password) {
       headers: configs
     }, showNotification);
   },
+  /**
+   * Enregistre les données à travers une route authentifié via drupal;
+   */
   async dPost(url, datas, configCustom = null, showNotification = true) {
     const userLogin = this.loadCredential();
     var configs = {
@@ -20557,7 +20560,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__7203__;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "css/" + chunkId + "." + {"90":"cc2484a1","318":"cc2484a1","422":"cc2484a1","531":"a576b81d","553":"cc2484a1"}[chunkId] + ".css";
+/******/ 			return "css/" + chunkId + "." + {"16":"740273d0","31":"740273d0","133":"740273d0","531":"a576b81d","984":"740273d0"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -20696,7 +20699,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__7203__;
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = function(chunkId, promises) {
-/******/ 			var cssChunks = {"90":1,"318":1,"422":1,"531":1,"553":1};
+/******/ 			var cssChunks = {"16":1,"31":1,"133":1,"531":1,"984":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(function() {
@@ -24134,7 +24137,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(246), __webpack_require__.e(38), __webpack_require__.e(318)]).then(__webpack_require__.bind(__webpack_require__, 9249))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(246), __webpack_require__.e(472), __webpack_require__.e(133)]).then(__webpack_require__.bind(__webpack_require__, 9249))
   }, {
     path: "/experience",
     name: "experience",
@@ -24142,7 +24145,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(246), __webpack_require__.e(38), __webpack_require__.e(422)]).then(__webpack_require__.bind(__webpack_require__, 345))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(246), __webpack_require__.e(472), __webpack_require__.e(984)]).then(__webpack_require__.bind(__webpack_require__, 345))
   }, {
     path: "/formation",
     name: "Formation",
@@ -24150,7 +24153,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(246), __webpack_require__.e(38), __webpack_require__.e(90)]).then(__webpack_require__.bind(__webpack_require__, 1881))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(246), __webpack_require__.e(472), __webpack_require__.e(16)]).then(__webpack_require__.bind(__webpack_require__, 1881))
   }, {
     path: "/layouts-sections/:keySections/:idEtape",
     name: "dynamique-section",
@@ -24159,7 +24162,7 @@ const routes = [{
       hideFooter: true
     },
     props: true,
-    component: () => Promise.all(/* import() */[__webpack_require__.e(246), __webpack_require__.e(38), __webpack_require__.e(553)]).then(__webpack_require__.bind(__webpack_require__, 5901))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(246), __webpack_require__.e(472), __webpack_require__.e(31)]).then(__webpack_require__.bind(__webpack_require__, 3295))
   }, {
     path: "/login",
     name: "Connection / inscription",

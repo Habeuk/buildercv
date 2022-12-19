@@ -2001,7 +2001,7 @@ var formatBasicAuth = function (userName, password) {
   ...BasicAuthentification_user,
   ...drupal_utilities,
   /**
-   * Get datas;
+   * Recupere les données à travers une route authentifié via drupal;
    */
   async dGet(url, configCustom = null, showNotification = false) {
     const userLogin = this.loadCredential();
@@ -2018,6 +2018,9 @@ var formatBasicAuth = function (userName, password) {
       headers: configs
     }, showNotification);
   },
+  /**
+   * Enregistre les données à travers une route authentifié via drupal;
+   */
   async dPost(url, datas, configCustom = null, showNotification = true) {
     const userLogin = this.loadCredential();
     var configs = {
@@ -20547,7 +20550,7 @@ module.exports = require("vue");
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.miniCssF = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "css/" + chunkId + "." + {"18":"cc2484a1","305":"a576b81d","438":"cc2484a1","490":"cc2484a1","722":"cc2484a1"}[chunkId] + ".css";
+/******/ 			return "css/" + chunkId + "." + {"20":"740273d0","29":"740273d0","305":"a576b81d","508":"740273d0","638":"740273d0"}[chunkId] + ".css";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -20686,7 +20689,7 @@ module.exports = require("vue");
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = function(chunkId, promises) {
-/******/ 			var cssChunks = {"18":1,"305":1,"438":1,"490":1,"722":1};
+/******/ 			var cssChunks = {"20":1,"29":1,"305":1,"508":1,"638":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(function() {
@@ -24124,7 +24127,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(419), __webpack_require__.e(18)]).then(__webpack_require__.bind(__webpack_require__, 2382))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(386), __webpack_require__.e(638)]).then(__webpack_require__.bind(__webpack_require__, 2382))
   }, {
     path: "/experience",
     name: "experience",
@@ -24132,7 +24135,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(419), __webpack_require__.e(490)]).then(__webpack_require__.bind(__webpack_require__, 5267))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(386), __webpack_require__.e(508)]).then(__webpack_require__.bind(__webpack_require__, 5267))
   }, {
     path: "/formation",
     name: "Formation",
@@ -24140,7 +24143,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(419), __webpack_require__.e(438)]).then(__webpack_require__.bind(__webpack_require__, 9266))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(386), __webpack_require__.e(29)]).then(__webpack_require__.bind(__webpack_require__, 9266))
   }, {
     path: "/layouts-sections/:keySections/:idEtape",
     name: "dynamique-section",
@@ -24149,7 +24152,7 @@ const routes = [{
       hideFooter: true
     },
     props: true,
-    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(419), __webpack_require__.e(722)]).then(__webpack_require__.bind(__webpack_require__, 722))
+    component: () => Promise.all(/* import() */[__webpack_require__.e(912), __webpack_require__.e(386), __webpack_require__.e(20)]).then(__webpack_require__.bind(__webpack_require__, 4128))
   }, {
     path: "/login",
     name: "Connection / inscription",
