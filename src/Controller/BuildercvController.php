@@ -72,7 +72,8 @@ class BuildercvController extends ControllerBase {
     /**
      * On recupere le model de CV.
      *
-     * @var \Drupal\buildercv\Entity\ModelCv $entityModel
+     *
+     * @var \Drupal\buildercv\Entity\ModelCv $entityModel // ne sert à rien.
      */
     $entityModel = $this->entityTypeManager()->getStorage("model_cv")->load($id);
     if ($entityModel) {
