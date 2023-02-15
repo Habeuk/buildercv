@@ -46,3 +46,10 @@ vuejs_dev:
     gpl-compatible: true
   js:
     https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js: { type: external, minified: true, weight: -10 }
+
+presentation_cvi_buildercv:
+	js:
+		layouts/js/presentation_cvi_buildercv.js: {}
+	css:
+		theme:
+			layouts/css/presentation_cvi_buildercv.css: {}

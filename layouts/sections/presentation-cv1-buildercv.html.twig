@@ -1,0 +1,23 @@
+{% if content %}
+    <section {{attributes.addClass(["cv-section-hero container"])}}>
+        {% if content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value or content.buildercv_presentation_cv1_image|has_value %}
+            <div {{attributes.addClass(["cv-Section-hero-container"])}}>
+                {% if  content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value%}
+                    <div {{attributes.addClass(["cv-section-hero-information"])}}>
+                        {% if content.buildercv_presentation_cv1_name %}
+                            <div {{region_attributes.buildercv_presentation_cv1_name.addClass(["information-name"])}}>{{content.buildercv_presentation_cv1_name}}</div>
+                        {% endif %}
+                        {% if content.buildercv_presentation_cv1_job %}
+                            <div {{region_attributes.buildercv_presentation_cv1_job.addClass(["information-post"])}}>{{content.buildercv_presentation_cv1_job}}</div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if content.buildercv_presentation_cv1_image %}
+                    <div {{region_attributes.buildercv_presentation_cv1_image.addClass(["information-image"])}}>
+                        {{content.buildercv_presentation_cv1_image}}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </section>
+{% endif %}
