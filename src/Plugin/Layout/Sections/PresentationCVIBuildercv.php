@@ -80,8 +80,8 @@ class PresentationCVIBuildercv extends FormatageModelsSection {
                     ],
                     'buildercv_presentation_cv1_job' => [
                         'text_html' => [
-                            'label' => 'hero impact description',
-                            'value' => 'Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.',
+                            'label' => 'job',
+                            'value' => 'Developpeur',
                         ]
                     ],
                     'buildercv_presentation_cv1_image' => [
