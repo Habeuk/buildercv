@@ -11,7 +11,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *
  * @Layout(
  *   id = "presentation_cvi_bluidercv",
- *   label = @Translation("Presentation (CV)"),
+ *   label = @Translation("Presentation (CV1)"),
  *   category = @Translation("buildercv"),
  *   path = "layouts/sections",
  *   template = "presentation-cv1-buildercv",
