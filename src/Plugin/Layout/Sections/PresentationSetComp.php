@@ -33,8 +33,8 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *     "sc_image" = {
  *       "label" = @Translation(" Image "),
  *     },
- *     "sc_lists" = {
- *       "label" = @Translation(" lists "),
+ *     "sc_iconText" = {
+ *       "label" = @Translation(" Icon Text "),
  *     }
  *   }
  * )

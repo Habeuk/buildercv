@@ -32,7 +32,9 @@
         </div>
       {% endif %}
         <div class="coordonnées">
-          <div class="infos1 d-flex">
+          {% if content.sc_iconText %}
+          <div {{ region_attributes.sc_iconText.addClass(['infos1','d-flex'])}}>
+            {{ content.sc_iconText }}
             <div class="svg1">
               <svg
                 width="30px"
@@ -61,6 +63,7 @@
             </div>
             <div class="contact">+237696457558</div>
           </div>
+          {% endif %}
         </div>
       </div>
     </div>
