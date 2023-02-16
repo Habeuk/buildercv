@@ -8,3 +8,13 @@ field.widget.settings.experience_widget_type:
     placeholder:
       type: textfield
       label: 'Placeholder'
+field.widget.settings.icon_text_widget:
+  type: mapping
+  label: 'Icon text widget widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'
