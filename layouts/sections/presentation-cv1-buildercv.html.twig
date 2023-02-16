@@ -1,9 +1,9 @@
 {% if content %}
-    <section {{attributes.addClass(["cv-section-hero container"])}}>
+    <section {{attributes.addClass(["cv-section-hero", "container"])}}>
         {% if content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value or content.buildercv_presentation_cv1_image|has_value %}
-            <div {{attributes.addClass(["cv-Section-hero-container"])}}>
+            <div class="cv-Section-hero-container">
                 {% if  content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value%}
-                    <div {{attributes.addClass(["cv-section-hero-information"])}}>
+                    <div class="cv-section-hero-information">
                         {% if content.buildercv_presentation_cv1_name %}
                             <div {{region_attributes.buildercv_presentation_cv1_name.addClass(["information-name"])}}>{{content.buildercv_presentation_cv1_name}}</div>
                         {% endif %}
