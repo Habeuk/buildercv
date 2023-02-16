@@ -11,7 +11,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *
  * @Layout(
  *   id = "presentation_cvi_bluidercv",
- *   label = @Translation("Presentation (CV)"),
+ *   label = @Translation("Presentation (CV1)"),
  *   category = @Translation("buildercv"),
  *   path = "layouts/sections",
  *   template = "presentation-cv1-buildercv",
@@ -80,8 +80,8 @@ class PresentationCVIBuildercv extends FormatageModelsSection {
                     ],
                     'buildercv_presentation_cv1_job' => [
                         'text_html' => [
-                            'label' => 'hero impact description',
-                            'value' => 'Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.',
+                            'label' => 'job',
+                            'value' => 'Developpeur',
                         ]
                     ],
                     'buildercv_presentation_cv1_image' => [
