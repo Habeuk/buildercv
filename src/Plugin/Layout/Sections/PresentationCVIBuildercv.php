@@ -15,7 +15,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *   category = @Translation("buildercv"),
  *   path = "layouts/sections",
  *   template = "presentation-cv1-buildercv",
- *   library = "buildercv/presentation_cv1_buildercv",
+ *   library = "buildercv/presentation-cv1-buildercv",
  *   default_region = "title",
  *   regions = {
  *     "buildercv_presentation_cv1_name" = {
@@ -93,6 +93,5 @@ class PresentationCVIBuildercv extends FormatageModelsSection {
                 ],
             ],
     ] + parent::defaultConfiguration();
-  }
-  
+  } 
 }
