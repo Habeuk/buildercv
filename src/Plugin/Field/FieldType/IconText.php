@@ -27,11 +27,7 @@ class IconText extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function defaultStorageSettings() {
-    return [
-      'max_length' => 255,
-      'is_ascii' => FALSE,
-      'case_sensitive' => FALSE,
-    ] + parent::defaultStorageSettings();
+    return [] + parent::defaultStorageSettings();
   }
 
   /**
@@ -41,6 +37,10 @@ class IconText extends FieldItemBase {
     // Prevent early t() calls by using the TranslatableMarkup.
     $properties['value'] = DataDefinition::create('string')
       ->setLabel(new TranslatableMarkup('Text value'))
+      ->setSetting('case_sensitive', $field_definition->getSetting('case_sensitive'))
+      ->setRequired(TRUE);
+    $properties['svg'] = DataDefinition::create('text_long')
+      ->setLabel(new TranslatableMarkup('Svg value'))
       ->setSetting('case_sensitive', $field_definition->getSetting('case_sensitive'))
       ->setRequired(TRUE);
 
@@ -57,7 +57,13 @@ class IconText extends FieldItemBase {
           'type' => $field_definition->getSetting('is_ascii') === TRUE ? 'varchar_ascii' : 'varchar',
           'length' => (int) $field_definition->getSetting('max_length'),
           'binary' => $field_definition->getSetting('case_sensitive'),
+          'unsigned' => FALSE,
         ],
+        'svg' => [
+          'type' => 'text',
+          'unsigned' => FALSE,
+          'binary' => ''
+        ]
       ],
     ];
 
