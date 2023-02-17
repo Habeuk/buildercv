@@ -237,7 +237,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE);
     
     $fields['name'] = BaseFieldDefinition::create('string')->setLabel(t('Name'))->setDescription(t('The name of the Model cv entity.'))->setRevisionable(TRUE)->setSettings([
-      'max_length' => 50,
+      'max_length' => 250,
       'text_processing' => 0
     ])->setDefaultValue('')->setDisplayOptions('view', [
       'label' => 'above',
@@ -246,7 +246,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
     ])->setDisplayOptions('form', [
       'type' => 'string_textfield',
       'weight' => -4
-    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE);
+    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE)->setTranslatable(true);
     
     $fields['name_menu'] = BaseFieldDefinition::create('string')->setLabel(t('Text à afficher sur le menu'))->setDescription(t('The name of the Site type datas entity.'))->setSettings([
       'max_length' => 50,
