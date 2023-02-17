@@ -27,8 +27,9 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *     "buildercv_presentation_cv1_image" = {
  *       "label" = @Translation(" Image "),
  *     },
- *     "buildercv_presentation_cv1_bg = {
- *       "label" = @Translation(" Background Image ")}
+ *     "buildercv_presentation_cv1_bg" = {
+ *       "label" = @Translation(" Background Image "),
+ *     }
  *   }
  * )
  */

@@ -24,14 +24,15 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *     "buildercv_profil_cv1_title2" = {
  *       "label" = @Translation(" titre section 2 "),
  *     },
- *     "buildercv_profil_cv1_resume" = {
+ *     "buildercv_profil_cv1_resumed" = {
  *       "label" = @Translation("Profil Resume "),
  *     },
  *     "buildercv_profil_cv1_competences" = {
  *       "label" = @Translation(" competences "),
  *     },
- *     "buildercv_profil_cv1_bg = {
- *       "label" = @Translation(" Background Image ")}
+ *     "buildercv_profil_cv1_bg" = {
+ *       "label" = @Translation(" Background Image "),
+ *     }
  *   }
  * )
  */
@@ -95,7 +96,7 @@ class ProfilCVIBuildercv extends FormatageModelsSection {
                             'value' => 'Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.',
                         ]
                     ],
-                    'buildercv_profil_cv1_compétences' => [
+                    'buildercv_profil_cv1_competences' => [
                         'text_html' => [
                             'label' => 'image',
                             'fids' => '',
