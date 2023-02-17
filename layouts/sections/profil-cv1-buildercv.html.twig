@@ -17,18 +17,19 @@
         </div>
     {% endif %}
 
+    {% if content.buildercv_profil_cv1_title2|has_value or content.buildercv_profil_cv1_competences|has_value %}
+      <div class="competence">
+        {% if content.buildercv_profil_cv1_title2 %}
+          <div {{region_attributes.buildercv_profil_cv1_title2.addClass(["subtitle"])}}>
+              {{content.buildercv_profil_cv1_title2}}
+          </div>
+        {% endif %}
 
-    <div class="competence">
-      {% if content.buildercv_profil_cv1_titre2 %}
-        <div {{region_attributes.buildercv_profil_cv1_titre2.addClass(["subtitle"])}}>
-            {{content.buildercv_profil_cv1_titre2}}
-        </div>
-      {% endif %}
-      
-      {% if content.buildercv_profil_cv1_competence %}
-        {{content.buildercv_profil_cv1_competence}}
-      {% endif %}
-    </div>
+        {% if content.buildercv_profil_cv1_competences %}
+          {{content.buildercv_profil_cv1_competences}}
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
 </section>
 

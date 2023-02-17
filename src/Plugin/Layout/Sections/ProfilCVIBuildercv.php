@@ -98,7 +98,7 @@ class ProfilCVIBuildercv extends FormatageModelsSection {
                     ],
                     'buildercv_profil_cv1_competences' => [
                         'text_html' => [
-                            'label' => 'image',
+                            'label' => 'competences',
                             'fids' => '',
                         ]
                     ],
