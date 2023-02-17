@@ -1,0 +1,35 @@
+<div class="progress {{item.css_container}}">
+  {% if item.name %}
+    <h1  class="t2 col-md-6 h6">{{item.name}}</h1>
+  {% endif %}
+  
+  {% if item.niveau %}
+    <div
+    class="progress-bar bar3 col-md-6"
+    role="progressbar"
+    style="width: 100%"
+    aria-valuenow="25"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    >
+      <div class="icon5 d-flex" style="left: {{item.niveau}}%">
+        <svg
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="50px"
+          x="0px"
+          y="0px"
+          viewBox="0 0 1792 1792"
+          style="enable-background: new 0 0 1792 1792"
+          xml:space="preserve"
+        >
+          <path
+            d="M1792,896l-235.9,388.4H0L238.3,896L0,507.6h1556.5L1792,896z"
+          />
+        </svg>
+      </div>
+    </div>
+  {% endif %}
+</div>

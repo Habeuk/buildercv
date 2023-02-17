@@ -1,0 +1,62 @@
+{% if content %}
+    <section class="cv-section-profil-hero container">
+  <div class="hero">
+    {% if  content.buildercv_profil_cv1_title1|has_value or content.buildercv_profil_cv1_resumed|has_value%}
+        <div class="cv-section-profil-hero-container">
+          {% if content.buildercv_profil_cv1_title1 %}
+            <div {{region_attributes.buildercv_profil_cv1_title1.addClass(["title"])}}>
+                {{content.buildercv_profil_cv1_title1}}
+            </div>
+          {% endif %}
+
+          {% if content.buildercv_profil_cv1_resumed %}
+              <div {{region_attributes.buildercv_profil_cv1_resumed.addClass(["mytexte"])}}>
+                {{content.buildercv_profil_cv1_resumed}}
+              </div>
+          {% endif %}
+        </div>
+    {% endif %}
+
+
+    <div class="competence">
+      {% if content.buildercv_profil_cv1_titre2 %}
+        <div {{region_attributes.buildercv_profil_cv1_titre2.addClass(["subtitle"])}}>
+            {{content.buildercv_profil_cv1_titre2}}
+        </div>
+      {% endif %}
+      
+      <div class="progress">
+        <h1 class="t1 col-md-6">Business development</h1>
+        <div
+          class="progress-bar bar0 col-md-6"
+          role="progressbar"
+          style="width: 100%"
+          aria-valuenow="25"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div class="icon1 d-flex" style="left: 20%">
+            <svg
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="50px"
+              x="0px"
+              y="0px"
+              viewBox="0 0 1792 1792"
+              style="enable-background: new 0 0 1792 1792"
+              xml:space="preserve"
+            >
+              <path
+                d="M1792,896l-235.9,388.4H0L238.3,896L0,507.6h1556.5L1792,896z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}
