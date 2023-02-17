@@ -26,7 +26,9 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *     },
  *     "buildercv_presentation_cv1_image" = {
  *       "label" = @Translation(" Image "),
- *     }
+ *     },
+ *     "buildercv_presentation_cv1_bg = {
+ *       "label" = @Translation(" Background Image ")}
  *   }
  * )
  */
@@ -88,6 +90,11 @@ class PresentationCVIBuildercv extends FormatageModelsSection {
                         'img' => [
                             'label' => 'image',
                             'fids' => '',
+                        ]
+                    ],
+                    'buildercv_presentation_cv1_bg' => [
+                        'img_bg' => [
+                          'label' => 'background image'
                         ]
                     ]
                 ],
