@@ -1,0 +1,24 @@
+{% if content %}
+  {% if content.buildercv_experience_cv1_bg.layout_builder_add_block %}
+    {{ content.buildercv_experience_cv1_bg }}
+  {% endif %}
+  {% if content.buildercv_experience_cv1_bg|layout_bg_img %}
+    {% set attributes = attributes.merge(content.buildercv_experience_cv1_bg|layout_bg_img) %}
+  {% endif %}
+  <section class="cvSectionExp container">
+    <div class="cvSectionExp-container container">
+      <div class="cvSectionExp-infos">
+        {% if content.buildercv_experience_cv1_title %}
+          <h1 class="title">
+            {{ content.buildercv_experience_cv1_title }}
+          </h1>
+        {% endif %}
+        {% if content.buildercv_experience_cv1_works %}
+          <div class="cvSectionExp-head d-flex">
+            {{ content.buildercv_experience_cv1_works }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
