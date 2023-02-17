@@ -3,24 +3,28 @@
         {{ content.buildercv_presentation_cv1_bg }}
     {% endif %}
     {% if content.buildercv_presentation_cv1_bg|layout_bg_img %}
-		{% set attributes = attributes.merge(content.buildercv_presentation_cv1_bg|layout_bg_img) %}
-	{% endif %}
-    <section {{attributes.addClass(["cv-section-hero", "container"])}}>
+        {% set attributes = attributes.merge(content.buildercv_presentation_cv1_bg|layout_bg_img) %}
+    {% endif %}
+    <section {{ attributes.addClass(["cv-section-hero", "container"]) }}>
         {% if content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value or content.buildercv_presentation_cv1_image|has_value %}
             <div class="cv-Section-hero-container">
-                {% if  content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value%}
-                  git   <div class="cv-section-hero-information">
+                {% if  content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value %}
+                    <div class="cv-section-hero-information">
                         {% if content.buildercv_presentation_cv1_name %}
-                            <div {{region_attributes.buildercv_presentation_cv1_name.addClass(["information-name"])}}>{{content.buildercv_presentation_cv1_name}}</div>
+                            <div {{ region_attributes.buildercv_presentation_cv1_name.addClass(["information-name"]) }}>
+                                {{ content.buildercv_presentation_cv1_name }}
+                            </div>
                         {% endif %}
                         {% if content.buildercv_presentation_cv1_job %}
-                            <div {{region_attributes.buildercv_presentation_cv1_job.addClass(["information-post"])}}>{{content.buildercv_presentation_cv1_job}}</div>
+                            <div {{ region_attributes.buildercv_presentation_cv1_job.addClass(["information-post"]) }}>
+                                {{ content.buildercv_presentation_cv1_job }}
+                            </div>
                         {% endif %}
                     </div>
                 {% endif %}
                 {% if content.buildercv_presentation_cv1_image %}
-                    <div {{region_attributes.buildercv_presentation_cv1_image.addClass(["information-image"])}}>
-                        {{content.buildercv_presentation_cv1_image}}
+                    <div {{ region_attributes.buildercv_presentation_cv1_image.addClass(["information-image"]) }}>
+                        {{ content.buildercv_presentation_cv1_image }}
                     </div>
                 {% endif %}
             </div>
