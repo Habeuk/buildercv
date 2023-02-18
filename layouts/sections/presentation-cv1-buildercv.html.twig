@@ -5,7 +5,7 @@
     {% if content.buildercv_presentation_cv1_bg|layout_bg_img %}
         {% set attributes = attributes.merge(content.buildercv_presentation_cv1_bg|layout_bg_img) %}
     {% endif %}
-    <section {{ attributes.addClass(["cv-section-hero", "container"]) }}>
+    <section {{ attributes.addClass(["cv-section-hero"]) }}>
         {% if content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value or content.buildercv_presentation_cv1_image|has_value %}
             <div class="cv-Section-hero-container">
                 {% if  content.buildercv_presentation_cv1_name|has_value or content.buildercv_presentation_cv1_job|has_value %}

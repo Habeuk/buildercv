@@ -72,11 +72,11 @@ class PresentationSetComp extends FormatageModelsSection {
    */
   public function defaultConfiguration() {
     return [
-      'css' => 'bg-theme text-white',
+      'css' => 'bg-theme text-white col-md-6',
       'region_tag_sc_poste' => 'h5',
       'region_tag_sc_name' => 'h1',
       'region_tag_sc_status' => 'h6',
-      'region_css_sc_image' => 'col-md-2',
+      'region_css_sc_image' => 'col-md-2'
     ] + parent::defaultConfiguration();
   }
   

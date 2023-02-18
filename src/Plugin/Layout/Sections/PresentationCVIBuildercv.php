@@ -66,40 +66,42 @@ class PresentationCVIBuildercv extends FormatageModelsSection {
    */
   public function defaultConfiguration() {
     return [
-      'css' => '',
-      'load_library' => true,
+      'css' => 'container',
+      'region_css_buildercv_presentation_cv1_name' => 'h1 font-weight-bold',
+      'region_css_buildercv_presentation_cv1_job' => 'h2 font-weight-bold',
       'content' => [
-                'builder-form' => true,
-                'info' => [
-                    'title' =>'buildercv presentation cv1',
-                    'loader' => 'dynamic',
-                ],
-                'fields' => [
-                    'buildercv_presentation_cv1_name' => [
-                        'text_html' => [
-                            'label' => 'name',
-                            'value' => 'Welcome to Impact',
-                        ]
-                    ],
-                    'buildercv_presentation_cv1_job' => [
-                        'text_html' => [
-                            'label' => 'job',
-                            'value' => 'Developpeur',
-                        ]
-                    ],
-                    'buildercv_presentation_cv1_image' => [
-                        'img' => [
-                            'label' => 'image',
-                            'fids' => '',
-                        ]
-                    ],
-                    'buildercv_presentation_cv1_bg' => [
-                        'img_bg' => [
-                          'label' => 'background image'
-                        ]
-                    ]
-                ],
-            ],
+        'builder-form' => true,
+        'info' => [
+          'title' => 'buildercv presentation cv1',
+          'loader' => 'dynamic'
+        ],
+        'fields' => [
+          'buildercv_presentation_cv1_name' => [
+            'text_html' => [
+              'label' => 'name',
+              'value' => 'Welcome to Impact'
+            ]
+          ],
+          'buildercv_presentation_cv1_job' => [
+            'text_html' => [
+              'label' => 'job',
+              'value' => 'Developpeur'
+            ]
+          ],
+          'buildercv_presentation_cv1_image' => [
+            'img' => [
+              'label' => 'image',
+              'fids' => ''
+            ]
+          ],
+          'buildercv_presentation_cv1_bg' => [
+            'img_bg' => [
+              'label' => 'background image'
+            ]
+          ]
+        ]
+      ]
     ] + parent::defaultConfiguration();
-  } 
+  }
+  
 }
