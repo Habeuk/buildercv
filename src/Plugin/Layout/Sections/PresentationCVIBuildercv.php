@@ -56,6 +56,11 @@ class PresentationCVIBuildercv extends FormatageModelsSection {
     // TODO Auto-generated method stub
     $build = parent::build($regions);
     FormatageModelsThemes::formatSettingValues($build);
+    $regions['buildercv_presentation_cv1_name']['0483a634-a241-4c7b-969d-680ed304d1a0']['#attributes'] = [
+      'class' => [
+        'item-roll'
+      ]
+    ];
     return $build;
   }
   
@@ -67,7 +72,7 @@ class PresentationCVIBuildercv extends FormatageModelsSection {
   public function defaultConfiguration() {
     return [
       'css' => 'container',
-      'region_css_buildercv_presentation_cv1_name' => 'h1 font-weight-bold',
+      'region_css_buildercv_presentation_cv1_name' => 'h1 font-weight-bold d-flex',
       'region_css_buildercv_presentation_cv1_job' => 'h2 font-weight-bold',
       'content' => [
         'builder-form' => true,

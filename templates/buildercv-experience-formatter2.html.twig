@@ -1,36 +1,36 @@
 {% if item %}
-  <div class="cvSectionExp-content1">
+  <div class="cvSectionExp-content">
+  	<div class="content-block">
     {% if item.value %}
-      <h5>
+      <h4 class="titre-poste">
         {{ item.value }}
-      </h5>
+      </h4>
     {% endif %}
     {% if item.description %}
       <div>
-        {{ item.description }}
+        {{ item.description|raw }}
       </div>
     {% endif %}
-
-    {% if item.company %}
-      <div class="d-flex container bloc1">
+    </div>
+    	{% if item.company %}
+      <div class="d-flex bloc1 font-weight-bold">
         {{ item.company }}
       </div>
-    {% endif %}
-
-    {% if item.date_debut|has_value or item.date_fin|has_value %}
-      <div class="d-flex contenu1">
-        {% if item.date_debut %}
-          <div class="container col-md-6 bg-secondary text-white date1">
-            {{ item.date_debut }}
+        {% endif %}	
+        {% if item.date_debut|has_value or item.date_fin|has_value %}
+          <div class="d-flex contenu-date">
+            {% if item.date_debut %}
+              <div class="col-md-6 date">
+                {{ item.date_debut }}
+              </div>
+            {% endif %}
+            {% if item.date_fin %}
+              <div class="col-md-6 date text-right">
+                {{ item.date_fin }}
+              </div>
+            {% endif %}
           </div>
-        {% endif %}
-
-        {% if item.date_fin %}
-          <div class="container col-md-6 bg-secondary text-white date2">
-            {{ item.date_fin }}
-          </div>
-        {% endif %}
-      </div>
-    {% endif %}
+        {% endif %}    
+    
   </div>
 {% endif %}

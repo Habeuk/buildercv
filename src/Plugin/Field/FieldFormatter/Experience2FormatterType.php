@@ -13,15 +13,14 @@ use Drupal\Core\Datetime\DrupalDateTime;
  * Plugin implementation of the 'experience_formatter_type' formatter.
  *
  * @FieldFormatter(
- *   id = "experience_formatter_type",
- *   label = @Translation("Experience formatter type 2"),
+ *   id = "experience2_formatter_type",
+ *   label = @Translation("Experience formatter model avec les dates en dessous "),
  *   field_types = {
  *     "experience_type"
  *   }
  * )
  */
 class Experience2FormatterType extends ExperienceFormatterType {
-  
   
   /**
    *
@@ -50,11 +49,12 @@ class Experience2FormatterType extends ExperienceFormatterType {
           'company' => Html::escape($item->company),
           'date_debut' => $date_debut,
           'date_fin' => $date_fin,
-          'description' => $item->description,
+          'description' => $item->description
         ]
       ];
     }
     
     return $elements;
-  }  
+  }
+  
 }

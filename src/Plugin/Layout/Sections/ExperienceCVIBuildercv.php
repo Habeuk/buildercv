@@ -64,33 +64,17 @@ class ExperienceCVIBuildercv extends FormatageModelsSection {
   public function defaultConfiguration() {
     return [
       'css' => '',
-      'load_library' => true,
+      'load_library' => false,
+      'region_css_buildercv_experience_cv1_title' => 'h3',
       'content' => [
-                'builder-form' => true,
-                'info' => [
-                    'title' =>'buildercv experience cv1',
-                    'loader' => 'dynamic',
-                ],
-                'fields' => [
-                    'buildercv_experience_cv1_title1' => [
-                        'text_html' => [
-                            'label' => 'title 1',
-                            'value' => 'Experiences',
-                        ]
-                    ],
-                    'buildercv_experience_cv1_works' => [
-                        'text_html' => [
-                            'label' => 'works',
-                            'fids' => '',
-                        ]
-                    ],
-                    'buildercv_experience_cv1_bg' => [
-                        'img_bg' => [
-                          'label' => 'background image'
-                        ]
-                    ]
-                ],
-            ],
+        'builder-form' => true,
+        'info' => [
+          'title' => 'buildercv experience cv1',
+          'loader' => 'dynamic'
+        ],
+        'fields' => []
+      ]
     ] + parent::defaultConfiguration();
-  } 
+  }
+  
 }
