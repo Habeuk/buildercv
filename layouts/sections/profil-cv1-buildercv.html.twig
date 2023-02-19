@@ -5,10 +5,10 @@
   {% if content.buildercv_profil_cv1_bg|layout_bg_img %}
   		{% set attributes = attributes.merge(content.buildercv_profil_cv1_bg|layout_bg_img) %}
   {% endif %}
-<section class="cv-section-profil-hero container">
-  <div class="hero">
+<section {{attributes.addClass(['cv-section-profil-hero','container'])}}>
+  <div class="hero row">
     {% if  content.buildercv_profil_cv1_title1|has_value or content.buildercv_profil_cv1_resumed|has_value%}
-        <div class="cv-section-profil-hero-container">
+        <div class="cv-section-profil-hero-container col-md-6">
           {% if content.buildercv_profil_cv1_title1 %}
             <div {{region_attributes.buildercv_profil_cv1_title1.addClass(["title"])}}>
                 {{content.buildercv_profil_cv1_title1}}
@@ -24,7 +24,7 @@
     {% endif %}
 
     {% if content.buildercv_profil_cv1_title2|has_value or content.buildercv_profil_cv1_competences|has_value %}
-      <div class="competence">
+      <div class="competence col-md-6">
         {% if content.buildercv_profil_cv1_title2 %}
           <div {{region_attributes.buildercv_profil_cv1_title2.addClass(["subtitle"])}}>
               {{content.buildercv_profil_cv1_title2}}

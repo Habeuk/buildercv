@@ -46,8 +46,7 @@ class ProfilCVIBuildercv extends FormatageModelsSection {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
     // TODO Auto-generated method stub.
     parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-    // $this->pluginDefinition->set('icon', drupal_get_path('module',
-    // 'formatage_models') . "/icones/sections/formatage-models-about-ac.png");
+    $this->pluginDefinition->set('icon', drupal_get_path('module', 'formatage_models') . "/icones/sections/formatage-models-about-ac.png");
   }
   
   /**
@@ -72,43 +71,44 @@ class ProfilCVIBuildercv extends FormatageModelsSection {
       'css' => '',
       'load_library' => true,
       'content' => [
-                'builder-form' => true,
-                'info' => [
-                    'title' =>'buildercv profil cv1',
-                    'loader' => 'dynamic',
-                ],
-                'fields' => [
-                    'buildercv_profil_cv1_title1' => [
-                        'text_html' => [
-                            'label' => 'title 1',
-                            'value' => 'compétences',
-                        ]
-                    ],
-                    'buildercv_profil_cv1_title2' => [
-                        'text_html' => [
-                            'label' => 'title 2',
-                            'value' => 'Compétences',
-                        ]
-                    ],
-                    'buildercv_profil_cv1_resumed' => [
-                        'text_html' => [
-                            'label' => 'resumed',
-                            'value' => 'Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.',
-                        ]
-                    ],
-                    'buildercv_profil_cv1_competences' => [
-                        'text_html' => [
-                            'label' => 'competences',
-                            'fids' => '',
-                        ]
-                    ],
-                    'buildercv_profil_cv1_bg' => [
-                        'img_bg' => [
-                          'label' => 'background image'
-                        ]
-                    ]
-                ],
-            ],
+        'builder-form' => true,
+        'info' => [
+          'title' => 'buildercv profil cv1',
+          'loader' => 'dynamic'
+        ],
+        'fields' => [
+          'buildercv_profil_cv1_title1' => [
+            'text_html' => [
+              'label' => 'title 1',
+              'value' => 'compétences'
+            ]
+          ],
+          'buildercv_profil_cv1_title2' => [
+            'text_html' => [
+              'label' => 'title 2',
+              'value' => 'Compétences'
+            ]
+          ],
+          'buildercv_profil_cv1_resumed' => [
+            'text_html' => [
+              'label' => 'resumed',
+              'value' => 'Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.'
+            ]
+          ],
+          'buildercv_profil_cv1_competences' => [
+            'text_html' => [
+              'label' => 'competences',
+              'fids' => ''
+            ]
+          ],
+          'buildercv_profil_cv1_bg' => [
+            'img_bg' => [
+              'label' => 'background image'
+            ]
+          ]
+        ]
+      ]
     ] + parent::defaultConfiguration();
-  } 
+  }
+  
 }

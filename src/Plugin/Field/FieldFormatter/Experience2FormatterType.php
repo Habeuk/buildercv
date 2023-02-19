@@ -3,10 +3,7 @@
 namespace Drupal\buildercv\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Field\FormatterBase;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
@@ -14,7 +11,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *
  * @FieldFormatter(
  *   id = "experience2_formatter_type",
- *   label = @Translation("Experience formatter model avec les dates en dessous "),
+ *   label = @Translation(" Experience formatter model avec les dates en dessous "),
  *   field_types = {
  *     "experience_type"
  *   }

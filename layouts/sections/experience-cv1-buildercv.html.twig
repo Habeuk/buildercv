@@ -5,8 +5,8 @@
   {% if content.buildercv_experience_cv1_bg|layout_bg_img %}
     {% set attributes = attributes.merge(content.buildercv_experience_cv1_bg|layout_bg_img) %}
   {% endif %}
-  <section class="cvSectionExp container">
-    <div class="cvSectionExp-container container">
+  <section {{attributes.addClass(['cvSectionExp','container'])}}>
+    <div class="cvSectionExp-container">
       <div class="cvSectionExp-infos">
         {% if content.buildercv_experience_cv1_title %}
           <h3 {{ region_attributes.buildercv_experience_cv1_title.addClass(["title"]) }}>

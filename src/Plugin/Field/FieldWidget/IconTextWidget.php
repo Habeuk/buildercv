@@ -28,8 +28,9 @@ class IconTextWidget extends WidgetBase {
    */
   public static function defaultSettings() {
     return [
-      'size' => 60,
-      'placeholder' => ''
+      'size' => 100,
+      'label_1' => "Nom du reseau social",
+      'label_2' => "Svp or fontawesome"
     ] + parent::defaultSettings();
   }
   
@@ -47,13 +48,16 @@ class IconTextWidget extends WidgetBase {
       '#required' => TRUE,
       '#min' => 1
     ];
-    $elements['placeholder'] = [
+    $elements['label_1'] = [
       '#type' => 'textfield',
-      '#title' => t('Placeholder'),
-      '#default_value' => $this->getSetting('placeholder'),
-      '#description' => t('Text that will be shown inside the field until a value is entered. This hint is usually a sample value or a brief description of the expected format.')
+      '#title' => t('label 1'),
+      '#default_value' => $this->getSetting('label_1')
     ];
-    
+    $elements['label_2'] = [
+      '#type' => 'textfield',
+      '#title' => t('label 2'),
+      '#default_value' => $this->getSetting('label_2')
+    ];
     return $elements;
   }
   
@@ -63,16 +67,15 @@ class IconTextWidget extends WidgetBase {
    */
   public function settingsSummary() {
     $summary = [];
-    
     $summary[] = t('Textfield size: @size', [
       '@size' => $this->getSetting('size')
     ]);
-    if (!empty($this->getSetting('placeholder'))) {
-      $summary[] = t('Placeholder: @placeholder', [
-        '@placeholder' => $this->getSetting('placeholder')
-      ]);
-    }
-    
+    $summary[] = t('label_1: @label_1', [
+      '@label_1' => $this->getSetting('label_1')
+    ]);
+    $summary[] = t('label_2: @label_2', [
+      '@label_2' => $this->getSetting('label_2')
+    ]);
     return $summary;
   }
   
@@ -81,15 +84,38 @@ class IconTextWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $element['value'] = $element + [
+    $elements = [];
+    if (!empty($element['#title_display']))
+      unset($element['#title_display']);
+    $elements['value'] = [
+      '#title' => t($this->getSetting('label_1')),
       '#type' => 'textfield',
       '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
       '#size' => $this->getSetting('size'),
       '#placeholder' => $this->getSetting('placeholder'),
       '#maxlength' => $this->getFieldSetting('max_length')
-    ];
+    ] + $element;
+    $elements['text'] = [
+      '#title' => t($this->getSetting('label_2')),
+      '#type' => 'text_format',
+      '#format' => isset($items[$delta]->format) ? $items[$delta]->format : 'basic_html',
+      '#default_value' => isset($items[$delta]->text) ? $items[$delta]->text : NULL
+    ] + $element;
     
-    return $element;
+    return $elements;
+  }
+  
+  function massageFormValues($values, $form, $form_state) {
+    $vals = parent::massageFormValues($values, $form, $form_state);
+    foreach ($vals as &$val) {
+      if (isset($val['text']['format'])) {
+        $val['format'] = $val['text']['format'];
+      }
+      if (isset($val['text']['value'])) {
+        $val['text'] = $val['text']['value'];
+      }
+    }
+    return $vals;
   }
   
 }

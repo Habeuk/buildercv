@@ -3,24 +3,22 @@
 namespace Drupal\buildercv\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Field\FormatterBase;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Plugin implementation of the 'experience_formatter_type' formatter.
  *
  * @FieldFormatter(
- *   id = "experience_formatter_type",
- *   label = @Translation("Experience formatter type"),
+ *   id = "experience3_formatter_type",
+ *   label = @Translation("Experience formatter model avec les dates à droite "),
  *   field_types = {
  *     "experience_type"
  *   }
  * )
  */
-class ExperienceFormatterType extends FormatterBase {
+class Experience3FormatterType extends ExperienceFormatterType {
   
   /**
    *
@@ -28,7 +26,7 @@ class ExperienceFormatterType extends FormatterBase {
    */
   public static function defaultSettings() {
     return [
-      'layoutgenentitystyles_view' => 'buildercv/time-line'
+      'layoutgenentitystyles_view' => 'buildercv/field-form-date'
     ] + parent::defaultSettings();
   }
   
@@ -37,19 +35,16 @@ class ExperienceFormatterType extends FormatterBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    return [ // Implement settings form.
+    // \Stephane888\Debug\debugLog::$max_depth = 7;
+    // \Stephane888\Debug\debugLog::kintDebugDrupal($form, 'settingsForm',
+    // true);
+    return [
+      // utilile pour mettre à jour le style
+      'layoutgenentitystyles_view' => [
+        '#type' => 'hidden',
+        '#value' => 'buildercv/field-form-date'
+      ]
     ] + parent::settingsForm($form, $form_state);
-  }
-  
-  /**
-   *
-   * {@inheritdoc}
-   */
-  public function settingsSummary() {
-    $summary = [];
-    // Implement settings summary.
-    
-    return $summary;
   }
   
   /**
@@ -58,22 +53,19 @@ class ExperienceFormatterType extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-    
     foreach ($items as $delta => $item) {
       $date_debut = '';
       if (!empty($item->date_debut)) {
         $date_debut = DrupalDateTime::createFromTimestamp($item->date_debut);
         $date_debut = $date_debut->format("m/Y");
       }
-      
       $date_fin = '';
       if (!empty($item->date_fin)) {
         $date_fin = DrupalDateTime::createFromTimestamp($item->date_fin);
         $date_fin = $date_fin->format("m/Y");
       }
-      
       $elements[$delta] = [
-        '#theme' => 'buildercv_experience_formatter',
+        '#theme' => 'buildercv_experience_formatter3',
         '#item' => [
           'value' => Html::escape($item->value),
           'company' => Html::escape($item->company),
@@ -85,22 +77,7 @@ class ExperienceFormatterType extends FormatterBase {
         ]
       ];
     }
-    
     return $elements;
-  }
-  
-  /**
-   * Generate the output appropriate for one field item.
-   *
-   * @param \Drupal\Core\Field\FieldItemInterface $item
-   *        One field item.
-   *        
-   * @return string The textual output generated.
-   */
-  protected function viewValue(FieldItemInterface $item) {
-    // The text value has no text format assigned to it, so the user input
-    // should equal the output, including newlines.
-    return nl2br(Html::escape($item->value));
   }
   
 }

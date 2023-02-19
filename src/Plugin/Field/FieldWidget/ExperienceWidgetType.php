@@ -181,9 +181,7 @@ class ExperienceWidgetType extends WidgetBase {
       '#title' => t($this->getSetting('label_description')),
       '#type' => 'text_format',
       '#format' => 'basic_html',
-      '#default_value' => isset($items[$delta]->description) ? $items[$delta]->description : NULL,
-      '#size' => $this->getSetting('size'),
-      '#maxlength' => $this->getFieldSetting('max_length')
+      '#default_value' => isset($items[$delta]->description) ? $items[$delta]->description : NULL
     ] + $element;
     return $elts;
   }
@@ -192,11 +190,11 @@ class ExperienceWidgetType extends WidgetBase {
     $vals = parent::massageFormValues($values, $form, $form_state);
     
     foreach ($vals as &$val) {
-      if (isset($val['description']['value'])) {
-        $val['description'] = $val['description']['value'];
-      }
       if (isset($val['description']['format'])) {
         $val['format'] = $val['description']['format'];
+      }
+      if (isset($val['description']['value'])) {
+        $val['description'] = $val['description']['value'];
       }
       //
       if (!empty($val['date_debut'])) {

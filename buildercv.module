@@ -60,6 +60,20 @@ function buildercv_theme() {
     'file' => 'buildercv.theme.inc'
   ];
   $hooks['buildercv_value_niveau_formatter2'] = $hooks['buildercv_value_niveau_formatter'];
-  $hooks['buildercv_experience_formatter2']   = $hooks['buildercv_experience_formatter'];
+  $hooks['buildercv_experience_formatter2'] = $hooks['buildercv_experience_formatter'];
+  $hooks['buildercv_experience_formatter3'] = [
+    'preprocess functions' => [
+      'template_preprocess_buildercv_experience_formatter3'
+    ],
+    'render element' => 'element',
+    'file' => 'buildercv.theme.inc'
+  ];
+  $hooks['buildercv_icon_text'] = [
+    'preprocess functions' => [
+      'template_preprocess_buildercv_icon_text'
+    ],
+    'render element' => 'element',
+    'file' => 'buildercv.theme.inc'
+  ];
   return $hooks;
 }

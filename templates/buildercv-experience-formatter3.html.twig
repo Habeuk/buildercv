@@ -1,0 +1,12 @@
+<div class="d-flex field-form-date align-items-baseline">
+	<div class="date col-md-4 text-center">		
+		<div class="periode"> 
+			<span class="date_debut">{{ item.date_debut }}</span> - <span class="date_fin">{{ item.date_fin }}</span> 
+		</div>
+	</div>
+	<div class="right col-md-8">
+		<div class="value font-weight-bold h5">{{ item.value }}</div>
+		<div class="company h6">{{ item.company }} <span class="address">{{ item.address }}</span> </div>		
+		<div class="description">{{ item.description|raw }}</div>
+	</div>
+</div>
