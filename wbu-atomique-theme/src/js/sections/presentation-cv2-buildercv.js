@@ -1,0 +1,1 @@
+import '@stephane888/wbu-atomique/scss/organisme/sections/theme_builder/cvModel/firstmodel/firstPresentation.scss';

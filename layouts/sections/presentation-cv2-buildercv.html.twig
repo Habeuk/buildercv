@@ -1,0 +1,41 @@
+{% if content %}
+  <div {{ attributes.addClass(["document-parent", "container"]) }}>
+    <section class="first-presentation col-md-6 ">
+      {% if content.buildercv_presentation_cv2_image %}
+        <div {{ region_attributes.buildercv_presentation_cv2_image.addClass(["photo"]) }}>
+          {{ content.buildercv_presentation_cv2_image }}
+        </div>
+      {% endif %}
+
+      {% if content.buildercv_presentation_cv2_name %}
+        <div {{ region_attributes.buildercv_presentation_cv2_name.addClass(["presentation-name", "h1"]) }}>
+          {{ content.buildercv_presentation_cv2_name }}
+        </div>
+      {% endif %}
+
+      {% if content.buildercv_presentation_cv2_job %}
+        <div {{ region_attributes.buildercv_presentation_cv2_job.addClass(["presentation-profession", "h2"]) }}>
+          {{ content.buildercv_presentation_cv2_job }}
+        </div>
+      {% endif %}
+
+      {% if content.buildercv_presentation_cv2_status %}
+        <div {{ region_attributes.buildercv_presentation_cv2_status.addClass(["presentation-status", "h5", "font-weight-bold"]) }}>
+          {{ content.buildercv_presentation_cv2_status }}
+        </div>
+      {% endif %}
+
+      {% if content.buildercv_presentation_cv2_description %}
+        <div {{ region_attributes.buildercv_presentation_cv2_description.addClass(["presentation-description"]) }}>
+          {{ content.buildercv_presentation_cv2_description }}
+        </div>
+      {% endif %}
+
+      {% if content.buildercv_presentation_cv2_contact %}
+        <div {{ region_attributes.buildercv_presentation_cv2_contact.addClass(["coordonnées"]) }}>
+          {{ content.buildercv_presentation_cv2_contact }}
+        </div>
+      {% endif %}
+    </section>
+  </div>
+{% endif %}
