@@ -39,7 +39,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *   }
  * )
  */
-class PresentationCVIBuildercv extends FormatageModelsSection
+class PresentationCV2Buildercv extends FormatageModelsSection
 {
 
   /**
