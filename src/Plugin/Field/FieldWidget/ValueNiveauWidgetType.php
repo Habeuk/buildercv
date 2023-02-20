@@ -19,34 +19,37 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *   }
  * )
  */
-class ValueNiveauWidgetType extends WidgetBase {
-  
+class ValueNiveauWidgetType extends WidgetBase
+{
+
   /**
    *
    * {@inheritdoc}
    */
-  public static function defaultSettings() {
+  public static function defaultSettings()
+  {
     return [
       'label_target_id' => "Competance",
       'label_niveau' => "Niveau ( de 1 à 5)",
       'niveau_options' => [
-        1 => 'Faible',
-        2 => 'Base',
-        3 => 'Moyen',
-        4 => 'Bien',
-        5 => 'Excellent'
+        1 => t('Weak'),
+        2 => t('Base'),
+        3 => t('Average'),
+        4 => t('Good'),
+        5 => t('Excellent')
       ],
       'target_type' => 'taxonomy_term',
       'target_bundles' => 'domaine_competance',
       'autocreate' => true
     ] + parent::defaultSettings();
   }
-  
+
   /**
    *
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, FormStateInterface $form_state) {
+  public function settingsForm(array $form, FormStateInterface $form_state)
+  {
     $niveau_options = $this->getSetting('niveau_options');
     $elements = [];
     $elements['label_target_id'] = [
@@ -86,22 +89,24 @@ class ValueNiveauWidgetType extends WidgetBase {
     ];
     return $elements;
   }
-  
+
   /**
    *
    * {@inheritdoc}
    */
-  public function settingsSummary() {
+  public function settingsSummary()
+  {
     $summary = [];
-    
+
     return $summary;
   }
-  
+
   /**
    *
    * {@inheritdoc}
    */
-  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state)
+  {
     $elts = [];
     if (!empty($element['#title_display']))
       unset($element['#title_display']);
@@ -134,14 +139,15 @@ class ValueNiveauWidgetType extends WidgetBase {
     //
     return $elts;
   }
-  
+
   /**
    * --
    *
    * {@inheritdoc}
    * @see \Drupal\Core\Field\WidgetBase::massageFormValues()
    */
-  function massageFormValues($values, $form, $form_state) {
+  function massageFormValues($values, $form, $form_state)
+  {
     $vals = parent::massageFormValues($values, $form, $form_state);
     // dd($vals);
     foreach ($vals as &$value) {
@@ -152,5 +158,4 @@ class ValueNiveauWidgetType extends WidgetBase {
     }
     return $vals;
   }
-  
 }
