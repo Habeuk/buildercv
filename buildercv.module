@@ -1,4 +1,5 @@
 <?php
+
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
@@ -8,7 +9,8 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
  *
  * @param EntityTypeInterface $entity_type
  */
-function buildercv_entity_base_field_info(EntityTypeInterface $entity_type) {
+function buildercv_entity_base_field_info(EntityTypeInterface $entity_type)
+{
   $fields = [];
   if ($entity_type->id() == 'model_cv' || $entity_type->id() == 'cv_entity') {
     if (\Drupal::moduleHandler()->moduleExists('domain')) {
@@ -22,7 +24,8 @@ function buildercv_entity_base_field_info(EntityTypeInterface $entity_type) {
  *
  * @param array $fields
  */
-function __buildercv_fields_domain(array &$fields) {
+function __buildercv_fields_domain(array &$fields)
+{
   $field_access = \Drupal\domain_access\DomainAccessManagerInterface::DOMAIN_ACCESS_FIELD;
   $field_source = \Drupal\domain_source\DomainSourceElementManagerInterface::DOMAIN_SOURCE_FIELD;
   //
@@ -43,7 +46,8 @@ function __buildercv_fields_domain(array &$fields) {
 /**
  * Implements hook_theme().
  */
-function buildercv_theme() {
+function buildercv_theme()
+{
   $hooks = [];
   $hooks['buildercv_experience_formatter'] = [
     'preprocess functions' => [
@@ -75,6 +79,7 @@ function buildercv_theme() {
     'render element' => 'element',
     'file' => 'buildercv.theme.inc'
   ];
+  $hooks["buildercv_icon_text_svg"] = $hooks["buildercv_icon_text"];
   $hooks['buildercv_field_chart'] = [
     'preprocess functions' => [
       'template_preprocess_buildercv_field_chart'
