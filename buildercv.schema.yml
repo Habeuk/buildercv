@@ -18,3 +18,13 @@ field.widget.settings.icon_text_widget:
     placeholder:
       type: textfield
       label: 'Placeholder'
+field.widget.settings.chart_widget_type:
+  type: mapping
+  label: 'Chart widget type widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'

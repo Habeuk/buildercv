@@ -26,7 +26,7 @@ class Experience3FormatterType extends ExperienceFormatterType {
    */
   public static function defaultSettings() {
     return [
-      'layoutgenentitystyles_view' => 'buildercv/field-progress-custom'
+      'layoutgenentitystyles_view' => 'buildercv/field-form-date'
     ] + parent::defaultSettings();
   }
   
