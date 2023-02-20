@@ -75,7 +75,7 @@ class ChartFormatterType extends FormatterBase {
     foreach ($items as $item) {
       $labels[] = $item->label;
       $datas[] = $item->value;
-      $backgroundColor[] = "rgba(" . $this->hex2rgb($item->color) . ",0.8)";
+      $backgroundColor[] = "rgba(" . $this->hex2rgb($item->color) . ",0.7)";
       // $backgroundColor[] = $item->color;
     }
     $elements['#attached']['drupalSettings']['buildercv']['chart_config'] = [

@@ -36,7 +36,11 @@ class IconTextFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    return [ // Implement settings form.
+    return [
+      'layoutgenentitystyles_view' => [
+        '#type' => 'hidden',
+        '#value' => 'buildercv/field-icon-address'
+      ]
     ] + parent::settingsForm($form, $form_state);
   }
   
