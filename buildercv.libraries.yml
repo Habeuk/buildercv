@@ -8,7 +8,13 @@ buildercv:
   dependencies:
     - core/drupalSettings
     - buildercv/vuejs_dev
-
+    
+    
+field_chart:
+  js:
+    js/field-chart.js: {}
+  dependencies:
+    - wb_universe/chartjs
 
 # Third-party library (self hosted).
 jquery-labelauty:

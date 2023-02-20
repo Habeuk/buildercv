@@ -27,9 +27,7 @@ class ChartWidgetType extends WidgetBase {
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    return [
-      'size' => 60,
-      'placeholder' => ''
+    return [ //
     ] + parent::defaultSettings();
   }
   
@@ -39,21 +37,6 @@ class ChartWidgetType extends WidgetBase {
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = [];
-    
-    $elements['size'] = [
-      '#type' => 'number',
-      '#title' => t('Size of textfield'),
-      '#default_value' => $this->getSetting('size'),
-      '#required' => TRUE,
-      '#min' => 1
-    ];
-    $elements['placeholder'] = [
-      '#type' => 'textfield',
-      '#title' => t('Placeholder'),
-      '#default_value' => $this->getSetting('placeholder'),
-      '#description' => t('Text that will be shown inside the field until a value is entered. This hint is usually a sample value or a brief description of the expected format.')
-    ];
-    
     return $elements;
   }
   
@@ -63,16 +46,6 @@ class ChartWidgetType extends WidgetBase {
    */
   public function settingsSummary() {
     $summary = [];
-    
-    $summary[] = t('Textfield size: @size', [
-      '@size' => $this->getSetting('size')
-    ]);
-    if (!empty($this->getSetting('placeholder'))) {
-      $summary[] = t('Placeholder: @placeholder', [
-        '@placeholder' => $this->getSetting('placeholder')
-      ]);
-    }
-    
     return $summary;
   }
   
@@ -82,19 +55,24 @@ class ChartWidgetType extends WidgetBase {
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $elements = [];
+    if (!empty($element['#title_display']))
+      unset($element['#title_display']);
     $elements['value'] = [
-      '#type' => 'textfield',
-      '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
-      '#size' => $this->getSetting('size'),
-      '#placeholder' => $this->getSetting('placeholder'),
-      '#maxlength' => $this->getFieldSetting('max_length')
+      '#title' => $this->t('Value'),
+      '#type' => 'number',
+      '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL
     ] + $element;
+    //
     $elements['color'] = [
+      '#title' => $this->t('Color'),
+      '#type' => 'color',
+      '#default_value' => isset($items[$delta]->color) ? $items[$delta]->color : NULL
+    ] + $element;
+    //
+    $elements['label'] = [
+      '#title' => $this->t('Label'),
       '#type' => 'textfield',
-      '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
-      '#size' => $this->getSetting('size'),
-      '#placeholder' => $this->getSetting('placeholder'),
-      '#maxlength' => $this->getFieldSetting('max_length')
+      '#default_value' => isset($items[$delta]->label) ? $items[$delta]->label : NULL
     ] + $element;
     return $elements;
   }

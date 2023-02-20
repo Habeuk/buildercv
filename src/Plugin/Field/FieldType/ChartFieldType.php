@@ -14,7 +14,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *
  * @FieldType(
  *   id = "chart_field_type",
- *   label = @Translation("Chart field type"),
+ *   label = @Translation("Chart/Diagramme field "),
  *   description = @Translation("permet de contruire rapidement un diagram"),
  *   default_widget = "chart_widget_type",
  *   default_formatter = "chart_formatter_type"
@@ -29,7 +29,9 @@ class ChartFieldType extends FieldItemBase {
   public static function defaultStorageSettings() {
     return [
       'precision' => 10,
-      'scale' => 2
+      'scale' => 2,
+      'max_length' => 100,
+      'case_sensitive' => false
     ] + parent::defaultStorageSettings();
   }
   
@@ -122,6 +124,15 @@ class ChartFieldType extends FieldItemBase {
       '#max' => 10,
       '#default_value' => $settings['scale'],
       '#description' => $this->t('The number of digits to the right of the decimal.'),
+      '#disabled' => $has_data
+    ];
+    $element['max_length'] = [
+      '#type' => 'number',
+      '#title' => t('Maximum length'),
+      '#default_value' => $this->getSetting('max_length'),
+      '#required' => TRUE,
+      '#description' => t('The maximum length of the field in characters.'),
+      '#min' => 1,
       '#disabled' => $has_data
     ];
     return $element;

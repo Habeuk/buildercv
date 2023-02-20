@@ -27,3 +27,7 @@ function template_preprocess_buildercv_icon_text(&$vars) {
     $vars['item'] = $vars['element']['#item'];
   }
 }
+
+function template_preprocess_buildercv_field_chart(&$vars) {
+  //
+}
