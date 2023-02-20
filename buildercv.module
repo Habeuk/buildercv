@@ -75,5 +75,12 @@ function buildercv_theme() {
     'render element' => 'element',
     'file' => 'buildercv.theme.inc'
   ];
+  $hooks['buildercv_field_chart'] = [
+    'preprocess functions' => [
+      'template_preprocess_buildercv_field_chart'
+    ],
+    'render element' => 'element',
+    'file' => 'buildercv.theme.inc'
+  ];
   return $hooks;
 }

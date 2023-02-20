@@ -20,61 +20,90 @@ use Drupal\Core\Form\FormStateInterface;
  * )
  */
 class ChartFormatterType extends FormatterBase {
-
+  
   /**
+   *
    * {@inheritdoc}
    */
   public static function defaultSettings() {
     return [
-      // Implement default settings.
+      'layoutgenentitystyles_view' => 'buildercv/field-chart'
     ] + parent::defaultSettings();
   }
-
+  
   /**
+   *
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     return [
-      // Implement settings form.
+      // utilile pour mettre à jour le style
+      'layoutgenentitystyles_view' => [
+        '#type' => 'hidden',
+        '#value' => 'buildercv/field-chart'
+      ]
     ] + parent::settingsForm($form, $form_state);
   }
-
+  
   /**
+   *
    * {@inheritdoc}
    */
   public function settingsSummary() {
     $summary = [];
     // Implement settings summary.
-
+    
     return $summary;
   }
-
+  
   /**
+   *
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    $elements = [];
-
-    foreach ($items as $delta => $item) {
-      $elements[$delta] = ['#markup' => $this->viewValue($item)];
+    $elements = [
+      '#theme' => 'buildercv_field_chart',
+      '#attached' => [
+        'library' => [
+          'buildercv/field_chart'
+        ]
+      ]
+    ];
+    $labels = [];
+    $datas = [];
+    $backgroundColor = [];
+    foreach ($items as $item) {
+      $labels[] = $item->label;
+      $datas[] = $item->value;
+      $backgroundColor[] = "rgba(" . $this->hex2rgb($item->color) . ",0.8)";
+      // $backgroundColor[] = $item->color;
     }
-
+    $elements['#attached']['drupalSettings']['buildercv']['chart_config'] = [
+      'type' => 'polarArea',
+      'data' => [
+        'labels' => $labels,
+        'datasets' => [
+          [
+            'label' => '',
+            'data' => $datas,
+            'backgroundColor' => $backgroundColor
+          ]
+        ]
+      ]
+    ];
     return $elements;
   }
-
-  /**
-   * Generate the output appropriate for one field item.
-   *
-   * @param \Drupal\Core\Field\FieldItemInterface $item
-   *   One field item.
-   *
-   * @return string
-   *   The textual output generated.
-   */
-  protected function viewValue(FieldItemInterface $item) {
-    // The text value has no text format assigned to it, so the user input
-    // should equal the output, including newlines.
-    return nl2br(Html::escape($item->value));
+  
+  protected function hex2rgb($sTrimmedString) {
+    $sTrimmedString = trim($sTrimmedString, '#');
+    if (strlen($sTrimmedString) === 3) {
+      list($iRed, $iGreen, $iBlue) = array_map(function ($sColor) {
+        return hexdec(str_repeat($sColor, 2));
+      }, str_split($sTrimmedString, 1));
+    }
+    else
+      list($iRed, $iGreen, $iBlue) = array_map('hexdec', str_split($sTrimmedString, 2));
+    return $iRed . ',' . $iGreen . ',' . $iBlue;
   }
-
+  
 }
