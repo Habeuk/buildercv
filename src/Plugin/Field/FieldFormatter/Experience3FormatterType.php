@@ -26,7 +26,7 @@ class Experience3FormatterType extends ExperienceFormatterType {
    */
   public static function defaultSettings() {
     return [
-      'layoutgenentitystyles_view' => 'buildercv/field-form-date'
+      'layoutgenentitystyles_view' => 'buildercv/field-progress-custom'
     ] + parent::defaultSettings();
   }
   
@@ -35,9 +35,6 @@ class Experience3FormatterType extends ExperienceFormatterType {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    // \Stephane888\Debug\debugLog::$max_depth = 7;
-    // \Stephane888\Debug\debugLog::kintDebugDrupal($form, 'settingsForm',
-    // true);
     return [
       // utilile pour mettre à jour le style
       'layoutgenentitystyles_view' => [

@@ -21,6 +21,31 @@ use Drupal\Core\Datetime\DrupalDateTime;
  * )
  */
 class ValueNiveau2FormatterType extends ValueNiveauFormatterType {
+  
+  /**
+   *
+   * {@inheritdoc}
+   */
+  public static function defaultSettings() {
+    return [
+      'layoutgenentitystyles_view' => 'buildercv/field-progress-custom'
+    ] + parent::defaultSettings();
+  }
+  
+  /**
+   *
+   * {@inheritdoc}
+   */
+  public function settingsForm(array $form, FormStateInterface $form_state) {
+    return [
+      // utilile pour mettre à jour le style
+      'layoutgenentitystyles_view' => [
+        '#type' => 'hidden',
+        '#value' => 'buildercv/field-progress-custom'
+      ]
+    ] + parent::settingsForm($form, $form_state);
+  }
+  
   /**
    *
    * {@inheritdoc}
@@ -63,7 +88,7 @@ class ValueNiveau2FormatterType extends ValueNiveauFormatterType {
           '#theme' => 'buildercv_value_niveau_formatter2',
           '#item' => [
             'target_id' => $item->target_id,
-            'niveau' => $item->niveau ?  $item->niveau*20: null,
+            'niveau' => $item->niveau ? $item->niveau * 20 : null,
             'name' => $name,
             'css_container' => $this->getSetting('css_container'),
             'css_label' => $this->getSetting('css_label'),
