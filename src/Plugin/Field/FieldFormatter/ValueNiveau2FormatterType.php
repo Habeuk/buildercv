@@ -28,7 +28,10 @@ class ValueNiveau2FormatterType extends ValueNiveauFormatterType {
    */
   public static function defaultSettings() {
     return [
-      'layoutgenentitystyles_view' => 'buildercv/field-progress-custom'
+      'layoutgenentitystyles_view' => 'buildercv/field-progress-custom',
+      'css_container' => '',
+      'css_label' => '',
+      'css_text' => ''
     ] + parent::defaultSettings();
   }
   
@@ -51,22 +54,15 @@ class ValueNiveau2FormatterType extends ValueNiveauFormatterType {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    $niveau = [
-      1 => 'Faible',
-      2 => 'Base',
-      3 => 'Moyen',
-      4 => 'Bien',
-      5 => 'Excellent'
-    ];
+    
     /**
      *
      * @var \Drupal\Core\Entity\Entity\EntityFormDisplay $entity_form_display
      */
     $entity_form_display = \Drupal::entityTypeManager()->getStorage('entity_form_display')->load($items->getEntity()->getEntityTypeId() . '.' . $items->getEntity()->bundle() . '.default');
-    $settings = $entity_form_display->getComponent($items->getName());
-    if (!empty($settings['settings']['niveau_options'])) {
-      $niveau = $settings['settings']['niveau_options'];
-    }
+    
+    // langue encours
+    $this->lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
     
     $elements = [];
     $taxonomy_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
@@ -78,7 +74,14 @@ class ValueNiveau2FormatterType extends ValueNiveauFormatterType {
      */
     
     foreach ($items as $delta => $item) {
+      /**
+       *
+       * @var \Drupal\taxonomy\Entity\Term $term
+       */
       $term = $taxonomy_term->load($item->target_id);
+      if ($term->hasTranslation($langcode)) {
+        $term = $term->getTranslation($langcode);
+      }
       $name = null;
       if ($term) {
         $name = $term->label();

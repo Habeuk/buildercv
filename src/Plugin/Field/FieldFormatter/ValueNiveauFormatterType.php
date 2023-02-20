@@ -75,7 +75,6 @@ class ValueNiveauFormatterType extends FormatterBase {
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $niveau = [
       1 => 'Faible',
-      
       2 => 'Base',
       3 => 'Moyen',
       4 => 'Bien',
