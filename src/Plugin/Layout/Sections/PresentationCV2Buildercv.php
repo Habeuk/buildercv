@@ -42,7 +42,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *     "buildercv_presentation_cv2_formations" = {
  *       "label" = @Translation(" Formations "),
  *     },
- *     "buildercv_presentation_cv2_Experiences" = {
+ *     "buildercv_presentation_cv2_experiences" = {
  *       "label" = @Translation(" Experiences "),
  *     },
  *     "buildercv_presentation_cv2_title_2" = {
