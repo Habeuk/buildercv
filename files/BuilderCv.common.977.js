@@ -119,7 +119,7 @@ var render = function render() {
 var staticRenderFns = [];
 
 // EXTERNAL MODULE: ./src/formulaires/modalForm.vue + 3 modules
-var modalForm = __webpack_require__(125);
+var modalForm = __webpack_require__(2395);
 // EXTERNAL MODULE: ./node_modules/vuex/dist/vuex.esm.js
 var vuex_esm = __webpack_require__(408);
 // EXTERNAL MODULE: ../components_bootstrapvuejs/src/js/FormUttilities.js
@@ -195,7 +195,7 @@ var component = (0,componentNormalizer/* default */.Z)(
 
 /***/ }),
 
-/***/ 125:
+/***/ 2395:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 
@@ -204,7 +204,7 @@ __webpack_require__.d(__webpack_exports__, {
   "Z": function() { return /* binding */ modalForm; }
 });
 
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/formulaires/modalForm.vue?vue&type=template&id=0d20a44a&
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/formulaires/modalForm.vue?vue&type=template&id=463900df&
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -231,7 +231,11 @@ var render = function render() {
       key: "default",
       fn: function () {
         return [_vm._t("default", function () {
-          return [_c('h4', [_vm._v(_vm._s(_vm.string_modal.title_button_modal))]), _vm._v(" " + _vm._s(_vm.string_modal.desc_modal.value) + " ")];
+          return [_c('h4', [_vm._v(_vm._s(_vm.string_modal.title_button_modal))]), _c('div', {
+            domProps: {
+              "innerHTML": _vm._s(_vm.string_modal.desc_modal.value)
+            }
+          })];
         })];
       },
       proxy: true
