@@ -42,11 +42,11 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *     "buildercv_presentation_cv2_formations" = {
  *       "label" = @Translation(" Formations "),
  *     },
- *     "buildercv_presentation_cv2_title_2" = {
- *       "label" = @Translation(" Title 2 (Experiences) "),
- *     },
  *     "buildercv_presentation_cv2_Experiences" = {
  *       "label" = @Translation(" Experiences "),
+ *     },
+ *     "buildercv_presentation_cv2_title_2" = {
+ *       "label" = @Translation(" Title 2 (Experiences) "),
  *     }
  *   }
  * )
@@ -153,7 +153,7 @@ class PresentationCV2Buildercv extends FormatageModelsSection
           'buildercv_presentation_cv2_title_2' => [
             'text_html' => [
               'label' => 'title 2',
-              'value' => ''
+              'value' => 'EXPERIENCES'
             ]
           ],
           'buildercv_presentation_cv2_experiences' => [
