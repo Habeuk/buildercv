@@ -33228,7 +33228,7 @@ const routes = [{
       hideFooter: true
     },
     props: true,
-    component: () => __webpack_require__.e(/* import() */ 948).then(__webpack_require__.bind(__webpack_require__, 3948))
+    component: () => __webpack_require__.e(/* import() */ 674).then(__webpack_require__.bind(__webpack_require__, 2674))
   }, {
     path: "/login",
     name: "Connection / inscription",
