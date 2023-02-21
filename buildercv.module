@@ -72,6 +72,7 @@ function buildercv_theme()
     'render element' => 'element',
     'file' => 'buildercv.theme.inc'
   ];
+  $hooks['buildercv_experience_formatter4'] = $hooks['buildercv_experience_formatter3'];
   $hooks['buildercv_icon_text'] = [
     'preprocess functions' => [
       'template_preprocess_buildercv_icon_text'

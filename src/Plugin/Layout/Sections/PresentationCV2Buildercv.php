@@ -35,6 +35,18 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *     },
  *     "buildercv_presentation_cv2_contact" = {
  *       "label" = @Translation(" Contact "),
+ *     },
+ *     "buildercv_presentation_cv2_title_1" = {
+ *       "label" = @Translation(" Title 1 (Formation) "),
+ *     },
+ *     "buildercv_presentation_cv2_formations" = {
+ *       "label" = @Translation(" Formations "),
+ *     },
+ *     "buildercv_presentation_cv2_title_2" = {
+ *       "label" = @Translation(" Experiences "),
+ *     },
+ *     "buildercv_presentation_cv2_Experiences" = {
+ *       "label" = @Translation(" Experiences "),
  *     }
  *   }
  * )
@@ -123,6 +135,30 @@ class PresentationCV2Buildercv extends FormatageModelsSection
           'buildercv_presentation_cv2_contact' => [
             'text_html' => [
               'label' => 'contact',
+              'value' => ''
+            ]
+          ],
+          'buildercv_presentation_cv2_title_1' => [
+            'text_html' => [
+              'label' => 'title 1',
+              'value' => 'FORMATIONS'
+            ]
+          ],
+          'buildercv_presentation_cv2_formations' => [
+            'text_html' => [
+              'label' => 'formations',
+              'value' => ''
+            ]
+          ],
+          'buildercv_presentation_cv2_title_2' => [
+            'text_html' => [
+              'label' => 'title 2',
+              'value' => ''
+            ]
+          ],
+          'buildercv_presentation_cv2_experiences' => [
+            'text_html' => [
+              'label' => 'experiences',
               'value' => ''
             ]
           ],
