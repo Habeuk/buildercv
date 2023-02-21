@@ -2,12 +2,12 @@
   <div class="infos field-svg d-flex">
     {% if item.value %}
       <div class="svg">
-        {{ item.value|raw }}
+        {{ item.text|raw }}
       </div>
     {% endif %}
     {% if item.text %}
       <div class="text font-weight-bold">
-        {{ item.text }}
+        {{ item.value }}
       </div>
     {% endif %}
   </div>
