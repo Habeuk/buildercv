@@ -20,25 +20,28 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *   }
  * )
  */
-class ValueNiveauFormatterType extends FormatterBase {
-  
+class ValueNiveauFormatterType extends FormatterBase
+{
+
   /**
    *
    * {@inheritdoc}
    */
-  public static function defaultSettings() {
+  public static function defaultSettings()
+  {
     return [
       'css_container' => 'd-flex time-line flex-wrap align-items-baseline',
       'css_label' => 'mr-3 h4',
       'css_text' => ''
     ] + parent::defaultSettings();
   }
-  
+
   /**
    *
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, FormStateInterface $form_state) {
+  public function settingsForm(array $form, FormStateInterface $form_state)
+  {
     $elements = parent::settingsForm($form, $form_state);
     $elements['css_container'] = [
       '#type' => 'textfield',
@@ -57,28 +60,30 @@ class ValueNiveauFormatterType extends FormatterBase {
     ];
     return $elements;
   }
-  
+
   /**
    *
    * {@inheritdoc}
    */
-  public function settingsSummary() {
+  public function settingsSummary()
+  {
     $summary = [];
     // Implement settings summary.
     return $summary;
   }
-  
+
   /**
    *
    * {@inheritdoc}
    */
-  public function viewElements(FieldItemListInterface $items, $langcode) {
+  public function viewElements(FieldItemListInterface $items, $langcode)
+  {
     $niveau = [
-      1 => 'Faible',
-      2 => 'Base',
-      3 => 'Moyen',
-      4 => 'Bien',
-      5 => 'Excellent'
+      1 => t('Weak'),
+      2 => t('Base'),
+      3 => t('Average'),
+      4 => t('Good'),
+      5 => t('Excellent')
     ];
     /**
      *
@@ -89,7 +94,7 @@ class ValueNiveauFormatterType extends FormatterBase {
     if (!empty($settings['settings']['niveau_options'])) {
       $niveau = $settings['settings']['niveau_options'];
     }
-    
+
     $elements = [];
     $taxonomy_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     /**
@@ -98,7 +103,7 @@ class ValueNiveauFormatterType extends FormatterBase {
      *
      * @var array $niveau
      */
-    
+
     foreach ($items as $delta => $item) {
       $term = $taxonomy_term->load($item->target_id);
       $name = null;
@@ -120,5 +125,4 @@ class ValueNiveauFormatterType extends FormatterBase {
     }
     return $elements;
   }
-  
 }
