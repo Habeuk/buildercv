@@ -1,7 +1,7 @@
 {% if content %}
   <div {{ attributes.addClass(["document-parent", "container"]) }}>
-    <section class="first-presentation col-md-6 ">
-      <div class="element-modif row">
+    <div class="element-modif d-flex">
+      <section class="first-presentation">
 
         {% if content.buildercv_presentation_cv2_image %}
           <div {{ region_attributes.buildercv_presentation_cv2_image.addClass(["photo"]) }}>
@@ -10,25 +10,25 @@
         {% endif %}
 
         {% if content.buildercv_presentation_cv2_name %}
-          <div {{ region_attributes.buildercv_presentation_cv2_name.addClass(["presentation-name", "h1"]) }}>
+          <h1 {{ region_attributes.buildercv_presentation_cv2_name.addClass(["presentation-name", "h1"]) }}>
             {{ content.buildercv_presentation_cv2_name }}
-          </div>
+          </h1>
         {% endif %}
 
         {% if content.buildercv_presentation_cv2_job %}
-          <div {{ region_attributes.buildercv_presentation_cv2_job.addClass(["presentation-profession", "h2"]) }}>
+          <h5 {{ region_attributes.buildercv_presentation_cv2_job.addClass(["presentation-profession", "font-weight-bold"]) }}>
             {{ content.buildercv_presentation_cv2_job }}
-          </div>
+          </h5>
         {% endif %}
 
         {% if content.buildercv_presentation_cv2_status %}
-          <div {{ region_attributes.buildercv_presentation_cv2_status.addClass(["presentation-status", "h5", "font-weight-bold"]) }}>
+          <h5 {{ region_attributes.buildercv_presentation_cv2_status.addClass(["presentation-status", "font-weight-bold"]) }}>
             {{ content.buildercv_presentation_cv2_status }}
-          </div>
+          </h5>
         {% endif %}
 
         {% if content.buildercv_presentation_cv2_description %}
-          <div {{ region_attributes.buildercv_presentation_cv2_description.addClass(["presentation-description"]) }}>
+          <div {{ region_attributes.buildercv_presentation_cv2_description.addClass(["presentation-description", "font-weight-bold"]) }}>
             {{ content.buildercv_presentation_cv2_description }}
           </div>
         {% endif %}
@@ -38,7 +38,27 @@
             {{ content.buildercv_presentation_cv2_contact }}
           </div>
         {% endif %}
+      </section>
+      <div class="mt-5 document-secondaire">
+        <section class="section-formation">
+          {% if content.buildercv_presentation_cv2_title_1 %}
+            {{ content.buildercv_presentation_cv2_title_1 }}
+          {% endif %}
+          {% if content.buildercv_presentation_cv2_formations %}
+            {{ content.buildercv_presentation_cv2_formations }}
+          {% endif %}
+        </section>
+        <section class="section-experiences">
+          {% if content.buildercv_presentation_cv2_title_2 %}
+            {{ content.buildercv_presentation_cv2_title_2 }}
+          {% endif %}
+          {% if content.buildercv_presentation_cv2_experiences %}
+            {{ content.buildercv_presentation_cv2_experiences }}
+          {% endif %}
+        </section>
+
       </div>
-    </section>
+
+    </div>
   </div>
 {% endif %}

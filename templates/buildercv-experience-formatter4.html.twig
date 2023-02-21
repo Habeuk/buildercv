@@ -1,0 +1,25 @@
+{% if item %}
+    <div class="field-stage-region">
+        {% if item.post|has_value or item.company|has_value or item.adress|has_value %}
+            <h4 class="subtitle font-weight-bold">
+                {{ item.post }}
+                , 
+                {{ item.company }}
+                , 
+                {{ item.adress }}
+            </h4>
+        {% endif %}
+        {% if item.description %}
+            <div class="description">
+                {{ item.description }}
+            </div>
+        {% endif %}
+        <h5 class="time mt-3 font-weight-bold">
+            {% if item.date_debut|has_value and item.date_fin|has_value %}
+                {{ item.date_debut }}
+                -
+                {{ item.date_fin }}
+            {% endif %}
+        </h5>
+    </div>
+{% endif %}

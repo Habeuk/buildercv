@@ -68,7 +68,7 @@ class Experience3FormatterType extends ExperienceFormatterType
       $elements[$delta] = [
         '#theme' => 'buildercv_experience_formatter4',
         '#item' => [
-          'value' => Html::escape($item->value),
+          'post' => Html::escape($item->value),
           'company' => Html::escape($item->company),
           'address' => Html::escape($item->address),
           'date_debut' => $date_debut,
