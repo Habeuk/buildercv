@@ -28894,7 +28894,7 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__(3797);
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/App.vue?vue&type=template&id=f8b7673c&
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/App.vue?vue&type=template&id=2dd73347&
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -28907,6 +28907,7 @@ var staticRenderFns = [];
   mounted() {
     this.$store.dispatch("storeForm/loadForm");
     this.$store.dispatch("storeForm/checkStatusUser");
+    this.$store.dispatch("storeForm/loadStrings");
   }
 });
 ;// CONCATENATED MODULE: ./src/App.vue?vue&type=script&lang=js&
@@ -29053,7 +29054,11 @@ var utilities = __webpack_require__(6131);
     /**
      * Contient les données de tous le formulaire.
      */
-    EntitiesForm: []
+    EntitiesForm: [],
+    /**
+     * Contient les textes utiliser au niveau de l'application.
+     */
+    strings: {}
   }),
   mutations: {
     SET_HEADER(state, payload) {
@@ -29118,13 +29123,14 @@ var utilities = __webpack_require__(6131);
       state.RunBuildingForm.timeout = setTimeout(() => {
         state.building_fields = false;
       }, state.RunBuildingForm.time);
+    },
+    SET_STRINGS(state, payload) {
+      state.strings = payload;
     }
   },
   actions: {
     loadForm({
-      commit,
-      state,
-      dispatch
+      commit
     }) {
       commit("ACTIVE_RUNNING");
       const param = {
@@ -29133,7 +29139,6 @@ var utilities = __webpack_require__(6131);
         duplicate: true
       };
       request.bPost("/vuejs-entity/form/get-form/from/entity-id", param, {}, false).then(resp => {
-        console.log("loadForm : ", resp.data[0]);
         commit("DISABLE_RUNNING");
         commit("SET_EntitiesForm", resp.data);
         setTimeout(() => {
@@ -29152,6 +29157,13 @@ var utilities = __webpack_require__(6131);
             commit("SET_FOOTER", entities.footer_paragraph);
           }
         }, 200);
+      });
+    },
+    loadStrings({
+      commit
+    }) {
+      request.get("/buildercv/get/strings").then(resp => {
+        commit("SET_STRINGS", resp.data.texts);
       });
     },
     // Permet de mettre à jour un champs ...
@@ -29210,7 +29222,7 @@ var FormUttilities = __webpack_require__(9351);
   },
   runStep(steps, state) {
     console.log(" currentBuildStep : ", this.currentBuildStep);
-    // On recupere
+    // On recupere.
     var getDataStep = () => {
       if (steps[this.currentBuildStep]) {
         return steps[this.currentBuildStep];
@@ -33181,7 +33193,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 71).then(__webpack_require__.bind(__webpack_require__, 7071))
+    component: () => __webpack_require__.e(/* import() */ 315).then(__webpack_require__.bind(__webpack_require__, 7315))
   }, {
     path: "/experience",
     name: "experience",
@@ -33189,7 +33201,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 362).then(__webpack_require__.bind(__webpack_require__, 2362))
+    component: () => __webpack_require__.e(/* import() */ 977).then(__webpack_require__.bind(__webpack_require__, 977))
   }, {
     path: "/formation",
     name: "Formation",
@@ -33197,7 +33209,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 982).then(__webpack_require__.bind(__webpack_require__, 2982))
+    component: () => __webpack_require__.e(/* import() */ 515).then(__webpack_require__.bind(__webpack_require__, 8515))
   }, {
     path: "/layouts-sections/:keySections/:idEtape",
     name: "dynamique-section",
@@ -33222,7 +33234,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 837).then(__webpack_require__.bind(__webpack_require__, 7837))
+    component: () => __webpack_require__.e(/* import() */ 546).then(__webpack_require__.bind(__webpack_require__, 546))
   }]
 }, {
   path: "/about",
@@ -33364,6 +33376,106 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
         const keySections = src_router.history.current.params.keySections;
         return state.storeForm.layout_paragraphs[keySections].entity;
       } else return {};
+    },
+    /**
+     * Entrée pour les textes.
+     */
+    string_modal: state => {
+      const modal = {
+        title_button_modal: "Conseils",
+        button: "J'ai compris",
+        desc_modal: {
+          value: ""
+        },
+        desc_header: {
+          value: ""
+        }
+      };
+      if (state.storeForm.strings && state.storeForm.strings.modal) {
+        modal.title_button_modal = state.storeForm.strings.modal.title_button_modal;
+        modal.button = state.storeForm.strings.modal.button;
+        modal.desc_modal.value = state.storeForm.strings.modal.desc_modal.value;
+        modal.desc_header.value = state.storeForm.strings.modal.desc_header.value;
+      }
+      return modal;
+    },
+    string_actions: state => {
+      const actions = {
+        buttons_next: "Etape suivante",
+        buttons_previews: "Etape precedente",
+        create_cv: "Crrer votre CV",
+        see_cv: "Voir votre CV",
+        admin_cv: "Adminitration de votre CV"
+      };
+      if (state.storeForm.strings && state.storeForm.strings.actions) {
+        actions.buttons_next = state.storeForm.strings.actions.buttons_next;
+        actions.buttons_previews = state.storeForm.strings.actions.buttons_previews;
+        actions.create_cv = state.storeForm.strings.actions.create_cv;
+        actions.see_cv = state.storeForm.strings.actions.see_cv;
+        actions.admin_cv = state.storeForm.strings.actions.admin_cv;
+      }
+      return actions;
+    },
+    strings_presentation: state => {
+      const presentation = {
+        title_box: "Dites-nous en plus sur vous",
+        desc_box: {
+          value: ""
+        }
+      };
+      if (state.storeForm.strings && state.storeForm.strings.presentation) {
+        presentation.title_box = state.storeForm.strings.presentation.title_box;
+        presentation.desc_box.value = state.storeForm.strings.presentation.desc_box.value;
+      }
+      return presentation;
+    },
+    strings_experience: state => {
+      const experience = {
+        title_box: "Expérience professionnelle",
+        desc_box: {
+          value: ""
+        }
+      };
+      if (state.storeForm.strings && state.storeForm.strings.experience) {
+        experience.title_box = state.storeForm.strings.experience.title_box;
+        experience.desc_box.value = state.storeForm.strings.experience.desc_box.value;
+      }
+      return experience;
+    },
+    strings_formation: state => {
+      const formation = {
+        title_box: "Expérience professionnelle",
+        desc_box: {
+          value: ""
+        }
+      };
+      if (state.storeForm.strings && state.storeForm.strings.formation) {
+        formation.title_box = state.storeForm.strings.formation.title_box;
+        formation.desc_box.value = state.storeForm.strings.formation.desc_box.value;
+      }
+      return formation;
+    },
+    strings_createpage: state => {
+      const createpage = {
+        title_box: "Creer votre CV",
+        desc_box: {
+          value: ""
+        }
+      };
+      if (state.storeForm.strings && state.storeForm.strings.createpage) {
+        createpage.title_box = state.storeForm.strings.createpage.title_box;
+        createpage.desc_box.value = state.storeForm.strings.createpage.desc_box.value;
+      }
+      return createpage;
+    },
+    strings_steps: state => {
+      if (state.storeForm.strings && state.storeForm.strings.steps) {
+        const steps = state.storeForm.strings.steps;
+        state.build_steps.forEach((item, i) => {
+          if (steps[item.step]) state.build_steps[i].titre = steps[item.step];
+        });
+      }
+      return state.build_steps;
     }
   },
   mutations: {
@@ -72404,8 +72516,8 @@ const Cards = {
   }
 };
 /* harmony default export */ var components_Cards = (Cards);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/views/ContainerPage.vue?vue&type=template&id=602ee8bb&
-var ContainerPagevue_type_template_id_602ee8bb_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/views/ContainerPage.vue?vue&type=template&id=0e7cc03a&
+var ContainerPagevue_type_template_id_0e7cc03a_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -72417,7 +72529,7 @@ var ContainerPagevue_type_template_id_602ee8bb_render = function render() {
       on: {
         "click": _vm.openModal
       }
-    }, [_vm._v(" Conseils ")])];
+    }, [_vm._v(" " + _vm._s(_vm.string_modal.title_button_modal) + " ")])];
   })], 2) : _vm._e(), _c('main', {
     staticClass: "row justify-content-center"
   }, [_c('div', {
@@ -72445,12 +72557,13 @@ var ContainerPagevue_type_template_id_602ee8bb_render = function render() {
     staticClass: "col-md-6"
   }, [_vm._t("right")], 2) : _vm._e()])])], 1);
 };
-var ContainerPagevue_type_template_id_602ee8bb_staticRenderFns = [];
+var ContainerPagevue_type_template_id_0e7cc03a_staticRenderFns = [];
 
 // EXTERNAL MODULE: ./node_modules/vue-custom-scrollbar/dist/vueScrollbar.umd.min.js
 var vueScrollbar_umd_min = __webpack_require__(8498);
 var vueScrollbar_umd_min_default = /*#__PURE__*/__webpack_require__.n(vueScrollbar_umd_min);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/views/ContainerPage.vue?vue&type=script&lang=js&
+
 
 
 /* harmony default export */ var ContainerPagevue_type_script_lang_js_ = ({
@@ -72477,6 +72590,9 @@ var vueScrollbar_umd_min_default = /*#__PURE__*/__webpack_require__.n(vueScrollb
       }
     };
   },
+  computed: {
+    ...(0,vuex_esm/* mapGetters */.Se)(["string_modal"])
+  },
   methods: {
     /**
      * --//
@@ -72498,8 +72614,8 @@ var vueScrollbar_umd_min_default = /*#__PURE__*/__webpack_require__.n(vueScrollb
 ;
 var ContainerPage_component = (0,componentNormalizer/* default */.Z)(
   views_ContainerPagevue_type_script_lang_js_,
-  ContainerPagevue_type_template_id_602ee8bb_render,
-  ContainerPagevue_type_template_id_602ee8bb_staticRenderFns,
+  ContainerPagevue_type_template_id_0e7cc03a_render,
+  ContainerPagevue_type_template_id_0e7cc03a_staticRenderFns,
   false,
   null,
   null,

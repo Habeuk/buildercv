@@ -117,18 +117,23 @@ class BuildercvController extends ControllerBase {
         $cv_entity = $this->entityTypeManager()->getStorage("cv_entity")->create($defaultValues);
         $cv_entity->save();
         //
-        return HttpResponse::reponse($cv_entity->toArray());
+        return HttpResponse::response($cv_entity->toArray());
       }
       catch (\Exception $e) {
         $errors = ExceptionExtractMessage::errorAllToString($e);
         $this->getLogger('buildercv')->critical($e->getMessage() . '<br>' . $errors);
-        return HttpResponse::reponse(ExceptionExtractMessage::errorAll($e), 400, $e->getMessage());
+        return HttpResponse::response(ExceptionExtractMessage::errorAll($e), 400, $e->getMessage());
       }
     }
     else {
       $this->getLogger('buildercv')->critical(" Le contenu model n'existe plus : " . $id);
-      return HttpResponse::reponse([], 400, " Le contenu model n'existe plus : " . $id);
+      return HttpResponse::response([], 400, " Le contenu model n'existe plus : " . $id);
     }
+  }
+  
+  function getStrings() {
+    $configs = $this->config('buildercv.settings')->getRawData();
+    return HttpResponse::response($configs);
   }
   
   /**

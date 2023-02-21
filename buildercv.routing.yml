@@ -23,6 +23,14 @@ buildercv.crete_home_page:
     _controller: '\Drupal\buildercv\Controller\BuildercvController::createHomePage'
   requirements:
     _permission: 'access content'
+    
+buildercv.get_strings:
+  path: '/buildercv/get/strings'
+  defaults:
+    _title: 'Constructeur de CV'
+    _controller: '\Drupal\buildercv\Controller\BuildercvController::getStrings'
+  requirements:
+    _permission: 'access content'
 
 buildercv.settings_form:
   path: '/admin/config/system/buildercv'
