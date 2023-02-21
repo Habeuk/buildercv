@@ -5740,7 +5740,7 @@ __webpack_require__(7888);
 
 /***/ }),
 
-/***/ 125:
+/***/ 6016:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7171,8 +7171,8 @@ var html_render_component = (0,componentNormalizer/* default */.Z)(
 )
 
 /* harmony default export */ var html_render = (html_render_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/drupal-file.vue?vue&type=template&id=37a0ee95&
-var drupal_filevue_type_template_id_37a0ee95_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/drupal-file.vue?vue&type=template&id=c3bb4e0a&
+var drupal_filevue_type_template_id_c3bb4e0a_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -7252,7 +7252,7 @@ var drupal_filevue_type_template_id_37a0ee95_render = function render() {
     })], 1);
   }), 0)], 1);
 };
-var drupal_filevue_type_template_id_37a0ee95_staticRenderFns = [];
+var drupal_filevue_type_template_id_c3bb4e0a_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/drupal-file.vue?vue&type=script&lang=js&
 
@@ -7261,7 +7261,7 @@ var drupal_filevue_type_template_id_37a0ee95_staticRenderFns = [];
 
 
 /* harmony default export */ var drupal_filevue_type_script_lang_js_ = ({
-  name: "UploaderFile",
+  name: "DrupalFile",
   components: {
     ValidationProvider: vee_validate_esm/* ValidationProvider */.d_
   },
@@ -7468,8 +7468,8 @@ var drupal_filevue_type_template_id_37a0ee95_staticRenderFns = [];
 ;
 var drupal_file_component = (0,componentNormalizer/* default */.Z)(
   fieldsDrupal_drupal_filevue_type_script_lang_js_,
-  drupal_filevue_type_template_id_37a0ee95_render,
-  drupal_filevue_type_template_id_37a0ee95_staticRenderFns,
+  drupal_filevue_type_template_id_c3bb4e0a_render,
+  drupal_filevue_type_template_id_c3bb4e0a_staticRenderFns,
   false,
   null,
   null,
@@ -11084,7 +11084,7 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
 "use strict";
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6352);
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_fieldsDrupal_loadField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(125);
+/* harmony import */ var _components_fieldsDrupal_loadField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6016);
 
 
 /* harmony default export */ __webpack_exports__["Z"] = ({
@@ -17307,6 +17307,23 @@ var index = {
 };
 /* harmony default export */ __webpack_exports__["ZP"] = (index);
 
+
+/***/ }),
+
+/***/ 4269:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var wbuutilities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2459);
+
+
+//
+/* harmony default export */ __webpack_exports__["Z"] = ({
+  ...wbuutilities__WEBPACK_IMPORTED_MODULE_0__/* .AjaxToastBootStrap */ .Ht,
+  languageId: window.drupalSettings && window.drupalSettings.path && window.drupalSettings.path.currentLanguage ? window.drupalSettings.path.currentLanguage : null,
+  TestDomain: "http://wb-horizon.kksa",
+  debug: true
+});
 
 /***/ }),
 
@@ -28946,18 +28963,8 @@ var component = (0,componentNormalizer/* default */.Z)(
 /* harmony default export */ var App = (component.exports);
 // EXTERNAL MODULE: ./node_modules/vuex/dist/vuex.esm.js
 var vuex_esm = __webpack_require__(5340);
-// EXTERNAL MODULE: ../wbuutilities/index.js + 71 modules
-var wbuutilities = __webpack_require__(2459);
-;// CONCATENATED MODULE: ./src/request.js
-
-
-//
-/* harmony default export */ var request = ({
-  ...wbuutilities/* AjaxToastBootStrap */.Ht,
-  languageId: window.drupalSettings && window.drupalSettings.path && window.drupalSettings.path.currentLanguage ? window.drupalSettings.path.currentLanguage : null,
-  TestDomain: "http://wb-horizon.kksa",
-  debug: true
-});
+// EXTERNAL MODULE: ./src/request.js
+var request = __webpack_require__(4269);
 // EXTERNAL MODULE: ../drupal-vuejs/src/App/utilities.js + 1 modules
 var utilities = __webpack_require__(4229);
 ;// CONCATENATED MODULE: ../drupal-vuejs/src/App/users/user.js
@@ -29026,7 +29033,7 @@ var utilities = __webpack_require__(4229);
 
 /* harmony default export */ var User = ({
   ...user,
-  ...request
+  ...request/* default */.Z
 });
 ;// CONCATENATED MODULE: ./src/formulaires/storeForm.js
 
@@ -29148,7 +29155,7 @@ var utilities = __webpack_require__(4229);
         entity_type_id: "model_cv",
         duplicate: true
       };
-      request.bPost("/vuejs-entity/form/get-form/from/entity-id", param, {}, false).then(resp => {
+      request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", param, {}, false).then(resp => {
         commit("DISABLE_RUNNING");
         commit("SET_EntitiesForm", resp.data);
         setTimeout(() => {
@@ -29172,7 +29179,7 @@ var utilities = __webpack_require__(4229);
     loadStrings({
       commit
     }) {
-      request.get("/buildercv/get/strings").then(resp => {
+      request/* default.get */.Z.get("/buildercv/get/strings").then(resp => {
         commit("SET_STRINGS", resp.data.texts);
       });
     },
@@ -29210,7 +29217,7 @@ var FormUttilities = __webpack_require__(7657);
 
 
 /* harmony default export */ var GenerateCv = ({
-  ...request,
+  ...request/* default */.Z,
   /**
    * Entité drupal domain_ovh_entity
    */
@@ -29266,7 +29273,7 @@ var FormUttilities = __webpack_require__(7657);
           });else this.messages.warnings.push(" L'entité du domaine n'a pas pu etre creer ");
           if (this.domainRegister.hostname) {
             var languageId = "/";
-            languageId += request.languageId && request.languageId != null ? request.languageId : "";
+            languageId += request/* default.languageId */.Z.languageId && request/* default.languageId */.Z.languageId != null ? request/* default.languageId */.Z.languageId : "";
             store.commit("SET_HOSTNAME", {
               domain: this.domainRegister.hostname + languageId,
               scheme: this.domainRegister.scheme
@@ -33203,7 +33210,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 568).then(__webpack_require__.bind(__webpack_require__, 2568))
+    component: () => __webpack_require__.e(/* import() */ 398).then(__webpack_require__.bind(__webpack_require__, 9398))
   }, {
     path: "/experience",
     name: "experience",
@@ -33211,7 +33218,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 515).then(__webpack_require__.bind(__webpack_require__, 2515))
+    component: () => __webpack_require__.e(/* import() */ 813).then(__webpack_require__.bind(__webpack_require__, 8813))
   }, {
     path: "/formation",
     name: "Formation",
@@ -33219,7 +33226,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 877).then(__webpack_require__.bind(__webpack_require__, 2877))
+    component: () => __webpack_require__.e(/* import() */ 6).then(__webpack_require__.bind(__webpack_require__, 9006))
   }, {
     path: "/layouts-sections/:keySections/:idEtape",
     name: "dynamique-section",
@@ -33228,7 +33235,7 @@ const routes = [{
       hideFooter: true
     },
     props: true,
-    component: () => __webpack_require__.e(/* import() */ 674).then(__webpack_require__.bind(__webpack_require__, 2674))
+    component: () => __webpack_require__.e(/* import() */ 463).then(__webpack_require__.bind(__webpack_require__, 4463))
   }, {
     path: "/login",
     name: "Connection / inscription",
@@ -33580,7 +33587,7 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
         commit("ACTIVE_RUNNING");
         if (payload.entity_type_id == undefined || !payload.entity_type_id) {
           reject("Paramettre manquant");
-        } else request.bPost("/apivuejs/save-entity/" + payload.entity_type_id, payload.value).then(resp => {
+        } else request/* default.bPost */.Z.bPost("/apivuejs/save-entity/" + payload.entity_type_id, payload.value).then(resp => {
           console.log("resp : ", resp);
           // setTimeout(() => {
           console.log(" payload : ", payload);
