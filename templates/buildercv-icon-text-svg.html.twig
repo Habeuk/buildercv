@@ -2,7 +2,7 @@
   <div class="infos field-svg d-flex">
     {% if item.value %}
       <div class="svg">
-        {{ item.value }}
+        {{ item.value|raw }}
       </div>
     {% endif %}
     {% if item.text %}
