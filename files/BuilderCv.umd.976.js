@@ -183,7 +183,7 @@ var render = function render() {
 var staticRenderFns = [];
 
 // EXTERNAL MODULE: ./src/formulaires/modalForm.vue + 3 modules
-var modalForm = __webpack_require__(2604);
+var modalForm = __webpack_require__(2781);
 // EXTERNAL MODULE: ./node_modules/vuex/dist/vuex.esm.js
 var vuex_esm = __webpack_require__(5340);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/formulaires/SaveForms.vue?vue&type=script&lang=js&
@@ -270,7 +270,7 @@ var component = (0,componentNormalizer/* default */.Z)(
 
 /***/ }),
 
-/***/ 2604:
+/***/ 2781:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 
@@ -279,7 +279,7 @@ __webpack_require__.d(__webpack_exports__, {
   "Z": function() { return /* binding */ modalForm; }
 });
 
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/formulaires/modalForm.vue?vue&type=template&id=463900df&
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/formulaires/modalForm.vue?vue&type=template&id=66a18a96&
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -308,7 +308,7 @@ var render = function render() {
         return [_vm._t("default", function () {
           return [_c('h4', [_vm._v(_vm._s(_vm.string_modal.title_button_modal))]), _c('div', {
             domProps: {
-              "innerHTML": _vm._s(_vm.string_modal.desc_modal.value)
+              "innerHTML": _vm._s(_vm.string_modal.desc_modal.valuex)
             }
           })];
         })];
