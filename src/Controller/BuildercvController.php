@@ -133,7 +133,20 @@ class BuildercvController extends ControllerBase {
   
   function getStrings() {
     $configs = $this->config('buildercv.settings')->getRawData();
+    // Get translation string.
+    $this->retrieveTranslation($configs);
     return HttpResponse::response($configs);
+  }
+  
+  function retrieveTranslation(array &$configs) {
+    foreach ($configs as &$config) {
+      if (is_array($config)) {
+        $this->retrieveTranslation($config);
+      }
+      else {
+        $config = t($config);
+      }
+    }
   }
   
   /**
