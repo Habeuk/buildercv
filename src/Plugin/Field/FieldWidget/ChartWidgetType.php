@@ -27,7 +27,10 @@ class ChartWidgetType extends WidgetBase {
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    return [ //
+    return [
+      'label_1' => "Label",
+      'label_2' => "Niveau",
+      'label_3' => "Color"
     ] + parent::defaultSettings();
   }
   
@@ -37,6 +40,21 @@ class ChartWidgetType extends WidgetBase {
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = [];
+    $elements['label_1'] = [
+      '#type' => 'textfield',
+      '#title' => t('label 1'),
+      '#default_value' => $this->getSetting('label_1')
+    ];
+    $elements['label_2'] = [
+      '#type' => 'textfield',
+      '#title' => t('label 2'),
+      '#default_value' => $this->getSetting('label_2')
+    ];
+    $elements['label_3'] = [
+      '#type' => 'textfield',
+      '#title' => t('label 3'),
+      '#default_value' => $this->getSetting('label_3')
+    ];
     return $elements;
   }
   

@@ -5730,7 +5730,7 @@ __webpack_require__(7888);
 
 /***/ }),
 
-/***/ 8487:
+/***/ 958:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10724,6 +10724,535 @@ var StockLevel_component = (0,componentNormalizer/* default */.Z)(
 )
 
 /* harmony default export */ var StockLevel = (StockLevel_component.exports);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/IconTextWidget.vue?vue&type=template&id=f25b2eea&
+var IconTextWidgetvue_type_template_id_f25b2eea_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', {
+    class: _vm.classCss
+  }, [_c('ValidationProvider', {
+    attrs: {
+      "name": _vm.fullname,
+      "rules": _vm.getRules()
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function (v) {
+        return [_c('div', {
+          staticClass: "border p-2 container-field"
+        }, [_c('div', {
+          staticClass: "header d-flex align-items-center justify-content-between px-3 mb-3"
+        }, [_c('label', {
+          staticClass: "pt-2",
+          domProps: {
+            "innerHTML": _vm._s(_vm.field.label)
+          }
+        }), _c('div', [_vm.cardinality ? _c('b-button', {
+          staticClass: "p-0 border-0",
+          attrs: {
+            "variant": "outline-info",
+            "size": "sm"
+          },
+          on: {
+            "click": _vm.add
+          }
+        }, [_c('b-icon', {
+          attrs: {
+            "icon": "plus-square",
+            "font-scale": "2"
+          }
+        })], 1) : _vm._e()], 1)]), _vm._l(_vm.input_value, function (val, i) {
+          return _c('div', {
+            key: i,
+            staticClass: "px-3 pt-3 field-item-value"
+          }, [_vm.cardinality ? _c('b-button', {
+            staticClass: "p-0 border-0 elt-remove",
+            attrs: {
+              "variant": "outline-danger",
+              "size": "sm"
+            },
+            on: {
+              "click": function ($event) {
+                return _vm.remove(i);
+              }
+            }
+          }, [_c('b-icon', {
+            attrs: {
+              "icon": "trash",
+              "font-scale": "1"
+            }
+          })], 1) : _vm._e(), _c('b-form-group', {
+            attrs: {
+              "label": _vm.field.settings.label_1
+            }
+          }, [_c('b-form-input', {
+            attrs: {
+              "placeholder": _vm.field.placeholder,
+              "name": _vm.fullname + '.' + i,
+              "debounce": "2500"
+            },
+            on: {
+              "input": _vm.input
+            },
+            model: {
+              value: val.value,
+              callback: function ($$v) {
+                _vm.$set(val, "value", $$v);
+              },
+              expression: "val.value"
+            }
+          }), v.errors ? _c('div', {
+            staticClass: "text-danger my-2"
+          }, _vm._l(v.errors, function (error, ii) {
+            return _c('small', {
+              key: ii,
+              staticClass: "d-block"
+            }, [_vm._v(" " + _vm._s(error) + " ")]);
+          }), 0) : _vm._e()], 1), _c('b-form-group', {
+            attrs: {
+              "label": _vm.field.settings.label_2
+            }
+          }, [_c('b-form-textarea', {
+            attrs: {
+              "rows": "3",
+              "max-rows": "6"
+            },
+            model: {
+              value: val.text,
+              callback: function ($$v) {
+                _vm.$set(val, "text", $$v);
+              },
+              expression: "val.text"
+            }
+          }), v.errors ? _c('div', {
+            staticClass: "text-danger my-2"
+          }, _vm._l(v.errors, function (error, ii) {
+            return _c('small', {
+              key: ii,
+              staticClass: "d-block"
+            }, [_vm._v(" " + _vm._s(error) + " ")]);
+          }), 0) : _vm._e()], 1)], 1);
+        }), _c('div', {
+          domProps: {
+            "innerHTML": _vm._s(_vm.field.description)
+          }
+        })], 2)];
+      }
+    }])
+  })], 1);
+};
+var IconTextWidgetvue_type_template_id_f25b2eea_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/IconTextWidget.vue?vue&type=script&lang=js&
+
+
+
+
+const input_default = {
+  text: "",
+  value: "",
+  format: "full_html"
+};
+/* harmony default export */ var IconTextWidgetvue_type_script_lang_js_ = ({
+  name: "DrupalString",
+  components: {
+    ValidationProvider: vee_validate_esm/* ValidationProvider */.d_
+  },
+  props: {
+    classCss: {
+      type: [Array],
+      default: function () {
+        return [];
+      }
+    },
+    field: {
+      type: Object,
+      required: true
+    },
+    model: {
+      type: [Object, Array],
+      required: true
+    },
+    namespaceStore: {
+      type: String,
+      required: true
+    },
+    parentName: {
+      type: String,
+      required: true
+    }
+  },
+  data() {
+    return {
+      input_value: null,
+      timeout: null
+    };
+  },
+  computed: {
+    fullname() {
+      return this.parentName + this.field.name;
+    },
+    cardinality() {
+      if (this.field.cardinality === -1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
+  watch: {
+    /**
+     * Lorsque le champs est construt via les boucles dynamique,
+     * le template n'est pas reconstruit ducoup la valeur du precedent champs est concerservé.
+     * On applique ce watch et on verra les resultats.
+     * Cela ne s'execute que dans le cadre d'un watch et permet de ressoudre le probleme.
+     */
+    field() {
+      this.input_value = this.getValue();
+    }
+  },
+  mounted() {
+    // On recupere la valeur par defaut pour chaque construction:
+    this.input_value = this.getValue();
+  },
+  methods: {
+    getValidationState({
+      dirty,
+      validated,
+      valid = null
+    }) {
+      return (dirty || validated) && !valid ? valid : null;
+    },
+    getRules() {
+      return loadField.getRules(this.field);
+    },
+    setValue(vals) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        if (this.namespaceStore) {
+          this.$store.dispatch(this.namespaceStore + "/setValue", {
+            value: vals,
+            fieldName: this.fullname
+          });
+        } else this.$store.dispatch("setValue", {
+          value: vals,
+          fieldName: this.fullname
+        });
+      }, loadField.timeToWait);
+    },
+    getValue() {
+      if (this.model[this.field.name] && this.model[this.field.name][0]) {
+        return this.model[this.field.name];
+      } else return [input_default];
+    },
+    input() {
+      this.setValue(this.input_value);
+    },
+    add() {
+      this.input_value.push(input_default);
+    },
+    remove(index) {
+      this.input_value.splice(index, 1);
+    }
+  }
+});
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/IconTextWidget.vue?vue&type=script&lang=js&
+ /* harmony default export */ var fieldsDrupal_IconTextWidgetvue_type_script_lang_js_ = (IconTextWidgetvue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/IconTextWidget.vue
+
+
+
+
+
+/* normalize component */
+;
+var IconTextWidget_component = (0,componentNormalizer/* default */.Z)(
+  fieldsDrupal_IconTextWidgetvue_type_script_lang_js_,
+  IconTextWidgetvue_type_template_id_f25b2eea_render,
+  IconTextWidgetvue_type_template_id_f25b2eea_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var IconTextWidget = (IconTextWidget_component.exports);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/ChartWidgetType.vue?vue&type=template&id=b0278a02&
+var ChartWidgetTypevue_type_template_id_b0278a02_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', {
+    class: _vm.classCss
+  }, [_c('ValidationProvider', {
+    attrs: {
+      "name": _vm.fullname,
+      "rules": _vm.getRules()
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function (v) {
+        return [_c('div', {
+          staticClass: "border p-2 container-field"
+        }, [_c('div', {
+          staticClass: "header d-flex align-items-center justify-content-between px-3 mb-3"
+        }, [_c('label', {
+          staticClass: "pt-2",
+          domProps: {
+            "innerHTML": _vm._s(_vm.field.label)
+          }
+        }), _c('div', [_vm.cardinality ? _c('b-button', {
+          staticClass: "p-0 border-0",
+          attrs: {
+            "variant": "outline-info",
+            "size": "sm"
+          },
+          on: {
+            "click": _vm.add
+          }
+        }, [_c('b-icon', {
+          attrs: {
+            "icon": "plus-square",
+            "font-scale": "2"
+          }
+        })], 1) : _vm._e()], 1)]), _vm._l(_vm.input_value, function (val, i) {
+          return _c('div', {
+            key: i,
+            staticClass: "px-3 pt-3 field-item-value"
+          }, [_vm.cardinality ? _c('b-button', {
+            staticClass: "p-0 border-0 elt-remove",
+            attrs: {
+              "variant": "outline-danger",
+              "size": "sm"
+            },
+            on: {
+              "click": function ($event) {
+                return _vm.remove(i);
+              }
+            }
+          }, [_c('b-icon', {
+            attrs: {
+              "icon": "trash",
+              "font-scale": "1"
+            }
+          })], 1) : _vm._e(), _c('b-form-group', {
+            attrs: {
+              "label": _vm.field.settings.label_1
+            }
+          }, [_c('b-form-input', {
+            attrs: {
+              "placeholder": _vm.field.placeholder,
+              "name": _vm.fullname + '.' + i,
+              "debounce": "2500"
+            },
+            on: {
+              "input": _vm.input
+            },
+            model: {
+              value: val.label,
+              callback: function ($$v) {
+                _vm.$set(val, "label", $$v);
+              },
+              expression: "val.label"
+            }
+          }), v.errors ? _c('div', {
+            staticClass: "text-danger my-2"
+          }, _vm._l(v.errors, function (error, ii) {
+            return _c('small', {
+              key: ii,
+              staticClass: "d-block"
+            }, [_vm._v(" " + _vm._s(error) + " ")]);
+          }), 0) : _vm._e()], 1), _c('b-form-group', {
+            attrs: {
+              "label": _vm.field.settings.label_2
+            }
+          }, [_c('b-form-input', {
+            attrs: {
+              "type": "number"
+            },
+            model: {
+              value: val.value,
+              callback: function ($$v) {
+                _vm.$set(val, "value", $$v);
+              },
+              expression: "val.value"
+            }
+          }), v.errors ? _c('div', {
+            staticClass: "text-danger my-2"
+          }, _vm._l(v.errors, function (error, ii) {
+            return _c('small', {
+              key: ii,
+              staticClass: "d-block"
+            }, [_vm._v(" " + _vm._s(error) + " ")]);
+          }), 0) : _vm._e()], 1), _c('b-form-group', {
+            attrs: {
+              "label": _vm.field.settings.label_3
+            }
+          }, [_c('b-form-input', {
+            attrs: {
+              "type": "color"
+            },
+            model: {
+              value: val.color,
+              callback: function ($$v) {
+                _vm.$set(val, "color", $$v);
+              },
+              expression: "val.color"
+            }
+          }), v.errors ? _c('div', {
+            staticClass: "text-danger my-2"
+          }, _vm._l(v.errors, function (error, ii) {
+            return _c('small', {
+              key: ii,
+              staticClass: "d-block"
+            }, [_vm._v(" " + _vm._s(error) + " ")]);
+          }), 0) : _vm._e()], 1)], 1);
+        }), _c('div', {
+          domProps: {
+            "innerHTML": _vm._s(_vm.field.description)
+          }
+        })], 2)];
+      }
+    }])
+  })], 1);
+};
+var ChartWidgetTypevue_type_template_id_b0278a02_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/ChartWidgetType.vue?vue&type=script&lang=js&
+
+
+
+
+const ChartWidgetTypevue_type_script_lang_js_input_default = {
+  label: "",
+  value: "",
+  color: ""
+};
+/* harmony default export */ var ChartWidgetTypevue_type_script_lang_js_ = ({
+  name: "DrupalString",
+  components: {
+    ValidationProvider: vee_validate_esm/* ValidationProvider */.d_
+  },
+  props: {
+    classCss: {
+      type: [Array],
+      default: function () {
+        return [];
+      }
+    },
+    field: {
+      type: Object,
+      required: true
+    },
+    model: {
+      type: [Object, Array],
+      required: true
+    },
+    namespaceStore: {
+      type: String,
+      required: true
+    },
+    parentName: {
+      type: String,
+      required: true
+    }
+  },
+  data() {
+    return {
+      input_value: null,
+      timeout: null
+    };
+  },
+  computed: {
+    fullname() {
+      return this.parentName + this.field.name;
+    },
+    cardinality() {
+      if (this.field.cardinality === -1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
+  watch: {
+    /**
+     * Lorsque le champs est construt via les boucles dynamique,
+     * le template n'est pas reconstruit ducoup la valeur du precedent champs est concerservé.
+     * On applique ce watch et on verra les resultats.
+     * Cela ne s'execute que dans le cadre d'un watch et permet de ressoudre le probleme.
+     */
+    field() {
+      this.input_value = this.getValue();
+    }
+  },
+  mounted() {
+    // On recupere la valeur par defaut pour chaque construction:
+    this.input_value = this.getValue();
+  },
+  methods: {
+    getValidationState({
+      dirty,
+      validated,
+      valid = null
+    }) {
+      return (dirty || validated) && !valid ? valid : null;
+    },
+    getRules() {
+      return loadField.getRules(this.field);
+    },
+    setValue(vals) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        if (this.namespaceStore) {
+          this.$store.dispatch(this.namespaceStore + "/setValue", {
+            value: vals,
+            fieldName: this.fullname
+          });
+        } else this.$store.dispatch("setValue", {
+          value: vals,
+          fieldName: this.fullname
+        });
+      }, loadField.timeToWait);
+    },
+    getValue() {
+      if (this.model[this.field.name] && this.model[this.field.name][0]) {
+        return this.model[this.field.name];
+      } else return [ChartWidgetTypevue_type_script_lang_js_input_default];
+    },
+    input() {
+      this.setValue(this.input_value);
+    },
+    add() {
+      this.input_value.push(ChartWidgetTypevue_type_script_lang_js_input_default);
+    },
+    remove(index) {
+      this.input_value.splice(index, 1);
+    }
+  }
+});
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/ChartWidgetType.vue?vue&type=script&lang=js&
+ /* harmony default export */ var fieldsDrupal_ChartWidgetTypevue_type_script_lang_js_ = (ChartWidgetTypevue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/ChartWidgetType.vue
+
+
+
+
+
+/* normalize component */
+;
+var ChartWidgetType_component = (0,componentNormalizer/* default */.Z)(
+  fieldsDrupal_ChartWidgetTypevue_type_script_lang_js_,
+  ChartWidgetTypevue_type_template_id_b0278a02_render,
+  ChartWidgetTypevue_type_template_id_b0278a02_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var ChartWidgetType = (ChartWidgetType_component.exports);
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/Containers/NoContainer.vue?vue&type=template&id=ecdce68a&
 var NoContainervue_type_template_id_ecdce68a_render = function render() {
   var _vm = this,
@@ -10936,9 +11465,14 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
 
 
 
+
+
 // load Container
 
 
+
+
+// import style
 
 /* harmony default export */ var loadField = ({
   debug: false,
@@ -11025,6 +11559,12 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
       case "commerce_stock_level_simple_transaction":
         template = StockLevel;
         break;
+      case "icon_text_widget":
+        template = IconTextWidget;
+        break;
+      case "chart_widget_type":
+        template = ChartWidgetType;
+        break;
       default:
         console.log(" Champs sans rendu : ", key, "\n field : ", field);
         break;
@@ -11074,7 +11614,7 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
 "use strict";
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6352);
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_fieldsDrupal_loadField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8487);
+/* harmony import */ var _components_fieldsDrupal_loadField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(958);
 
 
 /* harmony default export */ __webpack_exports__["Z"] = ({
@@ -33225,7 +33765,7 @@ const routes = [{
       hideFooter: true
     },
     props: true,
-    component: () => __webpack_require__.e(/* import() */ 670).then(__webpack_require__.bind(__webpack_require__, 5567))
+    component: () => __webpack_require__.e(/* import() */ 751).then(__webpack_require__.bind(__webpack_require__, 3751))
   }, {
     path: "/login",
     name: "Connection / inscription",
@@ -33241,7 +33781,7 @@ const routes = [{
       requiresAuth: false,
       hideFooter: true
     },
-    component: () => __webpack_require__.e(/* import() */ 546).then(__webpack_require__.bind(__webpack_require__, 546))
+    component: () => __webpack_require__.e(/* import() */ 406).then(__webpack_require__.bind(__webpack_require__, 9406))
   }]
 }, {
   path: "/about",
