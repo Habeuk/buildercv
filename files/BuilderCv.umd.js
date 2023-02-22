@@ -29782,8 +29782,9 @@ var FormUttilities = __webpack_require__(7657);
     warnings: []
   },
   runStep(steps, state) {
-    console.log(" currentBuildStep : ", this.currentBuildStep);
-    state.commit("ACTIVE_RUNNING");
+    console.log(" CurrentBuildStep : ", this.currentBuildStep);
+    console.log(" State : ", state);
+    store.commit("ACTIVE_RUNNING");
     // On recupere.
     var getDataStep = () => {
       if (steps[this.currentBuildStep]) {
