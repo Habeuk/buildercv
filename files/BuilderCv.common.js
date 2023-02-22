@@ -5730,7 +5730,7 @@ __webpack_require__(7888);
 
 /***/ }),
 
-/***/ 409:
+/***/ 9804:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10725,8 +10725,8 @@ var StockLevel_component = (0,componentNormalizer/* default */.Z)(
 )
 
 /* harmony default export */ var StockLevel = (StockLevel_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/IconTextWidget.vue?vue&type=template&id=f25b2eea&
-var IconTextWidgetvue_type_template_id_f25b2eea_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/IconTextWidget.vue?vue&type=template&id=219d1c1e&
+var IconTextWidgetvue_type_template_id_219d1c1e_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -10809,7 +10809,7 @@ var IconTextWidgetvue_type_template_id_f25b2eea_render = function render() {
               key: ii,
               staticClass: "d-block"
             }, [_vm._v(" " + _vm._s(error) + " ")]);
-          }), 0) : _vm._e()], 1), _c('b-form-group', {
+          }), 0) : _vm._e()], 1), _vm.show_svg_field ? _c('b-form-group', {
             attrs: {
               "label": _vm.field.settings.label_2
             }
@@ -10832,7 +10832,7 @@ var IconTextWidgetvue_type_template_id_f25b2eea_render = function render() {
               key: ii,
               staticClass: "d-block"
             }, [_vm._v(" " + _vm._s(error) + " ")]);
-          }), 0) : _vm._e()], 1)], 1);
+          }), 0) : _vm._e()], 1) : _vm._e()], 1);
         }), _c('div', {
           domProps: {
             "innerHTML": _vm._s(_vm.field.description)
@@ -10842,7 +10842,7 @@ var IconTextWidgetvue_type_template_id_f25b2eea_render = function render() {
     }])
   })], 1);
 };
-var IconTextWidgetvue_type_template_id_f25b2eea_staticRenderFns = [];
+var IconTextWidgetvue_type_template_id_219d1c1e_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/IconTextWidget.vue?vue&type=script&lang=js&
 
@@ -10886,7 +10886,8 @@ const input_default = {
   data() {
     return {
       input_value: null,
-      timeout: null
+      timeout: null,
+      show_svg_field: false
     };
   },
   computed: {
@@ -10969,8 +10970,8 @@ const input_default = {
 ;
 var IconTextWidget_component = (0,componentNormalizer/* default */.Z)(
   fieldsDrupal_IconTextWidgetvue_type_script_lang_js_,
-  IconTextWidgetvue_type_template_id_f25b2eea_render,
-  IconTextWidgetvue_type_template_id_f25b2eea_staticRenderFns,
+  IconTextWidgetvue_type_template_id_219d1c1e_render,
+  IconTextWidgetvue_type_template_id_219d1c1e_staticRenderFns,
   false,
   null,
   null,
@@ -10979,8 +10980,8 @@ var IconTextWidget_component = (0,componentNormalizer/* default */.Z)(
 )
 
 /* harmony default export */ var IconTextWidget = (IconTextWidget_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/ChartWidgetType.vue?vue&type=template&id=b0278a02&
-var ChartWidgetTypevue_type_template_id_b0278a02_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/ChartWidgetType.vue?vue&type=template&id=416e22f0&
+var ChartWidgetTypevue_type_template_id_416e22f0_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -11069,7 +11070,9 @@ var ChartWidgetTypevue_type_template_id_b0278a02_render = function render() {
             }
           }, [_c('b-form-input', {
             attrs: {
-              "type": "number"
+              "type": "number",
+              "min": "0",
+              "max": "100"
             },
             model: {
               value: val.value,
@@ -11117,7 +11120,7 @@ var ChartWidgetTypevue_type_template_id_b0278a02_render = function render() {
     }])
   })], 1);
 };
-var ChartWidgetTypevue_type_template_id_b0278a02_staticRenderFns = [];
+var ChartWidgetTypevue_type_template_id_416e22f0_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/ChartWidgetType.vue?vue&type=script&lang=js&
 
@@ -11244,8 +11247,8 @@ const ChartWidgetTypevue_type_script_lang_js_input_default = {
 ;
 var ChartWidgetType_component = (0,componentNormalizer/* default */.Z)(
   fieldsDrupal_ChartWidgetTypevue_type_script_lang_js_,
-  ChartWidgetTypevue_type_template_id_b0278a02_render,
-  ChartWidgetTypevue_type_template_id_b0278a02_staticRenderFns,
+  ChartWidgetTypevue_type_template_id_416e22f0_render,
+  ChartWidgetTypevue_type_template_id_416e22f0_staticRenderFns,
   false,
   null,
   null,
@@ -11615,7 +11618,7 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
 "use strict";
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6352);
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_fieldsDrupal_loadField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(409);
+/* harmony import */ var _components_fieldsDrupal_loadField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9804);
 
 
 /* harmony default export */ __webpack_exports__["Z"] = ({
