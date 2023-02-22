@@ -18,26 +18,23 @@ use Drupal\Core\Form\FormStateInterface;
  *   }
  * )
  */
-class Experience3FormatterType extends ExperienceFormatterType
-{
-
+class Experience4FormatterType extends ExperienceFormatterType {
+  
   /**
    *
    * {@inheritdoc}
    */
-  public static function defaultSettings()
-  {
+  public static function defaultSettings() {
     return [
       'layoutgenentitystyles_view' => 'buildercv/field-exp4'
     ] + parent::defaultSettings();
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, FormStateInterface $form_state)
-  {
+  public function settingsForm(array $form, FormStateInterface $form_state) {
     return [
       // utilile pour mettre à jour le style
       'layoutgenentitystyles_view' => [
@@ -46,13 +43,12 @@ class Experience3FormatterType extends ExperienceFormatterType
       ]
     ] + parent::settingsForm($form, $form_state);
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
-  public function viewElements(FieldItemListInterface $items, $langcode)
-  {
+  public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
     foreach ($items as $delta => $item) {
       $date_debut = '';
@@ -73,10 +69,11 @@ class Experience3FormatterType extends ExperienceFormatterType
           'address' => Html::escape($item->address),
           'date_debut' => $date_debut,
           'date_fin' => $date_fin,
-          'description' => $item->description,
+          'description' => $item->description
         ]
       ];
     }
     return $elements;
   }
+  
 }
