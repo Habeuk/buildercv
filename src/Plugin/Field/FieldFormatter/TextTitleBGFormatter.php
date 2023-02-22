@@ -10,8 +10,8 @@ use Drupal\Core\Field\Plugin\Field\FieldFormatter\StringFormatter;
  * Plugin implementation of the 'string' formatter.
  *
  * @FieldFormatter(
- *   id = "string",
- *   label = @Translation("Plain text"),
+ *   id = "string_bg",
+ *   label = @Translation("Plain text BG"),
  *   field_types = {
  *     "string",
  *   }
