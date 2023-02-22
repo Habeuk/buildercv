@@ -37,7 +37,12 @@ class ExperienceFormatterType extends FormatterBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    return [ // Implement settings form.
+    return [
+      // Utilile pour mettre à jour le style
+      'layoutgenentitystyles_view' => [
+        '#type' => 'hidden',
+        '#value' => 'buildercv/time-line'
+      ]
     ] + parent::settingsForm($form, $form_state);
   }
   
