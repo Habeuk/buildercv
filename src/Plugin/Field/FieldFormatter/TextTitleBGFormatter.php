@@ -5,6 +5,7 @@ namespace Drupal\buildercv\Plugin\Field\FieldFormatter;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\Plugin\Field\FieldFormatter\StringFormatter;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Plugin implementation of the 'string' formatter.
