@@ -16,8 +16,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *   id = "value_niveau_formatter_type2",
  *   label = @Translation("Value Niveau formatter type 2"),
  *   field_types = {
- *     "value_niveau_type",
- *     "chart_field_type"
+ *     "value_niveau_type"
  *   }
  * )
  */
@@ -61,9 +60,6 @@ class ValueNiveau2FormatterType extends ValueNiveauFormatterType {
      */
     $entity_form_display = \Drupal::entityTypeManager()->getStorage('entity_form_display')->load($items->getEntity()->getEntityTypeId() . '.' . $items->getEntity()->bundle() . '.default');
     
-    // langue encours
-    $this->lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    
     $elements = [];
     $taxonomy_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     /**
@@ -72,42 +68,38 @@ class ValueNiveau2FormatterType extends ValueNiveauFormatterType {
      *
      * @var array $niveau
      */
-    
     foreach ($items as $delta => $item) {
-      if (isset($item->target_id)) {
-        
-        /**
-         *
-         * @var \Drupal\taxonomy\Entity\Term $term
-         */
-        $term = $taxonomy_term->load($item->target_id);
-        if ($term->hasTranslation($langcode)) {
-          $term = $term->getTranslation($langcode);
-        }
-        $name = null;
-        if ($term) {
-          $name = $term->label();
-        }
-        if ($name)
-          $elements[$delta] = [
-            '#theme' => 'buildercv_value_niveau_formatter2',
-            '#item' => [
-              'target_id' => $item->target_id,
-              'niveau' => $item->niveau ? ($item->niveau * 20) . "%" : null,
-              'name' => $name,
-              'css_container' => $this->getSetting('css_container'),
-              'css_label' => $this->getSetting('css_label'),
-              'css_text' => $this->getSetting('css_text')
-            ]
-          ];
+      /**
+       *
+       * @var \Drupal\taxonomy\Entity\Term $term
+       */
+      $term = $taxonomy_term->load($item->target_id);
+      if (!$term)
+        continue;
+      if ($term->hasTranslation($langcode)) {
+        $term = $term->getTranslation($langcode);
       }
-      elseif ($item->color) {
+      $name = null;
+      if ($term) {
+        $name = $term->label();
+      }
+      if ($name) {
+        $progress = [
+          '#type' => 'html_tag',
+          '#tag' => 'span',
+          '#attributes' => [
+            'class' => [
+              'polygone'
+            ],
+            'style' => 'left:calc(' . (int) $item->niveau * 20 . '% - 25px);'
+          ]
+        ];
         $elements[$delta] = [
           '#theme' => 'buildercv_value_niveau_formatter2',
           '#item' => [
-            'target_id' => '',
-            'niveau' => $item->value ? 'calc(' . (int) $item->value . '% - 25px)' : null,
-            'name' => $item->label,
+            'target_id' => $item->target_id,
+            'niveau' => $progress,
+            'name' => $name,
             'css_container' => $this->getSetting('css_container'),
             'css_label' => $this->getSetting('css_label'),
             'css_text' => $this->getSetting('css_text')
