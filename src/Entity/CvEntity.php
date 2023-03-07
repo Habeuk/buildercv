@@ -224,7 +224,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
     ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE);
     
     $fields['name'] = BaseFieldDefinition::create('string')->setLabel(t('Name'))->setDescription(t('The name of the Cv entity entity.'))->setRevisionable(TRUE)->setSettings([
-      'max_length' => 250,
+      'max_length' => 50,
       'text_processing' => 0
     ])->setDefaultValue('')->setDisplayOptions('view', [
       'label' => 'above',
@@ -233,7 +233,7 @@ class CvEntity extends EditorialContentEntityBase implements CvEntityInterface {
     ])->setDisplayOptions('form', [
       'type' => 'string_textfield',
       'weight' => -4
-    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE)->setTranslatable(true);
+    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE);
     
     $fields['layout_paragraphs'] = BaseFieldDefinition::create('entity_reference')->setLabel(t(' Sections '))->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)->setDisplayOptions('form', [
       'type' => 'inline_entity_form_complex',

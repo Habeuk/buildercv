@@ -1,16 +1,44 @@
 <?php
-
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
+
+/**
+ * Ajouter la traduction sur les champs name de model_cv et cv_entity.
+ * implement hook_update_8001
+ *
+ * @see https://www.drupal.org/node/2554097
+ */
+function ___buildercv_update_8001() {
+  /**
+   *
+   * @var \Drupal\Core\Entity\EntityDefinitionUpdateManagerInterface $updateManager
+   */
+  $updateManager = \Drupal::entityDefinitionUpdateManager();
+  /**
+   *
+   * @var \Drupal\Core\Field\BaseFieldDefinition $nameModelCv
+   */
+  $nameModelCv = $updateManager->getFieldStorageDefinition('name', 'model_cv');
+  $nameModelCv->setTranslatable(true);
+  $nameModelCv->setSetting('max_length', 250);
+  $updateManager->updateFieldStorageDefinition($nameModelCv);
+  /**
+   *
+   * @var \Drupal\Core\Field\BaseFieldDefinition $nameCvEntity
+   */
+  $nameCvEntity = $updateManager->getFieldStorageDefinition('name', 'cv_entity');
+  $nameCvEntity->setTranslatable(true);
+  $nameCvEntity->setSetting('max_length', 250);
+  $updateManager->updateFieldStorageDefinition($nameCvEntity);
+}
 
 /**
  * implement hook_entity_base_field_info
  *
  * @param EntityTypeInterface $entity_type
  */
-function buildercv_entity_base_field_info(EntityTypeInterface $entity_type)
-{
+function buildercv_entity_base_field_info(EntityTypeInterface $entity_type) {
   $fields = [];
   if ($entity_type->id() == 'model_cv' || $entity_type->id() == 'cv_entity') {
     if (\Drupal::moduleHandler()->moduleExists('domain')) {
@@ -24,8 +52,7 @@ function buildercv_entity_base_field_info(EntityTypeInterface $entity_type)
  *
  * @param array $fields
  */
-function __buildercv_fields_domain(array &$fields)
-{
+function __buildercv_fields_domain(array &$fields) {
   $field_access = \Drupal\domain_access\DomainAccessManagerInterface::DOMAIN_ACCESS_FIELD;
   $field_source = \Drupal\domain_source\DomainSourceElementManagerInterface::DOMAIN_SOURCE_FIELD;
   //
@@ -46,8 +73,7 @@ function __buildercv_fields_domain(array &$fields)
 /**
  * Implements hook_theme().
  */
-function buildercv_theme()
-{
+function buildercv_theme() {
   $hooks = [];
   $hooks['buildercv_experience_formatter'] = [
     'preprocess functions' => [
