@@ -14,7 +14,7 @@ use Drupal\Core\Annotation\Translation;
  * @FieldWidget(
  *   id = "icon_text_widget",
  *   module = "buildercv",
- *   label = @Translation("Icon text widget"),
+ *   label = @Translation("Icon text widget @deprecated "),
  *   field_types = {
  *     "icon_text"
  *   }

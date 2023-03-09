@@ -13,7 +13,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
  * @FieldWidget(
  *   id = "experience_widget_type",
  *   module = "buildercv",
- *   label = @Translation("Experience widget type"),
+ *   label = @Translation("Experience widget type @deprecated "),
  *   field_types = {
  *     "experience_type"
  *   }

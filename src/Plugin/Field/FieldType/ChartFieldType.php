@@ -14,7 +14,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *
  * @FieldType(
  *   id = "chart_field_type",
- *   label = @Translation("Chart/Diagramme field "),
+ *   label = @Translation("Chart/Diagramme field @deprecated "),
  *   description = @Translation("permet de contruire rapidement un diagram"),
  *   default_widget = "chart_widget_type",
  *   default_formatter = "chart_formatter_type"

@@ -13,32 +13,29 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @FieldFormatter(
  *   id = "icon_text_formatter 2 ",
- *   label = @Translation("Icon text formatter 2"),
+ *   label = @Translation("Icon text formatter 2  @deprecated "),
  *   field_types = {
  *     "icon_text"
  *   }
  * )
  */
-class IconTextFormatter2 extends IconTextFormatter
-{
-
+class IconTextFormatter2 extends IconTextFormatter {
+  
   /**
    *
    * {@inheritdoc}
    */
-  public static function defaultSettings()
-  {
+  public static function defaultSettings() {
     return [
       'layoutgenentitystyles_view' => 'buildercv/field-icon-svg'
     ] + parent::defaultSettings();
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, FormStateInterface $form_state)
-  {
+  public function settingsForm(array $form, FormStateInterface $form_state) {
     return [
       'layoutgenentitystyles_view' => [
         '#type' => 'hidden',
@@ -46,16 +43,15 @@ class IconTextFormatter2 extends IconTextFormatter
       ]
     ] + parent::settingsForm($form, $form_state);
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
-  public function viewElements(FieldItemListInterface $items, $langcode)
-  {
+  public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
     foreach ($items as $delta => $item) {
-
+      
       $elements[$delta] = [
         '#theme' => 'buildercv_icon_text_svg',
         '#item' => [
@@ -66,4 +62,5 @@ class IconTextFormatter2 extends IconTextFormatter
     }
     return $elements;
   }
+  
 }

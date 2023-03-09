@@ -15,7 +15,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *
  * @FieldType(
  *   id = "experience_type",
- *   label = @Translation("Experience CV"),
+ *   label = @Translation("Experience CV  @deprecated "),
  *   description = @Translation("Permet de sauvegarder une experience en entreprise (cv)"),
  *   default_widget = "experience_widget_type",
  *   default_formatter = "experience_formatter_type"

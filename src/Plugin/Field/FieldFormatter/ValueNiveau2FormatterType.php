@@ -14,7 +14,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *
  * @FieldFormatter(
  *   id = "value_niveau_formatter_type2",
- *   label = @Translation("Value Niveau formatter type 2"),
+ *   label = @Translation("Value Niveau formatter type 2 @deprecated "),
  *   field_types = {
  *     "value_niveau_type"
  *   }

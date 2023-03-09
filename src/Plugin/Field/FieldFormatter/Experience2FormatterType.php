@@ -11,7 +11,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *
  * @FieldFormatter(
  *   id = "experience2_formatter_type",
- *   label = @Translation(" Experience formatter model avec les dates en dessous "),
+ *   label = @Translation(" Experience formatter model avec les dates en dessous  @deprecated "),
  *   field_types = {
  *     "experience_type"
  *   }

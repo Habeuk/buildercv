@@ -14,34 +14,31 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *
  * @FieldFormatter(
  *   id = "value_niveau_formatter_type",
- *   label = @Translation("Value Niveau formatter type"),
+ *   label = @Translation("Value Niveau formatter type @deprecated "),
  *   field_types = {
  *     "value_niveau_type"
  *   }
  * )
  */
-class ValueNiveauFormatterType extends FormatterBase
-{
-
+class ValueNiveauFormatterType extends FormatterBase {
+  
   /**
    *
    * {@inheritdoc}
    */
-  public static function defaultSettings()
-  {
+  public static function defaultSettings() {
     return [
       'css_container' => 'd-flex time-line flex-wrap align-items-baseline',
       'css_label' => 'mr-3 h4',
       'css_text' => ''
     ] + parent::defaultSettings();
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, FormStateInterface $form_state)
-  {
+  public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = parent::settingsForm($form, $form_state);
     $elements['css_container'] = [
       '#type' => 'textfield',
@@ -60,24 +57,22 @@ class ValueNiveauFormatterType extends FormatterBase
     ];
     return $elements;
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
-  public function settingsSummary()
-  {
+  public function settingsSummary() {
     $summary = [];
     // Implement settings summary.
     return $summary;
   }
-
+  
   /**
    *
    * {@inheritdoc}
    */
-  public function viewElements(FieldItemListInterface $items, $langcode)
-  {
+  public function viewElements(FieldItemListInterface $items, $langcode) {
     $niveau = [
       1 => t('Weak'),
       2 => t('Base'),
@@ -94,7 +89,7 @@ class ValueNiveauFormatterType extends FormatterBase
     if (!empty($settings['settings']['niveau_options'])) {
       $niveau = $settings['settings']['niveau_options'];
     }
-
+    
     $elements = [];
     $taxonomy_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     /**
@@ -103,7 +98,7 @@ class ValueNiveauFormatterType extends FormatterBase
      *
      * @var array $niveau
      */
-
+    
     foreach ($items as $delta => $item) {
       $term = $taxonomy_term->load($item->target_id);
       $name = null;
@@ -125,4 +120,5 @@ class ValueNiveauFormatterType extends FormatterBase
     }
     return $elements;
   }
+  
 }

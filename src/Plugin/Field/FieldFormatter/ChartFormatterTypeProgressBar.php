@@ -13,7 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @FieldFormatter(
  *   id = "chart_formatter_type_progress_bar",
- *   label = @Translation("Chart formatter with progress bar"),
+ *   label = @Translation("Chart formatter with progress bar @deprecated "),
  *   field_types = {
  *     "chart_field_type"
  *   }

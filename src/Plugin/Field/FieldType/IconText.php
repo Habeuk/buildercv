@@ -15,7 +15,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *
  * @FieldType(
  *   id = "icon_text",
- *   label = @Translation("Icon text"),
+ *   label = @Translation("Icon text @deprecated "),
  *   description = @Translation("My Field Type"),
  *   default_widget = "icon_text_widget",
  *   default_formatter = "icon_text_formatter"

@@ -4,33 +4,54 @@ use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
- * Ajouter la traduction sur les champs name de model_cv et cv_entity.
+ * Update value max_length from 50 to 250.
+ *
  * implement hook_update_8001
  *
  * @see https://www.drupal.org/node/2554097
  */
-function ___buildercv_update_8001() {
-  /**
-   *
-   * @var \Drupal\Core\Entity\EntityDefinitionUpdateManagerInterface $updateManager
-   */
+function __buildercv_update_name_max_length($entity_type_id) {
+  // Retrieve existing field data.
+  $database = \Drupal::database();
+  $names = $database->select($entity_type_id . '_field_data', 'et')->fields('et', [
+    'id',
+    'langcode',
+    'name'
+  ])->execute()->fetchAll(\PDO::FETCH_ASSOC);
+  // Remove data from the column.
+  $database->update('site_type_datas_field_data')->fields([
+    'name' => NULL
+  ])->execute();
+  // Remove old definition field.
   $updateManager = \Drupal::entityDefinitionUpdateManager();
+  $storagedef = $updateManager->getFieldStorageDefinition('name', $entity_type_id);
+  $updateManager->uninstallFieldStorageDefinition($storagedef);
+  // Load new definition field in code.
   /**
    *
-   * @var \Drupal\Core\Field\BaseFieldDefinition $nameModelCv
+   * @var \Drupal\Core\Entity\EntityFieldManager $fieldManager
    */
-  $nameModelCv = $updateManager->getFieldStorageDefinition('name', 'model_cv');
-  $nameModelCv->setTranslatable(true);
-  $nameModelCv->setSetting('max_length', 250);
-  $updateManager->updateFieldStorageDefinition($nameModelCv);
-  /**
-   *
-   * @var \Drupal\Core\Field\BaseFieldDefinition $nameCvEntity
-   */
-  $nameCvEntity = $updateManager->getFieldStorageDefinition('name', 'cv_entity');
-  $nameCvEntity->setTranslatable(true);
-  $nameCvEntity->setSetting('max_length', 250);
-  $updateManager->updateFieldStorageDefinition($nameCvEntity);
+  $fieldManager = \Drupal::service('entity_field.manager');
+  $fields = $fieldManager->getFieldStorageDefinitions($entity_type_id);
+  $updateManager->installFieldStorageDefinition('name', $entity_type_id, "buildercv", $fields['name']);
+  // Restore entity data in the new schema.
+  foreach ($names as $name) {
+    $database->update($entity_type_id . '_field_data')->fields([
+      'name' => $name['name']
+    ])->condition('id', $name['id'])->condition('langcode', $name['langcode'])->execute();
+  }
+}
+
+/**
+ * Update value max_length from 50 to 250.
+ *
+ * implement hook_update_8001
+ *
+ * @see https://www.drupal.org/node/2554097
+ */
+function buildercv_update_8001() {
+  __buildercv_update_name_max_length('model_cv');
+  __buildercv_update_name_max_length('cv_entity');
 }
 
 /**

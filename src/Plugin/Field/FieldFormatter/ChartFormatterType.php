@@ -13,7 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @FieldFormatter(
  *   id = "chart_formatter_type",
- *   label = @Translation("Chart formatter type"),
+ *   label = @Translation("Chart formatter type @deprecated "),
  *   field_types = {
  *     "chart_field_type"
  *   }

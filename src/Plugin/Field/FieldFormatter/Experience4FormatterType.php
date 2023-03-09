@@ -12,7 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @FieldFormatter(
  *   id = "experience4_formatter_type",
- *   label = @Translation("Experience formatter model avec les dates en bas à droite "),
+ *   label = @Translation("Experience formatter model avec les dates en bas à droite  @deprecated "),
  *   field_types = {
  *     "experience_type"
  *   }

@@ -14,7 +14,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *
  * @FieldFormatter(
  *   id = "experience_formatter_type",
- *   label = @Translation("Experience formatter type"),
+ *   label = @Translation("Experience formatter type @deprecated "),
  *   field_types = {
  *     "experience_type"
  *   }
