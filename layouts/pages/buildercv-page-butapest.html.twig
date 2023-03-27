@@ -1,0 +1,19 @@
+{% if content %}
+	<div {{attributes.addClass('document-parent')}}>
+		{% if content.entete %}
+			{{content.entete}}
+		{% endif %}
+		<div class="document-secondaire d-flex">
+			{% if content.sidebarleft %}
+			<div {{region_attributes.sidebarleft.addClass(['sidebarleft','sous-document-primary'])}}}>
+				{{content.sidebarleft}}
+			</div>
+			{% endif %}
+			{% if content.contentpage %}
+			<div {{region_attributes.contentpage.addClass(['contentpage','sous-document-secondary'])}}>
+				{{content.contentpage}}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+{% endif %}

@@ -1,0 +1,22 @@
+{% if content %}
+	<section {{attributes.addClass(['section-presentaion','d-flex'])}}>
+        <div class="information">
+          <h2 class="information-nom mb-0 h1">
+          		{% if content.name %}
+          			<div {{region_attributes.name.addClass('name')}}>{{content.name}}</div>
+          		{% endif %}
+          		{% if content.prenom %}
+          			<div {{region_attributes.prenom.addClass(['prenom','pl-2'])}}>{{content.prenom}}</div>
+          		{% endif %}
+          </h2>
+          {% if content.competance %}
+          	<h3 {{region_attributes.competance.addClass(['competance','information-poste'])}}> {{ content.competance }} </h3>
+          {% endif %}
+        </div>
+        {% if content.image %}
+        <div {{region_attributes.image.addclass('image')}}>
+          {{content.image}}
+        </div>
+        {% endif %}
+  </section>
+{% endif %}
