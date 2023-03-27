@@ -60,7 +60,8 @@ class AboutCvBudapest extends FormatageModelsSection {
    */
   public function defaultConfiguration() {
     return [
-      'css' => ''
+      'css' => 'border-dark border-bottom',
+      'region_css_titre' => 'font-weight-bolder text-dark'
     ] + parent::defaultConfiguration();
   }
   

@@ -1,0 +1,10 @@
+{% if content %}
+	<section {{attributes.addClass(["section-about","cv-budapest-section-space"])}}>
+		{% if content.titre %}
+        	<h4 {{region_attributes.titre.addClass(['title','titre'])}}> {{content.titre}} </h4>
+		{% endif %}
+		{% if content.contents %}
+        	<div {{region_attributes.contents.addClass(['contents','text'])}}> {{content.contents}} </div>
+        {% endif %}
+	</section>
+{% endif %}
