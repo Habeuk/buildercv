@@ -10,30 +10,25 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  * A very advanced custom layout.
  *
  * @Layout(
- *   id = "presentation_cv_budapest,
- *   label = @Translation("Presentation budapest (CV)"),
+ *   id = "about_cv_budapest,
+ *   label = @Translation("About budapest (CV)"),
  *   category = @Translation("buildercv"),
+ *   description = "Contient deux regions (titre, contents) , utilisé par defaut pour le CV, permet de creer des sections de paragraphes",
  *   path = "layouts/sections",
- *   template = "presentation-cv-budapest",
- *   library = "buildercv/presentation-cv-budapest",
- *   default_region = "name",
+ *   template = "about-cv-budapest",
+ *   library = "buildercv/about-cv-budapest",
+ *   default_region = "titre",
  *   regions = {
- *     "name" = {
- *       "label" = @Translation(" Nom "),
+ *     "titre" = {
+ *       "label" = @Translation(" titre "),
  *     },
- *     "prenom" = {
- *       "label" = @Translation(" Prenom "),
- *     },
- *     "competance" = {
- *       "label" = @Translation(" Competance "),
- *     },
- *     "image" = {
- *       "label" = @Translation(" Image "),
+ *     "contents" = {
+ *       "label" = @Translation(" contents "),
  *     }
  *   }
  * )
  */
-class PresentationCvBudapest extends FormatageModelsSection {
+class AboutCvBudapest extends FormatageModelsSection {
   
   /**
    *
@@ -43,7 +38,7 @@ class PresentationCvBudapest extends FormatageModelsSection {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
     // TODO Auto-generated method stub.
     parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-    $this->pluginDefinition->set('icon', drupal_get_path('module', 'buildercv') . "/icones/sections/presentation_cv_budapest.png");
+    $this->pluginDefinition->set('icon', drupal_get_path('module', 'buildercv') . "/icones/sections/about_cv_budapest.png");
   }
   
   /**
@@ -65,8 +60,7 @@ class PresentationCvBudapest extends FormatageModelsSection {
    */
   public function defaultConfiguration() {
     return [
-      'css' => 'align-items-center border-dark  border-bottom',
-      'region_css_competance' => 'font-weight-bolder'
+      'css' => ''
     ] + parent::defaultConfiguration();
   }
   
