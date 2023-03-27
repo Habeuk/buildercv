@@ -246,7 +246,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
     ])->setDisplayOptions('form', [
       'type' => 'string_textfield',
       'weight' => -4
-    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE);
+    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE)->setTranslatable(true);
     
     $fields['name_menu'] = BaseFieldDefinition::create('string')->setLabel(t('Text à afficher sur le menu'))->setDescription(t('The name of the Site type datas entity.'))->setSettings([
       'max_length' => 50,
@@ -319,7 +319,7 @@ class ModelCv extends EditorialContentEntityBase implements ModelCvInterface {
       'auto_create_bundle' => ''
     ])->setSetting('target_type', 'taxonomy_term')->setSetting('handler', 'default:taxonomy_term')->setRevisionable(TRUE)->setCardinality(-1);
     
-    $fields['image'] = BaseFieldDefinition::create('image')->setLabel(' Image du model ')->setRequired(false)->setDisplayConfigurable('form', true)->setDisplayConfigurable('view', TRUE)->setSetting("min_resolution", "500x500");
+    $fields['image'] = BaseFieldDefinition::create('image')->setLabel(' Image du model ')->setRequired(false)->setDisplayConfigurable('form', true)->setDisplayConfigurable('view', TRUE)->setSetting("min_resolution", "500x500")->setTranslatable(true);
     //
     $fields['style_scss'] = BaseFieldDefinition::create('string_long')->setLabel(" Style scss (les variables, mixins de wbu-atomique sont disponible) ")->setDisplayOptions('form', [
       'type' => 'string_textarea',
