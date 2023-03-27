@@ -13,7 +13,7 @@ use Drupal\formatage_models\FormatageModelsThemes;
  *   id = "buildercv_page_butapest",
  *   label = @Translation("Page model CV butapest (CV)"),
  *   category = @Translation("buildercv"),
- *   description = "Model à 3 regions entete, sidebarleft et conetent, definie à la base pour un CV."
+ *   description = "Model à 3 regions entete, sidebarleft et conetent, definie à la base pour un CV.",
  *   path = "layouts/pages",
  *   template = "buildercv-page-butapest",
  *   library = "buildercv/buildercv-page-butapest",

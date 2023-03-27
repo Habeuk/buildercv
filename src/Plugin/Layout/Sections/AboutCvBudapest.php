@@ -10,7 +10,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  * A very advanced custom layout.
  *
  * @Layout(
- *   id = "about_cv_budapest,
+ *   id = "about_cv_budapest",
  *   label = @Translation("About budapest (CV)"),
  *   category = @Translation("buildercv"),
  *   description = "Contient deux regions (titre, contents) , utilisé par defaut pour le CV, permet de creer des sections de paragraphes",

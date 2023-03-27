@@ -10,7 +10,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  * A very advanced custom layout.
  *
  * @Layout(
- *   id = "presentation_cv_budapest,
+ *   id = "presentation_cv_budapest",
  *   label = @Translation("Presentation budapest (CV)"),
  *   category = @Translation("buildercv"),
  *   path = "layouts/sections",
