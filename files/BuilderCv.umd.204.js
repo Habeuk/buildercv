@@ -58,8 +58,8 @@ var staticRenderFns = [];
 var es_array_push = __webpack_require__(6352);
 // EXTERNAL MODULE: ../drupal-vuejs/src/App/jsonApi/itemsEntity.js
 var itemsEntity = __webpack_require__(1139);
-// EXTERNAL MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/loadField.js + 116 modules
-var loadField = __webpack_require__(9639);
+// EXTERNAL MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/loadField.js + 124 modules
+var loadField = __webpack_require__(8100);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/Ressouces/OptionsEntities.vue?vue&type=script&lang=js&
 
 
@@ -181,7 +181,8 @@ class itemsEntity {
     }
     this.url = _Confs_js__WEBPACK_IMPORTED_MODULE_2__/* ["default"].baseURl */ .Z.baseURl + "/" + this.entity_type_id + "/" + bundle;
     this.items = [];
-    // en function de l'environement on doit ajouter les paramettres de bases.( notament baseUrl, TestDomain, les methodes surchargées ).
+    this.newConfig = config;
+    // En function de l'environement on doit ajouter les paramettres de bases.( notament baseUrl, TestDomain, les methodes surchargées ).
     if (config) {
       // à ce state la surcharge total pose probleme, donc on doit surcharger par necessite.
       // utilities = {
@@ -189,11 +190,11 @@ class itemsEntity {
       //   ...config,
       // };
       if (config.TestDomain) _utilities_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"].TestDomain */ .Z.TestDomain = config.TestDomain;
-      //utilities.get = config.get;
     }
   }
   /**
-   * Recupere les items
+   * Recupere les items en passant par le token.
+   * ( ce cas de figure correspond à une application qui est sur le meme domaine ).
    */
   get() {
     return new Promise(resolv => {
@@ -295,6 +296,20 @@ class itemsEntity {
       }
     }
     return options;
+  }
+  /**
+   * On a deux cas interne et externe au domaine, et en function de l'environnement
+   * on doit utiliser token ou basic authentification.
+   * ( On ajoute cette variable en attendant la validation des autres modules de plus
+   * il faudra que dans "config" la methode dGet existe, ce qui n'est pas le cas pour certains environnement.
+   * gestion-projet-v2 => OK (en mode serve)
+   * edit-entity => ??
+   * Creation-cv => ??
+   * Creation de site web => ??
+   * ).
+   */
+  remplaceConfig() {
+    _utilities_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z = this.newConfig;
   }
 }
 /* harmony default export */ __webpack_exports__["Z"] = (itemsEntity);

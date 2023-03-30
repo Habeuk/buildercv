@@ -5740,7 +5740,7 @@ __webpack_require__(7888);
 
 /***/ }),
 
-/***/ 9639:
+/***/ 8100:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6473,10 +6473,10 @@ var svg_preloader_component = (0,componentNormalizer/* default */.Z)(
     // ValidationProvider,
     svgLoader: svg_preloader,
     OptionsTaxonomy: () => {
-      return __webpack_require__.e(/* import() */ 666).then(__webpack_require__.bind(__webpack_require__, 6666));
+      return __webpack_require__.e(/* import() */ 764).then(__webpack_require__.bind(__webpack_require__, 2764));
     },
     OptionsAllowedValues: () => {
-      return __webpack_require__.e(/* import() */ 605).then(__webpack_require__.bind(__webpack_require__, 3605));
+      return __webpack_require__.e(/* import() */ 98).then(__webpack_require__.bind(__webpack_require__, 98));
     },
     OptionsEntities: () => {
       return __webpack_require__.e(/* import() */ 204).then(__webpack_require__.bind(__webpack_require__, 9204));
@@ -6814,8 +6814,8 @@ var drupal_list_string_component = (0,componentNormalizer/* default */.Z)(
 )
 
 /* harmony default export */ var drupal_list_string = (drupal_list_string_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/TextareaCkeditor.vue?vue&type=template&id=6cb2b95e&
-var TextareaCkeditorvue_type_template_id_6cb2b95e_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/TextareaCkeditor.vue?vue&type=template&id=ce9a3420&
+var TextareaCkeditorvue_type_template_id_ce9a3420_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -6835,7 +6835,7 @@ var TextareaCkeditorvue_type_template_id_6cb2b95e_render = function render() {
         return [_c('legend', [_vm._v(_vm._s(_vm.field.label))]), _c('ckeditor', {
           attrs: {
             "config": _vm.editorConfig,
-            "editor-url": "/themes/contrib/wb_universe/ckeditor/ckeditor.js"
+            "editor-url": _vm.baseUrl + '/themes/contrib/wb_universe/ckeditor/ckeditor.js'
           },
           on: {
             "input": _vm.input,
@@ -6860,7 +6860,7 @@ var TextareaCkeditorvue_type_template_id_6cb2b95e_render = function render() {
     }])
   })], 1);
 };
-var TextareaCkeditorvue_type_template_id_6cb2b95e_staticRenderFns = [];
+var TextareaCkeditorvue_type_template_id_ce9a3420_staticRenderFns = [];
 
 // EXTERNAL MODULE: ../components_bootstrapvuejs/node_modules/ckeditor4-vue/dist/ckeditor.js
 var ckeditor = __webpack_require__(6112);
@@ -7045,6 +7045,9 @@ var ckeditor_default = /*#__PURE__*/__webpack_require__.n(ckeditor);
     },
     fullname() {
       return this.parentName + this.field.name;
+    },
+    baseUrl() {
+      if (loadField.config) return loadField.config.getBaseUrl();else return "";
     }
   },
   mounted() {
@@ -7113,8 +7116,8 @@ var ckeditor_default = /*#__PURE__*/__webpack_require__.n(ckeditor);
 ;
 var TextareaCkeditor_component = (0,componentNormalizer/* default */.Z)(
   fieldsDrupal_TextareaCkeditorvue_type_script_lang_js_,
-  TextareaCkeditorvue_type_template_id_6cb2b95e_render,
-  TextareaCkeditorvue_type_template_id_6cb2b95e_staticRenderFns,
+  TextareaCkeditorvue_type_template_id_ce9a3420_render,
+  TextareaCkeditorvue_type_template_id_ce9a3420_staticRenderFns,
   false,
   null,
   null,
@@ -9341,8 +9344,8 @@ var DrupalEmail_component = (0,componentNormalizer/* default */.Z)(
 )
 
 /* harmony default export */ var DrupalEmail = (DrupalEmail_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue?vue&type=template&id=5ab828ca&scoped=true&
-var DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue?vue&type=template&id=44c0f504&scoped=true&
+var DrupalCheckboxvue_type_template_id_44c0f504_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -9467,7 +9470,7 @@ var DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_render = function re
     }])
   })], 1)]);
 };
-var DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_staticRenderFns = [];
+var DrupalCheckboxvue_type_template_id_44c0f504_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue?vue&type=script&lang=js&
 
@@ -9542,12 +9545,12 @@ var DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_staticRenderFns = []
     }
   },
   mounted() {
-    this.getImage();
-    this.selected = this.getValue();
-    this.multi_selected = this.getValues();
     if (this.field.definition_settings && this.field.definition_settings.target_type) {
       this.key_value = "target_id";
     } else this.key_value = "value";
+    this.getImage();
+    this.selected = this.getValue();
+    this.multi_selected = this.getValues();
   },
   methods: {
     getImage() {
@@ -9572,7 +9575,20 @@ var DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_staticRenderFns = []
       return value;
     },
     getValues() {
-      return [];
+      const values = [];
+      if (this.model[this.field.name] && this.model[this.field.name].length) {
+        this.model[this.field.name].forEach(item => {
+          // console.log(
+          //   "item : " + this.field.name,
+          //   " : ",
+          //   item,
+          //   "\n this.key_value ",
+          //   this.key_value
+          // );
+          values.push(item[this.key_value]);
+        });
+      }
+      return values;
     },
     setValue(vals) {
       if (this.namespaceStore) {
@@ -9615,10 +9631,10 @@ var DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_staticRenderFns = []
 });
 ;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue?vue&type=script&lang=js&
  /* harmony default export */ var fieldsDrupal_DrupalCheckboxvue_type_script_lang_js_ = (DrupalCheckboxvue_type_script_lang_js_); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-54.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-54.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-54.use[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue?vue&type=style&index=0&id=5ab828ca&prod&scoped=true&lang=css&
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-54.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-54.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-54.use[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue?vue&type=style&index=0&id=44c0f504&prod&scoped=true&lang=css&
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue?vue&type=style&index=0&id=5ab828ca&prod&scoped=true&lang=css&
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue?vue&type=style&index=0&id=44c0f504&prod&scoped=true&lang=css&
 
 ;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/DrupalCheckbox.vue
 
@@ -9631,18 +9647,18 @@ var DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_staticRenderFns = []
 
 var DrupalCheckbox_component = (0,componentNormalizer/* default */.Z)(
   fieldsDrupal_DrupalCheckboxvue_type_script_lang_js_,
-  DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_render,
-  DrupalCheckboxvue_type_template_id_5ab828ca_scoped_true_staticRenderFns,
+  DrupalCheckboxvue_type_template_id_44c0f504_scoped_true_render,
+  DrupalCheckboxvue_type_template_id_44c0f504_scoped_true_staticRenderFns,
   false,
   null,
-  "5ab828ca",
+  "44c0f504",
   null
   
 )
 
 /* harmony default export */ var DrupalCheckbox = (DrupalCheckbox_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue?vue&type=template&id=541d9715&scoped=true&
-var DateRangevue_type_template_id_541d9715_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue?vue&type=template&id=b8ded7fc&scoped=true&
+var DateRangevue_type_template_id_b8ded7fc_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -9782,7 +9798,7 @@ var DateRangevue_type_template_id_541d9715_scoped_true_render = function render(
     }])
   })], 1);
 };
-var DateRangevue_type_template_id_541d9715_scoped_true_staticRenderFns = [];
+var DateRangevue_type_template_id_b8ded7fc_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue?vue&type=script&lang=js&
 
@@ -9880,7 +9896,8 @@ var DateRangevue_type_template_id_541d9715_scoped_true_staticRenderFns = [];
      *
      */
     getValue() {
-      if (this.model[this.field.name] && this.model[this.field.name][0]) {
+      console.log("date range : ", this.model[this.field.name]);
+      if (this.model[this.field.name] && this.model[this.field.name][0] && this.model[this.field.name][0].value) {
         const D_b = this.getDateFromDateTimeStamp(this.model[this.field.name][0].value);
         const val = {
           value: D_b.date,
@@ -9955,10 +9972,10 @@ var DateRangevue_type_template_id_541d9715_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue?vue&type=script&lang=js&
  /* harmony default export */ var fieldsDrupal_DateRangevue_type_script_lang_js_ = (DateRangevue_type_script_lang_js_); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue?vue&type=style&index=0&id=541d9715&prod&lang=scss&scoped=true&
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue?vue&type=style&index=0&id=b8ded7fc&prod&lang=scss&scoped=true&
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue?vue&type=style&index=0&id=541d9715&prod&lang=scss&scoped=true&
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue?vue&type=style&index=0&id=b8ded7fc&prod&lang=scss&scoped=true&
 
 ;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/DateRange.vue
 
@@ -9971,11 +9988,11 @@ var DateRangevue_type_template_id_541d9715_scoped_true_staticRenderFns = [];
 
 var DateRange_component = (0,componentNormalizer/* default */.Z)(
   fieldsDrupal_DateRangevue_type_script_lang_js_,
-  DateRangevue_type_template_id_541d9715_scoped_true_render,
-  DateRangevue_type_template_id_541d9715_scoped_true_staticRenderFns,
+  DateRangevue_type_template_id_b8ded7fc_scoped_true_render,
+  DateRangevue_type_template_id_b8ded7fc_scoped_true_staticRenderFns,
   false,
   null,
-  "541d9715",
+  "b8ded7fc",
   null
   
 )
@@ -11267,6 +11284,397 @@ var ChartWidgetType_component = (0,componentNormalizer/* default */.Z)(
 )
 
 /* harmony default export */ var ChartWidgetType = (ChartWidgetType_component.exports);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/TexTarea.vue?vue&type=template&id=0f7a50da&
+var TexTareavue_type_template_id_0f7a50da_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', {
+    class: _vm.classCss
+  }, [_c('ValidationProvider', {
+    attrs: {
+      "name": _vm.fullname,
+      "rules": _vm.getRules()
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function (v) {
+        return [_c('b-form-group', {
+          attrs: {
+            "label": _vm.field.label,
+            "description": _vm.field.description
+          }
+        }, [_c('div', {
+          staticClass: "field-item-value"
+        }, [_c('b-form-textarea', {
+          attrs: {
+            "placeholder": _vm.field.placeholder,
+            "state": _vm.getValidationState(v),
+            "name": _vm.fullname,
+            "rows": "3",
+            "max-rows": "6"
+          },
+          on: {
+            "input": _vm.input
+          },
+          model: {
+            value: _vm.input_value,
+            callback: function ($$v) {
+              _vm.input_value = $$v;
+            },
+            expression: "input_value"
+          }
+        })], 1), v.errors ? _c('div', {
+          staticClass: "text-danger my-2"
+        }, _vm._l(v.errors, function (error, ii) {
+          return _c('small', {
+            key: ii,
+            staticClass: "d-block"
+          }, [_vm._v(" " + _vm._s(error) + " ")]);
+        }), 0) : _vm._e()])];
+      }
+    }])
+  })], 1);
+};
+var TexTareavue_type_template_id_0f7a50da_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/TexTarea.vue?vue&type=script&lang=js&
+
+
+
+
+/* harmony default export */ var TexTareavue_type_script_lang_js_ = ({
+  name: "TexTarea",
+  components: {
+    ValidationProvider: vee_validate_esm/* ValidationProvider */.d_
+  },
+  props: {
+    classCss: {
+      type: [Array],
+      default: function () {
+        return [];
+      }
+    },
+    field: {
+      type: Object,
+      required: true
+    },
+    model: {
+      type: [Object, Array],
+      required: true
+    },
+    namespaceStore: {
+      type: String,
+      required: true
+    },
+    parentName: {
+      type: String,
+      required: true
+    }
+  },
+  data() {
+    return {
+      input_value: null,
+      timeout: null
+    };
+  },
+  computed: {
+    fullname() {
+      return this.parentName + this.field.name;
+    }
+  },
+  watch: {
+    /**
+     * Lorsque le champs est construt via les boucles dynamique,
+     * le template n'est pas reconstruit ducoup la valeur du precedent champs est concerservé.
+     * On applique ce watch et on verra les resultats.
+     * Cela ne s'execute que dans le cadre d'un watch et permet de ressoudre le probleme.
+     */
+    field() {
+      this.input_value = this.getValue();
+    }
+  },
+  mounted() {
+    // On recupere la valeur par defaut pour chaque construction:
+    this.input_value = this.getValue();
+  },
+  methods: {
+    getValidationState({
+      dirty,
+      validated,
+      valid = null
+    }) {
+      return (dirty || validated) && !valid ? valid : null;
+    },
+    getRules() {
+      return loadField.getRules(this.field);
+    },
+    setValue(vals) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        if (this.namespaceStore) {
+          this.$store.dispatch(this.namespaceStore + "/setValue", {
+            value: vals,
+            fieldName: this.fullname
+          });
+        } else this.$store.dispatch("setValue", {
+          value: vals,
+          fieldName: this.fullname
+        });
+      }, loadField.timeToWait);
+    },
+    getValue() {
+      if (this.model[this.field.name] && this.model[this.field.name][0]) {
+        return this.model[this.field.name][0].value;
+      } else return null;
+    },
+    input(v) {
+      const vals = [];
+      vals.push({
+        value: v
+      });
+      this.setValue(vals);
+    }
+  }
+});
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/TexTarea.vue?vue&type=script&lang=js&
+ /* harmony default export */ var fieldsDrupal_TexTareavue_type_script_lang_js_ = (TexTareavue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/TexTarea.vue
+
+
+
+
+
+/* normalize component */
+;
+var TexTarea_component = (0,componentNormalizer/* default */.Z)(
+  fieldsDrupal_TexTareavue_type_script_lang_js_,
+  TexTareavue_type_template_id_0f7a50da_render,
+  TexTareavue_type_template_id_0f7a50da_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TexTarea = (TexTarea_component.exports);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/MoreFieldsIconwTextidget.vue?vue&type=template&id=299978ee&
+var MoreFieldsIconwTextidgetvue_type_template_id_299978ee_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', {
+    class: _vm.classCss
+  }, [_c('ValidationProvider', {
+    attrs: {
+      "name": _vm.fullname,
+      "rules": _vm.getRules()
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function (v) {
+        return [_c('b-form-group', {
+          attrs: {
+            "label": _vm.field.label,
+            "description": _vm.field.description
+          }
+        }, [_vm._l(_vm.input_value, function (value, index) {
+          return _c('div', {
+            key: index,
+            staticClass: "field-item-value"
+          }, [_c('b-form-input', {
+            attrs: {
+              "placeholder": _vm.field.placeholder,
+              "state": _vm.getValidationState(v),
+              "name": _vm.fullname + '.value'
+            },
+            model: {
+              value: value.value,
+              callback: function ($$v) {
+                _vm.$set(value, "value", $$v);
+              },
+              expression: "value.value"
+            }
+          }), _c('b-form-textarea', {
+            attrs: {
+              "placeholder": _vm.field.placeholder,
+              "state": _vm.getValidationState(v),
+              "name": _vm.fullname + '.text',
+              "rows": "3",
+              "max-rows": "6"
+            },
+            model: {
+              value: value.text,
+              callback: function ($$v) {
+                _vm.$set(value, "text", $$v);
+              },
+              expression: "value.text"
+            }
+          })], 1);
+        }), v.errors ? _c('div', {
+          staticClass: "text-danger my-2"
+        }, _vm._l(v.errors, function (error, ii) {
+          return _c('small', {
+            key: ii,
+            staticClass: "d-block"
+          }, [_vm._v(" " + _vm._s(error) + " ")]);
+        }), 0) : _vm._e()], 2), _vm.cardinality ? _c('div', [_c('b-button', {
+          attrs: {
+            "size": "sm",
+            "variant": "info"
+          },
+          on: {
+            "click": function ($event) {
+              $event.preventDefault();
+              return _vm.addField.apply(null, arguments);
+            }
+          }
+        }, [_vm._v(" Add more ")])], 1) : _vm._e()];
+      }
+    }])
+  })], 1);
+};
+var MoreFieldsIconwTextidgetvue_type_template_id_299978ee_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/fieldsDrupal/MoreFieldsIconwTextidget.vue?vue&type=script&lang=js&
+
+
+
+
+/* harmony default export */ var MoreFieldsIconwTextidgetvue_type_script_lang_js_ = ({
+  name: "MoreFieldsIconwTextidget",
+  components: {
+    ValidationProvider: vee_validate_esm/* ValidationProvider */.d_
+  },
+  props: {
+    classCss: {
+      type: [Array],
+      default: function () {
+        return [];
+      }
+    },
+    field: {
+      type: Object,
+      required: true
+    },
+    model: {
+      type: [Object, Array],
+      required: true
+    },
+    namespaceStore: {
+      type: String,
+      required: true
+    },
+    parentName: {
+      type: String,
+      required: true
+    }
+  },
+  data() {
+    return {
+      input_value: [{
+        value: "",
+        text: "",
+        format: "text_html"
+      }],
+      timeout: null
+    };
+  },
+  computed: {
+    fullname() {
+      return this.parentName + this.field.name;
+    },
+    cardinality() {
+      if (this.field.cardinality === -1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
+  watch: {
+    /**
+     * Lorsque le champs est construt via les boucles dynamique,
+     * le template n'est pas reconstruit ducoup la valeur du precedent champs est concerservé.
+     * On applique ce watch et on verra les resultats.
+     * Cela ne s'execute que dans le cadre d'un watch et permet de ressoudre le probleme.
+     */
+    field() {
+      this.input_value = this.getValue();
+    }
+  },
+  mounted() {
+    // On recupere la valeur par defaut pour chaque construction:
+    this.input_value = this.getValue();
+  },
+  methods: {
+    getValidationState({
+      dirty,
+      validated,
+      valid = null
+    }) {
+      return (dirty || validated) && !valid ? valid : null;
+    },
+    getRules() {
+      return loadField.getRules(this.field);
+    },
+    setValue(vals) {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        if (this.namespaceStore) {
+          this.$store.dispatch(this.namespaceStore + "/setValue", {
+            value: vals,
+            fieldName: this.fullname
+          });
+        } else this.$store.dispatch("setValue", {
+          value: vals,
+          fieldName: this.fullname
+        });
+      }, loadField.timeToWait);
+    },
+    getValue() {
+      if (this.model[this.field.name] && this.model[this.field.name].length > 0) {
+        return this.model[this.field.name];
+      } else return [];
+    },
+    input(v) {
+      const vals = [];
+      vals.push({
+        value: v
+      });
+      this.setValue(vals);
+    },
+    addField() {
+      const newEntry = {
+        value: "",
+        text: "",
+        format: "text_html"
+      };
+      this.input_value.push(newEntry);
+    }
+  }
+});
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/MoreFieldsIconwTextidget.vue?vue&type=script&lang=js&
+ /* harmony default export */ var fieldsDrupal_MoreFieldsIconwTextidgetvue_type_script_lang_js_ = (MoreFieldsIconwTextidgetvue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/MoreFieldsIconwTextidget.vue
+
+
+
+
+
+/* normalize component */
+;
+var MoreFieldsIconwTextidget_component = (0,componentNormalizer/* default */.Z)(
+  fieldsDrupal_MoreFieldsIconwTextidgetvue_type_script_lang_js_,
+  MoreFieldsIconwTextidgetvue_type_template_id_299978ee_render,
+  MoreFieldsIconwTextidgetvue_type_template_id_299978ee_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var MoreFieldsIconwTextidget = (MoreFieldsIconwTextidget_component.exports);
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/Containers/NoContainer.vue?vue&type=template&id=ecdce68a&
 var NoContainervue_type_template_id_ecdce68a_render = function render() {
   var _vm = this,
@@ -11481,6 +11889,8 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
 
 
 
+
+
 // load Container
 
 
@@ -11579,6 +11989,12 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
       case "chart_widget_type":
         template = ChartWidgetType;
         break;
+      case "string_textarea":
+        template = TexTarea;
+        break;
+      case "more_fields_icon_text_widget":
+        template = MoreFieldsIconwTextidget;
+        break;
       default:
         console.log(" Champs sans rendu : ", key, "\n field : ", field);
         break;
@@ -11586,7 +12002,7 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
     return template;
   },
   getImageUrl(fid, style = "medium") {
-    return this.config.get("/vuejs-entity/image/" + fid + "/" + style);
+    return this.config.get("/filesmanager/image/" + fid + "/" + style);
   },
   getRules(field) {
     const rules = {};
@@ -11628,14 +12044,30 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
 "use strict";
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6352);
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_fieldsDrupal_loadField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9639);
+/* harmony import */ var _components_fieldsDrupal_loadField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8100);
 
 
+/**
+ * Les fichiers ont une limitation elle ne permet pas de recuperer plusiuers information.
+ * par example les données et le diernier id creer lorsqu'on a une execution en serie ou
+ * en paralle, il faut que chaque execution se fasse dans une instance.
+ * Donc, pour la suite on recommande l'utilisation de la class "ClassFormUtilities".
+ */
 /* harmony default export */ __webpack_exports__["Z"] = ({
   /**
    * Contient l'entite domaine, utile dans les cas ou l'on souhaite mettre à jour le domain.
+   * ( Entité drupal domain )
    */
   domainRegister: {},
+  /**
+   * Contient les derniers id de niveau 0 à etre creer.
+   * @Justification
+   * Dans certains cas, on a besin de recuperer cet id,
+   * mais il nya pas de guarandi que cela soit dans la proprieté 'id' du flux et cela serait un poil plus complexe.
+   * @Alert
+   * NB: la valeur retounée est valide si l'execution est strictement en serie.
+   */
+  lastIdsEntity: [],
   /**
    * Permet de generer le formulaire drupal.
    * @param {Array} entities
@@ -11690,12 +12122,20 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
   },
   /**
    * Sauvegarde toutes les données d'une matrice, et retourne les entites parentes.
-   * @param {Object} response
-   * @param {Object} suivers
+   * example param suivers :
+   * suivers: {
+   *   ...
+   *   creates: 0, // incrementé durant le process.
+   *   ...
+   * },
+   * @param {Object} datas contient les données à sauvegarder.
+   * @param {Object} suivers permet de suivre la creation
    * @return {Array} un tableau d'entité de drupal.
    */
-  prepareSaveEntities(store, response, suivers, ActionDomainId = false) {
+  prepareSaveEntities(store, datas, suivers, ActionDomainId = false) {
     return new Promise((resolu, rejecte) => {
+      // on vide les derniers ids.
+      this.lastIdsEntity = [];
       const updateDomainId = entity => {
         if (ActionDomainId && this.domainRegister.id && entity.field_domain_access) {
           entity.field_domain_access = [{
@@ -11808,6 +12248,7 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
        * @param {*} datas
        * @param {*} i
        * @return resp [{id:..., json:...}] // return un json avec une proprieté json et une autre id.
+       * @K erreur signalé.
        */
       const loopEntityPromise = (datas, i = null, values = []) => {
         return new Promise((resolv, reject) => {
@@ -11824,11 +12265,14 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
                   index: i
                 }).then(resp => {
                   suivers.creates++;
+                  this.lastIdsEntity.push({
+                    target_id: resp.data.id
+                  });
                   values.push(resp.data.json);
                   // datas[i].entity = resp.data.json;
                   i = i + 1;
                   if (i < datas.length) {
-                    resolv(loopEntityPromise(datas, i));
+                    resolv(loopEntityPromise(datas, i, values));
                   } else resolv(values);
                 }).catch(er => {
                   console.log("catch loopEntityPromise : ", er);
@@ -11847,10 +12291,13 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
                 index: i
               }).then(resp => {
                 suivers.creates++;
+                this.lastIdsEntity.push({
+                  target_id: resp.data.id
+                });
                 values.push(resp.data.json);
                 i = i + 1;
                 if (i < datas.length) {
-                  resolv(loopEntityPromise(datas, i));
+                  resolv(loopEntityPromise(datas, i, values));
                 } else resolv(values);
               }).catch(er => {
                 console.log("catch loopEntityPromise : ", er);
@@ -11863,7 +12310,7 @@ var AccordionCard_component = (0,componentNormalizer/* default */.Z)(
           }
         });
       };
-      loopEntityPromise(response, 0).then(entities => {
+      loopEntityPromise(datas, 0).then(entities => {
         resolu(entities);
       }).catch(er => {
         rejecte(er);
@@ -24803,19 +25250,26 @@ const AjaxToastBootStrap = {
     }
     return new Promise((resolv, reject) => {
       this.$bvModal.msgBoxConfirm(body, confDefault).then(value => {
-        if (value) resolv(value);else reject(value);
+        console.log("value : ", value);
+        resolv(value);
       }).catch(err => {
         reject(err);
       });
     });
   },
-  modalConfirmDelete(body = "Confirmer la suppression, NB : cette action est irreverssible.", conf = {
-    title: "Attention",
-    okVariant: "danger",
-    okTitle: "Supprimer",
-    cancelTitle: "Annuler",
-    footerClass: "p-2"
-  }) {
+  modalConfirmDelete(body = "Confirmer la suppression, NB : cette action est irreverssible.", newConf = {}) {
+    const conf = {
+      title: "Attention",
+      okVariant: "danger",
+      okTitle: "Supprimer",
+      cancelTitle: "Annuler",
+      footerClass: "p-2",
+      headerBgVariant: "danger",
+      headerTextVariant: "light"
+    };
+    for (const i in newConf) {
+      conf[i] = newConf[i];
+    }
     return this.modalMessage(body, conf);
   },
   modalSuccess(body = "", conf = {}) {
@@ -29602,17 +30056,6 @@ var utilities = __webpack_require__(4229);
     //
     user: {},
     /**
-     * Suit la construction des formualires.
-     */
-    building_fields: false,
-    /**
-     *  Permet de definir un temps moyen pour la constructin d'un formulaire.
-     */
-    RunBuildingForm: {
-      time: 3000,
-      timeout: null
-    },
-    /**
      * Contient les données de tous le formulaire.
      */
     EntitiesForm: [],
@@ -29673,18 +30116,6 @@ var utilities = __webpack_require__(4229);
       localStorage.removeItem("app_cv.entities_form");
       localStorage.removeItem("app_cv.hash");
     },
-    /**
-     * il est assez complique de suivre, la construction d'un formulaire;
-     * donc, on va fixer une valeur de 3s par appel.
-     * @param {*} state
-     */
-    RUN_BUILDING_FIELDS(state) {
-      state.building_fields = true;
-      clearTimeout(state.RunBuildingForm.timeout);
-      state.RunBuildingForm.timeout = setTimeout(() => {
-        state.building_fields = false;
-      }, state.RunBuildingForm.time);
-    },
     SET_STRINGS(state, payload) {
       state.strings = payload;
     }
@@ -29699,7 +30130,7 @@ var utilities = __webpack_require__(4229);
         entity_type_id: "model_cv",
         duplicate: true
       };
-      request/* default.bPost */.Z.bPost("/vuejs-entity/form/get-form/from/entity-id", param, {}, false).then(resp => {
+      request/* default.bPost */.Z.bPost("/apivuejs/edit-duplicate-entity", param, {}, false).then(resp => {
         commit("DISABLE_RUNNING");
         commit("SET_EntitiesForm", resp.data);
         setTimeout(() => {
@@ -29754,7 +30185,57 @@ var es_array_push = __webpack_require__(7658);
 var dist = __webpack_require__(2725);
 // EXTERNAL MODULE: ../components_bootstrapvuejs/src/js/FormUttilities.js
 var FormUttilities = __webpack_require__(7657);
+;// CONCATENATED MODULE: ../components_bootstrapvuejs/src/js/ClassFormUtilities.js
+
+/**
+ * Permet d'executer la creation de node dans une instance et
+ * permet ainsi de pouvoir mieux manipuler les données de chaque requetes.
+ */
+class ClassFormUtilities {
+  constructor() {
+    /**
+     * Contient les entites qui ont ete crees.
+     */
+    this.entities = [];
+    /**
+     * Contient le dernier id sauvegardé.
+     * @Alert
+     * NB: la valeur retounée est valide si l'execution est strictement en serie cela
+     * cela est du au fait qu'on utilise FormUttilities.
+     */
+    this.lastIdsEntity = null;
+  }
+
+  /**
+   * @inheritdoc FormUttilities.prepareSaveEntities
+   * @param {*} store
+   * @param {*} datas
+   * @param {*} suivers
+   * @param {*} ActionDomainId
+   * @returns
+   */
+  prepareSaveEntities(store, datas, suivers, ActionDomainId = false) {
+    return new Promise((resolv, reject) => {
+      FormUttilities/* default.prepareSaveEntities */.Z.prepareSaveEntities(store, datas, suivers, ActionDomainId).then(entities => {
+        this.entities = entities;
+        this.setlastIdsEntity(FormUttilities/* default.lastIdsEntity */.Z.lastIdsEntity);
+        resolv(entities);
+      }).then(er => {
+        reject(er);
+      });
+    });
+  }
+
+  /**
+   * @private
+   */
+  setlastIdsEntity(id) {
+    this.lastIdsEntity = id;
+  }
+}
+/* harmony default export */ var js_ClassFormUtilities = (ClassFormUtilities);
 ;// CONCATENATED MODULE: ./src/store/GenerateCv.js
+
 
 
 
@@ -29783,8 +30264,6 @@ var FormUttilities = __webpack_require__(7657);
   },
   runStep(steps, state) {
     console.log(" CurrentBuildStep : ", this.currentBuildStep);
-    console.log(" State : ", state);
-    store.commit("ACTIVE_RUNNING");
     // On recupere.
     var getDataStep = () => {
       if (steps[this.currentBuildStep]) {
@@ -30031,57 +30510,85 @@ var FormUttilities = __webpack_require__(7657);
     });
   },
   // On va cree la page d'accueil en function de l'identifiant present dans l'url.
+  /**
+   * Pour cette creation on doit utilier le module () car il permet de mieux gerer les données sous forme de matrice.
+   * Mais on va ressortir uniquement les champs concernant le CV :
+   * - experience
+   * - layout_paragraphs
+   * - formation
+   * - presentation
+   * @param {*} state
+   * @returns
+   */
   CreateContents(state) {
     return new Promise((resolv, reject) => {
+      FormUttilities/* default.domainRegister */.Z.domainRegister = this.domainRegister;
       const EntitiesForm = state.storeForm.EntitiesForm[0].entities;
       const presentation = () => {
-        EntitiesForm.presentation[0].entity.field_domain_access = [{
-          target_id: this.domainRegister.id
-        }];
-        EntitiesForm.presentation[0].entity.field_domain_source = [{
-          target_id: this.domainRegister.id
-        }];
-        return this.bPost("/apivuejs/save-entity/paragraph", EntitiesForm.presentation[0].entity);
-      };
-      const experience = () => {
-        EntitiesForm.experience[0].entity.field_domain_access = [{
-          target_id: this.domainRegister.id
-        }];
-        EntitiesForm.experience[0].entity.field_domain_source = [{
-          target_id: this.domainRegister.id
-        }];
-        return this.bPost("/apivuejs/save-entity/paragraph", EntitiesForm.experience[0].entity);
-      };
-      const formation = () => {
-        EntitiesForm.formation[0].entity.field_domain_access = [{
-          target_id: this.domainRegister.id
-        }];
-        EntitiesForm.formation[0].entity.field_domain_source = [{
-          target_id: this.domainRegister.id
-        }];
-        return this.bPost("/apivuejs/save-entity/paragraph", EntitiesForm.formation[0].entity);
-      };
-      // For layout_paragraphs
-      const promises = [];
-      EntitiesForm.layout_paragraphs.forEach(item => {
-        promises.push(new Promise((resolv, reject) => {
-          item.entity.field_domain_access = [{
-            target_id: this.domainRegister.id
-          }];
-          item.entity.field_domain_source = [{
-            target_id: this.domainRegister.id
-          }];
-          this.bPost("/apivuejs/save-entity/paragraph", item.entity).then(resp => {
+        return new Promise((resolv, reject) => {
+          const entitySave = new js_ClassFormUtilities();
+          const suivers = {
+            creates: 0
+          };
+          entitySave.prepareSaveEntities(store, EntitiesForm.presentation, suivers, true).then(resp => {
             resolv({
-              target_id: resp.data.id
+              ids: entitySave.lastIdsEntity,
+              resp: resp
             });
           }).catch(er => {
             reject(er);
           });
-        }));
-      });
-
-      //
+        });
+      };
+      const experience = () => {
+        return new Promise((resolv, reject) => {
+          const entitySave = new js_ClassFormUtilities();
+          const suivers = {
+            creates: 0
+          };
+          entitySave.prepareSaveEntities(store, EntitiesForm.experience, suivers, true).then(resp => {
+            resolv({
+              ids: entitySave.lastIdsEntity,
+              resp: resp
+            });
+          }).catch(er => {
+            reject(er);
+          });
+        });
+      };
+      const formation = () => {
+        return new Promise((resolv, reject) => {
+          const entitySave = new js_ClassFormUtilities();
+          const suivers = {
+            creates: 0
+          };
+          entitySave.prepareSaveEntities(store, EntitiesForm.formation, suivers, true).then(resp => {
+            resolv({
+              ids: entitySave.lastIdsEntity,
+              resp: resp
+            });
+          }).catch(er => {
+            reject(er);
+          });
+        });
+      };
+      const layout_paragraphs = () => {
+        return new Promise((resolv, reject) => {
+          const entitySave = new js_ClassFormUtilities();
+          const suivers = {
+            creates: 0
+          };
+          console.log("Begin create  layout_paragraphs ");
+          entitySave.prepareSaveEntities(store, EntitiesForm.layout_paragraphs, suivers, true).then(resp => {
+            resolv({
+              ids: entitySave.lastIdsEntity,
+              resp: resp
+            });
+          }).catch(er => {
+            reject(er);
+          });
+        });
+      };
       const idHome = window.location.pathname.split("/").pop();
       let nom = store.getters.GetNom;
       let prenom = store.getters.GetPreNom;
@@ -30096,23 +30603,28 @@ var FormUttilities = __webpack_require__(7657);
         }],
         field_domain_source: [{
           target_id: this.domainRegister.id
-        }]
+        }],
+        presentation: [],
+        experience: [],
+        formation: [],
+        layout_paragraphs: [],
+        layout_builder__layout: []
       };
+
+      // On recupere la configuration du model de CV.
+      if (state.storeForm.EntitiesForm[0].entity && state.storeForm.EntitiesForm[0].entity.layout_builder__layout) values["layout_builder__layout"] = state.storeForm.EntitiesForm[0].entity.layout_builder__layout;
       presentation().then(resp => {
-        values["presentation"] = [{
-          target_id: resp.data.id
-        }];
+        values["presentation"] = resp.ids;
         experience().then(res => {
-          values["experience"] = [{
-            target_id: res.data.id
-          }];
+          values["experience"] = res.ids;
           formation().then(re => {
-            values["formation"] = [{
-              target_id: re.data.id
-            }];
-            Promise.all(promises).then(vals => {
-              values["layout_paragraphs"] = vals;
-              resolv(this.bPost("/buildercv/entity/generate-cv/" + idHome, values));
+            values["formation"] = re.ids;
+            layout_paragraphs().then(resps => {
+              console.log("save layout_paragraphs :", resps);
+              values["layout_paragraphs"] = resps.ids;
+              resolv(
+              // On cree le cv à partir des données present dans values.
+              this.bPost("/buildercv/entity/generate-cv/" + idHome, values));
             }).catch(er => {
               reject(er);
             });
@@ -33781,7 +34293,7 @@ const routes = [{
       hideFooter: true
     },
     props: true,
-    component: () => __webpack_require__.e(/* import() */ 967).then(__webpack_require__.bind(__webpack_require__, 6967))
+    component: () => __webpack_require__.e(/* import() */ 964).then(__webpack_require__.bind(__webpack_require__, 1964))
   }, {
     path: "/login",
     name: "Connection / inscription",
@@ -33821,6 +34333,7 @@ const router = new VueRouter$1({
 
 
 
+
 external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */.ZP);
 /* harmony default export */ var store = (new vuex_esm/* default.Store */.ZP.Store({
   state: {
@@ -33835,6 +34348,17 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
     finish_status: false,
     // Nouveau nom de domaine.
     new_hostname: null,
+    /**
+     * Suit la construction des formualires.
+     */
+    building_fields: false,
+    /**
+     *  Permet de definir un temps moyen pour la constructin d'un formulaire.
+     */
+    RunBuildingForm: {
+      time: 3000,
+      timeout: null
+    },
     // Les differences etapes du processus.
     build_steps: [{
       titre: "Creation de votre domaine",
@@ -33882,11 +34406,19 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
       mail: [{
         value: ""
       }]
+    },
+    /**
+     * Permet de suivre la creation des entites.
+     */
+    run_entity: {
+      numbers: 0,
+      creates: 0,
+      page: ""
     }
   },
   getters: {
     /**
-     * Les identifiants de champs doivent prevenir du model.
+     * Les identifiants de champs doivent provenir du model.
      */
     SubDomain: state => {
       if (state.storeForm.EntitiesForm[0] && state.storeForm.EntitiesForm[0].entities) {
@@ -33933,13 +34465,20 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
      * @param {*} state
      * @returns
      */
-    modelDynamique: state => {
-      if (src_router.history.current.params && src_router.history.current.params.keySections && state.storeForm.layout_paragraphs) {
-        console.log("router.history.current.params: ", src_router.history.current.params);
-        const keySections = src_router.history.current.params.keySections;
-        return state.storeForm.layout_paragraphs[keySections].entity;
-      } else return {};
-    },
+    // modelDynamique: (state) => {
+    //   if (
+    //     router.history.current.params &&
+    //     router.history.current.params.keySections &&
+    //     state.storeForm.layout_paragraphs
+    //   ) {
+    //     console.log(
+    //       "router.history.current.params: ",
+    //       router.history.current.params
+    //     );
+    //     const keySections = router.history.current.params.keySections;
+    //     return state.storeForm.layout_paragraphs[keySections].entity;
+    //   } else return {};
+    // },
     /**
      * Entrée pour les textes.
      */
@@ -34073,6 +34612,18 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
     },
     DISABLE_RUNNING(state) {
       state.running = false;
+    },
+    /**
+     * il est assez complique de suivre, la construction d'un formulaire;
+     * donc, on va fixer une valeur de 3s par appel.
+     * @param {*} state
+     */
+    RUN_BUILDING_FIELDS(state) {
+      state.building_fields = true;
+      clearTimeout(state.RunBuildingForm.timeout);
+      state.RunBuildingForm.timeout = setTimeout(() => {
+        state.building_fields = false;
+      }, state.RunBuildingForm.time);
     }
   },
   actions: {
@@ -34082,6 +34633,7 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
       state
     }) {
       commit("ACTIVE_CREATION");
+      commit("ACTIVE_RUNNING");
       GenerateCv.runStep(state.build_steps, state);
     },
     //
@@ -34108,12 +34660,12 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
     saveEntities({
       commit,
       state
-    }) {
+    }, currentEntity) {
       return new Promise((resolv, reject) => {
         commit("ACTIVE_RUNNING");
-        generateField.getNumberEntities(state.currentEntityForm).then(numbers => {
+        FormUttilities/* default.getNumberEntities */.Z.getNumberEntities(currentEntity).then(numbers => {
           state.run_entity.numbers = numbers;
-          generateField.prepareSaveEntities(this, state.currentEntityForm, state.run_entity).then(resp => {
+          FormUttilities/* default.prepareSaveEntities */.Z.prepareSaveEntities(this, currentEntity, state.run_entity, true).then(resp => {
             commit("DISABLE_RUNNING");
             resolv(resp);
           }).catch(er => {
@@ -34134,11 +34686,7 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default().use(vuex_esm/* default */
         if (payload.entity_type_id == undefined || !payload.entity_type_id) {
           reject("Paramettre manquant");
         } else request/* default.bPost */.Z.bPost("/apivuejs/save-entity/" + payload.entity_type_id, payload.value).then(resp => {
-          console.log("resp : ", resp);
-          // setTimeout(() => {
-          console.log(" payload : ", payload);
           resolv(resp);
-          // }, 1000);
         }).catch(er => {
           reject(er);
         });

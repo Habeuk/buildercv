@@ -79,7 +79,7 @@ class BuildercvController extends ControllerBase {
     if ($entityModel) {
       // Contenu de la page d'accueil.
       $defaultValues = Json::decode($Request->getContent());
-      // ATEENTION, l(ordre compte.
+      // ATEENTION, l'ordre compte.
       try {
         // $values = [];
         // /**
