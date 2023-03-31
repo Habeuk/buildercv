@@ -43,8 +43,8 @@ var staticRenderFns = [];
 var es_array_push = __webpack_require__(6352);
 // EXTERNAL MODULE: ../drupal-vuejs/src/App/jsonApi/termsTaxo.js
 var termsTaxo = __webpack_require__(3962);
-// EXTERNAL MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/loadField.js + 124 modules
-var loadField = __webpack_require__(4051);
+// EXTERNAL MODULE: ../components_bootstrapvuejs/src/components/fieldsDrupal/loadField.js + 125 modules
+var loadField = __webpack_require__(7212);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!../components_bootstrapvuejs/src/components/Ressouces/OptionsTaxonomy.vue?vue&type=script&lang=js&
 
 
