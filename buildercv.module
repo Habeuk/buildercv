@@ -9,6 +9,7 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
  * implement hook_update_8001
  *
  * @see https://www.drupal.org/node/2554097
+ * @see https://www.drupal.org/docs/drupal-apis/update-api/introduction-to-update-api-for-drupal-8
  */
 function __buildercv_update_name_max_length($entity_type_id) {
   // Retrieve existing field data.
@@ -19,7 +20,7 @@ function __buildercv_update_name_max_length($entity_type_id) {
     'name'
   ])->execute()->fetchAll(\PDO::FETCH_ASSOC);
   // Remove data from the column.
-  $database->update('site_type_datas_field_data')->fields([
+  $database->update($entity_type_id . '_field_data')->fields([
     'name' => NULL
   ])->execute();
   // Remove old definition field.
@@ -48,6 +49,7 @@ function __buildercv_update_name_max_length($entity_type_id) {
  * implement hook_update_8001
  *
  * @see https://www.drupal.org/node/2554097
+ * @see https://www.drupal.org/docs/drupal-apis/update-api/introduction-to-update-api-for-drupal-8
  */
 function buildercv_update_8001() {
   __buildercv_update_name_max_length('model_cv');

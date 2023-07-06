@@ -3,15 +3,15 @@ buildercv.settings_form:
   description: 'Configure buildercv.'
   parent: system.admin_config_system
   route_name: buildercv.settings_form
-  weight: 10
+  weight: 40
 
 # Model cv menu items definition
 entity.model_cv.collection:
   title: 'Model cv list'
   route_name: entity.model_cv.collection
   description: 'List Model cv entities'
-  parent: system.admin_structure
-  weight: 100
+  parent: system.admin_content
+  weight: 40
 
 model_cv.admin.structure.settings:
   title: 'Model cv settings'
@@ -24,11 +24,12 @@ entity.cv_entity.collection:
   title: 'Cv entity list'
   route_name: entity.cv_entity.collection
   description: 'List Cv entity entities'
-  parent: system.admin_structure
-  weight: 100
+  parent: system.admin_content
+  weight: 40
 
 cv_entity.admin.structure.settings:
   title: 'Cv entity settings'
   description: 'Configure Cv entity entities'
   route_name: cv_entity.settings
   parent: system.admin_structure
+  weight: 40
