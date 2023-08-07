@@ -1,5 +1,5 @@
 {
-    "name": "stephane888/buildercv",
+    "name": "habeuk/buildercv",
     "description": "permet de generer les cs",
     "type": "drupal-module-custom",
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "stephane888/drupal_utility": "dev-1x",
+        "habeuk/drupal_utility": "dev-1x",
         "drupal/entity_block": "^1.1"
     }
 }
