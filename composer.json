@@ -1,17 +1,17 @@
 {
-    "name": "habeuk/buildercv",
-    "description": "permet de generer les cs",
-    "type": "drupal-module-custom",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "kouwa stephane",
-            "email": "kksasteph888@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "habeuk/drupal_utility": "dev-1x",
-        "drupal/entity_block": "^1.1"
+  "name": "habeuk/buildercv",
+  "description": "permet de generer les cs",
+  "type": "drupal-custom-module",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "kouwa stephane",
+      "email": "kksasteph888@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "habeuk/drupal_utility": "dev-1x",
+    "drupal/entity_block": "^1.1"
+  }
 }
