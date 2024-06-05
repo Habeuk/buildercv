@@ -1,1 +1,1 @@
-import "@stephane888/wbu-atomique/scss/cv/fields/field-stage-region.scss";
+import "@stephane888/wbu-atomique/scss/fields/field-stage-region.scss";

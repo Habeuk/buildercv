@@ -1,1 +1,1 @@
-import "@stephane888/wbu-atomique/scss/cv/fields/field-time-line.scss";
+import "@stephane888/wbu-atomique/scss/fields/field-time-line.scss";
