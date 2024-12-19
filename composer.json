@@ -11,7 +11,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "habeuk/drupal_utility": "dev-1x",
+    "habeuk/drupal_utility": "^1.0.0 | dev-1x",
     "drupal/entity_block": "^1.1"
   }
 }
